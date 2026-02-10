@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRJ200 Manual</title>
 
   <!-- Prevent caching for Safari & other browsers -->
@@ -10,19 +11,34 @@
   <meta http-equiv="Expires" content="0" />
 
   <!-- Theme color for PWA -->
-  <meta name="theme-color" content="#1e1e2f">
+  <meta name="theme-color" content="#0f172a">
 
   <!-- Styles with cache-busting -->
-  <link rel="stylesheet" href="css/styles.css?v=20260130">
+  <link rel="stylesheet" href="css/styles.css?v=20260210">
 
   <!-- Manifest for PWA -->
-  <link rel="manifest" href="manifest.json?v=20260130">
+  <link rel="manifest" href="manifest.json?v=20260210">
 </head>
 <body>
 
+  <!-- Top bar for mobile -->
+  <div id="top-bar">
+    <button id="menu-btn" aria-label="Toggle menu">☰</button>
+    <span>CRJ200 Technical Manuals</span>
+  </div>
+
+  <!-- Overlay behind menu -->
+  <div id="menu-overlay"></div>
+
   <!-- Sidebar -->
-  <div id="sidebar">
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <p class="eyebrow">Technical Library</p>
+      <h1>CRJ200 Manual Viewer</h1>
+    </div>
+
     <div id="doc-selector-container">
+      <label for="doc-selector">Manual</label>
       <select id="doc-selector">
         <option value="AMM">AMM - Aircraft Maintenance Manual</option>
         <option value="AIPC">AIPC - Illustrated Parts Catalog</option>
@@ -39,7 +55,7 @@
     </div>
 
     <div id="search-container">
-      <input type="text" id="search" placeholder="Search documents...">
+      <input type="text" id="search" placeholder="Search by chapter, section, or document title...">
       <button id="reset-btn">Reset</button>
     </div>
 
@@ -49,28 +65,22 @@
       <h3>Search Results</h3>
       <ul id="results-list"></ul>
     </div>
-  </div>
-
-  <!-- Top bar for mobile -->
-  <div id="top-bar">
-    <button id="menu-btn">☰</button>
-    <span>CRJ200 Manual</span>
-  </div>
-
-  <!-- Overlay behind menu -->
-  <div id="menu-overlay"></div>
+  </aside>
 
   <!-- Viewer -->
-  <div id="viewer">
-    <h2>Select a document</h2>
-  </div>
+  <main id="viewer">
+    <div class="viewer-empty">
+      <h2>Select a document</h2>
+      <p>Browse the manual tree from the left to open a PDF section.</p>
+    </div>
+  </main>
 
   <!-- Scripts with cache-busting -->
-  <script src="js/data.js?v=20260130"></script>
-  <script src="js/tree.js?v=20260130"></script>
-  <script src="js/viewer.js?v=20260130"></script>
-  <script src="js/search.js?v=20260130"></script>
-  <script src="js/app.js?v=20260130"></script>
+  <script src="js/data.js?v=20260210"></script>
+  <script src="js/tree.js?v=20260210"></script>
+  <script src="js/viewer.js?v=20260210"></script>
+  <script src="js/search.js?v=20260210"></script>
+  <script src="js/app.js?v=20260210"></script>
 
   <!-- Temporary: Clear old service workers to avoid cached files -->
   <script>
@@ -83,5 +93,3 @@
 
 </body>
 </html>
-
-

@@ -35,7 +35,12 @@ function loadDocument(key) {
   resultsList.innerHTML = '';
   resultsContainer.style.display = 'none';
   resultsContainer.style.opacity = 0;
-  viewer.innerHTML = `<h2>Select a document</h2>`;
+  viewer.innerHTML = `
+    <div class="viewer-empty">
+      <h2>Select a document</h2>
+      <p>Browse the manual tree from the left to open a PDF section.</p>
+    </div>
+  `;
 
   // Create tree
   const treeRoot = createTree(xmlDoc.documentElement);
