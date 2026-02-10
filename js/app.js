@@ -35,7 +35,12 @@ function loadDocument(key) {
   resultsList.innerHTML = '';
   resultsContainer.style.display = 'none';
   resultsContainer.style.opacity = 0;
-  viewer.innerHTML = `<h2>Select a document</h2>`;
+  viewer.innerHTML = `
+    <section class="viewer-empty-state">
+      <h2>Select a document</h2>
+      <p>Choose a manual on the left, or use search to find the exact section you need.</p>
+    </section>
+  `;
 
   // Create tree
   const treeRoot = createTree(xmlDoc.documentElement);

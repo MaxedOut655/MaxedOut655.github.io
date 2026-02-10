@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>CRJ200 Manual</title>
 
   <!-- Prevent caching for Safari & other browsers -->
@@ -10,19 +11,26 @@
   <meta http-equiv="Expires" content="0" />
 
   <!-- Theme color for PWA -->
-  <meta name="theme-color" content="#1e1e2f">
+  <meta name="theme-color" content="#111827">
 
   <!-- Styles with cache-busting -->
-  <link rel="stylesheet" href="css/styles.css?v=20260130">
+  <link rel="stylesheet" href="css/styles.css?v=20260210">
 
   <!-- Manifest for PWA -->
-  <link rel="manifest" href="manifest.json?v=20260130">
+  <link rel="manifest" href="manifest.json?v=20260210">
 </head>
 <body>
 
   <!-- Sidebar -->
-  <div id="sidebar">
+  <aside id="sidebar" aria-label="Document navigation">
+    <div class="sidebar-header">
+      <p class="eyebrow">CRJ200</p>
+      <h1>Technical Manual Viewer</h1>
+      <p class="subtitle">Browse, search, and open maintenance documents faster.</p>
+    </div>
+
     <div id="doc-selector-container">
+      <label for="doc-selector">Manual</label>
       <select id="doc-selector">
         <option value="AMM">AMM - Aircraft Maintenance Manual</option>
         <option value="AIPC">AIPC - Illustrated Parts Catalog</option>
@@ -39,8 +47,8 @@
     </div>
 
     <div id="search-container">
-      <input type="text" id="search" placeholder="Search documents...">
-      <button id="reset-btn">Reset</button>
+      <input type="text" id="search" placeholder="Search by ATA / title / section..." aria-label="Search documents">
+      <button id="reset-btn" type="button" title="Reset search and collapse folders">Reset</button>
     </div>
 
     <div id="tree-container"></div>
@@ -49,11 +57,11 @@
       <h3>Search Results</h3>
       <ul id="results-list"></ul>
     </div>
-  </div>
+  </aside>
 
   <!-- Top bar for mobile -->
   <div id="top-bar">
-    <button id="menu-btn">☰</button>
+    <button id="menu-btn" type="button" aria-label="Open menu">☰</button>
     <span>CRJ200 Manual</span>
   </div>
 
@@ -61,16 +69,19 @@
   <div id="menu-overlay"></div>
 
   <!-- Viewer -->
-  <div id="viewer">
-    <h2>Select a document</h2>
-  </div>
+  <main id="viewer">
+    <section class="viewer-empty-state">
+      <h2>Select a document</h2>
+      <p>Choose a manual on the left, or use search to find the exact section you need.</p>
+    </section>
+  </main>
 
   <!-- Scripts with cache-busting -->
-  <script src="js/data.js?v=20260130"></script>
-  <script src="js/tree.js?v=20260130"></script>
-  <script src="js/viewer.js?v=20260130"></script>
-  <script src="js/search.js?v=20260130"></script>
-  <script src="js/app.js?v=20260130"></script>
+  <script src="js/data.js?v=20260210"></script>
+  <script src="js/tree.js?v=20260210"></script>
+  <script src="js/viewer.js?v=20260210"></script>
+  <script src="js/search.js?v=20260210"></script>
+  <script src="js/app.js?v=20260210"></script>
 
   <!-- Temporary: Clear old service workers to avoid cached files -->
   <script>
@@ -83,5 +94,3 @@
 
 </body>
 </html>
-
-
