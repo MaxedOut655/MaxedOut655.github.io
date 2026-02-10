@@ -8,6 +8,35 @@ const resetBtn = document.getElementById('reset-btn');
 const docSelector = document.getElementById('doc-selector');
 const menuBtn = document.getElementById('menu-btn');
 const overlay = document.getElementById('menu-overlay');
+const sidebar = document.getElementById('sidebar');
+
+function closeMobileMenu() {
+  if (!sidebar || !document.body.classList.contains('mobile')) return;
+  sidebar.classList.remove('open');
+  overlay.classList.remove('show');
+  if (menuBtn) menuBtn.textContent = '☰';
+}
+
+function bindTreeClickHandler() {
+  treeContainer.addEventListener('click', (event) => {
+    const clickedItem = event.target.closest('li');
+    if (!clickedItem || !treeContainer.contains(clickedItem)) return;
+
+    if (clickedItem.classList.contains('doc')) {
+      openPDF(clickedItem.dataset.file, clickedItem.dataset.path, clickedItem);
+      expandPathToDoc(clickedItem);
+      closeMobileMenu();
+      return;
+    }
+
+    if (clickedItem.classList.contains('folder')) {
+      const subtree = clickedItem.querySelector(':scope > ul');
+      if (!subtree) return;
+      const isOpen = clickedItem.classList.toggle('open');
+      subtree.style.display = isOpen ? 'block' : 'none';
+    }
+  });
+}
 
 // --------------------- URL Routing ---------------------
 function getUrlParam(name) {
@@ -41,22 +70,7 @@ function loadDocument(key) {
   const treeRoot = createTree(xmlDoc.documentElement);
   treeContainer.appendChild(treeRoot);
   updateDocPadding();
-
-  // ----------------- Reattach mobile doc click listeners -----------------
-  if (document.body.classList.contains('mobile')) {
-    treeContainer.querySelectorAll('li.doc').forEach(li => {
-      li.addEventListener('click', () => {
-        openPDF(li.dataset.file, li.dataset.path, li);
-        expandPathToDoc(li);
-
-        // Close sidebar after tap
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.remove('open');
-        overlay.classList.remove('show');
-        if (menuBtn) menuBtn.textContent = '☰';
-      });
-    });
-  }
+  document.dispatchEvent(new CustomEvent('tree:updated'));
 
   // ----------------- Load document from URL after DOM painted -----------------
   requestAnimationFrame(() => {
@@ -71,6 +85,8 @@ docSelector.addEventListener('change', () => {
 
 // --------------------- Initialize everything ---------------------
 document.addEventListener('DOMContentLoaded', () => {
+  bindTreeClickHandler();
+
   // Load first document
   loadDocument('AMM');
 
@@ -102,35 +118,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --------------------- Mobile sidebar toggle & auto-open ---------------------
   if (document.body.classList.contains('mobile')) {
-    const sidebar = document.getElementById('sidebar');
-
     function openMenu() {
       sidebar.classList.add('open');
       overlay.classList.add('show');
       if (menuBtn) menuBtn.textContent = '✕';
     }
 
-    function closeMenu() {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('show');
-      if (menuBtn) menuBtn.textContent = '☰';
-    }
-
     function toggleMenu() {
       if (sidebar.classList.contains('open')) {
-        closeMenu();
+        closeMobileMenu();
       } else {
         openMenu();
       }
     }
 
     if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
-    if (overlay) overlay.addEventListener('click', closeMenu);
-
-    // Close sidebar when tapping a document (also handled in loadDocument)
-    sidebar.querySelectorAll('li.doc').forEach(li => {
-      li.addEventListener('click', closeMenu);
-    });
+    if (overlay) overlay.addEventListener('click', closeMobileMenu);
 
     // ----------------- AUTO-OPEN sidebar on first mobile load -----------------
     const docKey = getUrlParam('doc');

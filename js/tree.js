@@ -18,23 +18,12 @@ function createTree(node, parentPath = "") {
       subtree.style.display = 'none';
       li.appendChild(subtree);
 
-      li.addEventListener('click', e => {
-        e.stopPropagation();
-        const isOpen = li.classList.toggle('open');
-        subtree.style.display = isOpen ? 'block' : 'none';
-      });
-
     } else if (nodeName === 'doc') {
       li.textContent = child.getAttribute('title') || 'Document';
       li.dataset.file = child.getAttribute('file') || '';
       li.dataset.path = fullPath || li.textContent; // display path
       li.dataset.key = child.getAttribute('key') || ''; // ✅ NEW: unique doc key
       li.classList.add('doc');
-
-      li.addEventListener('click', e => {
-        e.stopPropagation();
-        openPDF(child.getAttribute('file') || '', li.dataset.path, li);
-      });
 
     } else {
       continue;
@@ -61,11 +50,6 @@ function updateDocPadding() {
         doc.style.paddingLeft = `${20 + depth * 20}px`; 
     });
 }
-function condenseAll() {
-  const folders = treeContainer.querySelectorAll('li.folder');
-  folders.forEach(folder => { folder.classList.remove('open'); const subtree = folder.querySelector('ul'); if (subtree) subtree.style.display = 'none'; });
-}
-
 function condenseAll() {
   const folders = treeContainer.querySelectorAll('li.folder');
   folders.forEach(folder => { folder.classList.remove('open'); const subtree = folder.querySelector('ul'); if (subtree) subtree.style.display = 'none'; });

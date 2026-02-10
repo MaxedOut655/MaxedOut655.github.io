@@ -1,4 +1,14 @@
 function initSearch({ treeContainer, resultsContainer, resultsList, viewer, searchInput, resetBtn }) {
+  let searchableDocs = [];
+
+  function buildSearchIndex() {
+    searchableDocs = Array.from(treeContainer.querySelectorAll('li.doc')).map((doc) => ({
+      element: doc,
+      path: doc.dataset.path,
+      file: doc.dataset.file,
+      pathLower: (doc.dataset.path || '').toLowerCase(),
+    }));
+  }
 
   // ---------------- Single click: normal reset ----------------
   resetBtn.addEventListener('click', () => {
@@ -11,38 +21,38 @@ function initSearch({ treeContainer, resultsContainer, resultsList, viewer, sear
   });
 
   // ---------------- Full reset: double-click (desktop) or long-press (mobile) ----------------
-let longPressTimer = null;
-const LONG_PRESS_TIME = 600; // ms
+  let longPressTimer = null;
+  const LONG_PRESS_TIME = 600; // ms
 
-function fullReset() {
-  // Remove ?doc=... from URL
-  const url = new URL(window.location);
-  url.searchParams.delete('doc');
-  window.history.replaceState({}, '', url);
+  function fullReset() {
+    // Remove ?doc=... from URL
+    const url = new URL(window.location);
+    url.searchParams.delete('doc');
+    window.history.replaceState({}, '', url);
 
-  // Reload initial document tree for current manual
-  loadDocument(docSelector.value);
+    // Reload initial document tree for current manual
+    loadDocument(docSelector.value);
 
-  // Clear search & results
-  searchInput.value = '';
-  resultsList.innerHTML = '';
-  resultsContainer.style.display = 'none';
-  resultsContainer.style.opacity = 0;
-}
+    // Clear search & results
+    searchInput.value = '';
+    resultsList.innerHTML = '';
+    resultsContainer.style.display = 'none';
+    resultsContainer.style.opacity = 0;
+  }
 
-// Desktop double-click
-resetBtn.addEventListener('dblclick', fullReset);
+  // Desktop double-click
+  resetBtn.addEventListener('dblclick', fullReset);
 
-// Mobile long-press
-resetBtn.addEventListener('touchstart', () => {
-  longPressTimer = setTimeout(fullReset, LONG_PRESS_TIME);
-});
-resetBtn.addEventListener('touchend', () => {
-  clearTimeout(longPressTimer);
-});
-resetBtn.addEventListener('touchmove', () => {
-  clearTimeout(longPressTimer);
-});
+  // Mobile long-press
+  resetBtn.addEventListener('touchstart', () => {
+    longPressTimer = setTimeout(fullReset, LONG_PRESS_TIME);
+  });
+  resetBtn.addEventListener('touchend', () => {
+    clearTimeout(longPressTimer);
+  });
+  resetBtn.addEventListener('touchmove', () => {
+    clearTimeout(longPressTimer);
+  });
 
   // ---------------- Search ----------------
   searchInput.addEventListener('input', () => {
@@ -53,22 +63,24 @@ resetBtn.addEventListener('touchmove', () => {
       resultsContainer.style.opacity = 0;
       return;
     }
+
+    const highlightRegex = new RegExp(term, 'gi');
     resultsContainer.style.display = 'block';
     resultsContainer.style.opacity = 1;
 
-    const docs = treeContainer.querySelectorAll('li.doc');
-    docs.forEach(doc => {
-      const title = doc.dataset.path.toLowerCase();
-      if (title.includes(term)) {
+    searchableDocs.forEach((doc) => {
+      if (doc.pathLower.includes(term)) {
         const li = document.createElement('li');
-        li.innerHTML = doc.dataset.path.replace(new RegExp(term, 'gi'), match => `<mark>${match}</mark>`);
+        li.innerHTML = doc.path.replace(highlightRegex, (match) => `<mark>${match}</mark>`);
         li.addEventListener('click', () => {
-          openPDF(doc.dataset.file, doc.dataset.path, doc);
-          expandPathToDoc(doc);
+          openPDF(doc.file, doc.path, doc.element);
+          expandPathToDoc(doc.element);
         });
         resultsList.appendChild(li);
       }
     });
   });
 
+  document.addEventListener('tree:updated', buildSearchIndex);
+  buildSearchIndex();
 }
