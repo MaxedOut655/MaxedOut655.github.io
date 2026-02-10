@@ -35,7 +35,7 @@ function loadDocument(key) {
   resultsList.innerHTML = '';
   resultsContainer.style.display = 'none';
   resultsContainer.style.opacity = 0;
-  viewer.innerHTML = `<h2>Select a document</h2>`;
+  viewer.innerHTML = `<h2>Select a document to begin</h2>`;
 
   // Create tree
   const treeRoot = createTree(xmlDoc.documentElement);

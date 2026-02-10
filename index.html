@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CRJ200 Manual</title>
 
   <!-- Prevent caching for Safari & other browsers -->
@@ -10,20 +11,20 @@
   <meta http-equiv="Expires" content="0" />
 
   <!-- Theme color for PWA -->
-  <meta name="theme-color" content="#1e1e2f">
+  <meta name="theme-color" content="#0f172a">
 
   <!-- Styles with cache-busting -->
-  <link rel="stylesheet" href="css/styles.css?v=20260130">
+  <link rel="stylesheet" href="css/styles.css?v=20260210">
 
   <!-- Manifest for PWA -->
-  <link rel="manifest" href="manifest.json?v=20260130">
+  <link rel="manifest" href="manifest.json?v=20260210">
 </head>
 <body>
 
   <!-- Sidebar -->
   <div id="sidebar">
     <div id="doc-selector-container">
-      <select id="doc-selector">
+      <select id="doc-selector" aria-label="Manual selector">
         <option value="AMM">AMM - Aircraft Maintenance Manual</option>
         <option value="AIPC">AIPC - Illustrated Parts Catalog</option>
         <option value="CMM">CMM</option>
@@ -39,8 +40,8 @@
     </div>
 
     <div id="search-container">
-      <input type="text" id="search" placeholder="Search documents...">
-      <button id="reset-btn">Reset</button>
+      <input type="text" id="search" placeholder="Search documents..." aria-label="Search documents">
+      <button id="reset-btn" title="Double-click for full reset">Reset</button>
     </div>
 
     <div id="tree-container"></div>
@@ -53,7 +54,7 @@
 
   <!-- Top bar for mobile -->
   <div id="top-bar">
-    <button id="menu-btn">☰</button>
+    <button id="menu-btn" aria-label="Toggle menu">☰</button>
     <span>CRJ200 Manual</span>
   </div>
 
@@ -62,7 +63,7 @@
 
   <!-- Viewer -->
   <div id="viewer">
-    <h2>Select a document</h2>
+    <h2>Select a document to begin</h2>
   </div>
 
   <!-- Scripts with cache-busting -->
@@ -83,5 +84,3 @@
 
 </body>
 </html>
-
-

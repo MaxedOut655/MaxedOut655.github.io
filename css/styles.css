@@ -1,449 +1,347 @@
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      height: 100vh;
-      background: #1e1e2f;
-      color: #ddd;
-    }
-
-    /* --- Sidebar --- */
-    #sidebar {
-      width: 350px;
-      background: #2c2c3c;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid #444;
-      overflow: hidden;
-    }
-
-    #doc-selector-container {
-      padding: 10px;
-      border-bottom: 1px solid #444;
-    }
-
-    #doc-selector {
-      width: 100%;
-      padding: 6px;
-      border-radius: 6px;
-      border: none;
-      background: #1e1e2f;
-      color: #ddd;
-    }
-
-    #search-container {
-      padding: 10px;
-      border-bottom: 1px solid #444;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    #search {
-      flex: 1;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: none;
-      background: #1e1e2f;
-      color: #ddd;
-      font-size: 0.95em;
-    }
-
-    #reset-btn {
-      padding: 6px 10px;
-      border: none;
-      border-radius: 6px;
-      background-color: #4a4a6a;
-      color: #ddd;
-      cursor: pointer;
-      font-size: 0.85em;
-      transition: background 0.3s;
-    }
-    #reset-btn:hover {
-      background-color: #5a5a80;
-    }
-
-    #tree-container {
-      flex: 1;
-      overflow-y: auto;
-      padding: 10px;
-    }
-
-    #results-container {
-      display: none;
-      border-top: 1px solid #444;
-      overflow-y: auto;
-      max-height: 50%;
-      padding: 10px;
-      background-color: #2c2c3c;
-      transition: opacity 0.3s ease;
-    }
-
-    h3 {
-      margin: 10px 0 5px 0;
-      font-size: 0.9em;
-      color: #aaa;
-    }
-
-    ul { list-style: none; padding-left: 20px; margin: 0; }
-    li { margin: 5px 0; cursor: pointer; user-select: none; line-height: 1.4; padding-left: 6px; transition: background 0.2s, padding-left 0.2s; }
-    li.folder::before { content: "▶ "; display: inline-block; width: 20px; color: #999; }
-    li.folder.open::before { content: "▼ "; color: #bbb; }
-    li.doc::before { content: "📄 "; display: inline-block; width: 20px; }
-    li:hover { background-color: #3a3a4a; border-radius: 4px; padding-left: 6px; }
-    li.folder:not(.active):hover {padding-left: 12px; background-color: #3a3a4a; border-radius: 4px; }
-    li.folder.active { padding-left: 12px; background-color: #3a3a4a; border-radius: 4px; transition: background 0.2s, padding-left 0.2s; }
-  /* ... existing styles ... */
-
-  li.doc {
-      /* We let JS handle the specific padding-left calculation */
-      transition: background-color 0.2s, border-color 0.2s;
-      border-left: 3px solid transparent; /* Invisible border by default */
-      border-radius: 0 4px 4px 0; /* Rounded corners only on the right */
-      margin-bottom: 2px;
-  }
-
-  li.doc:not(.selected):hover {
-      /* Just change the background color (shade it) */
-      background-color: #3a3a4a;
-      border-left-color: #666; /* Subtle grey accent on hover */
-  }
-
-  li.doc.selected {
-      background-color: #505070;
-      border-left-color: #64b5f6; /* Blue accent for selected file */
-  }
-
-  /* ... existing styles ... */
-
-    #viewer {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      overflow: hidden;
-    }
-    #viewer h2 { margin: 0 0 10px 0; font-size: 1.2em; color: #fff; }
-    #viewer iframe { flex: 1; border: none; border-radius: 4px; background: #fff; }
-    #results-list li { padding: 5px; border-bottom: 1px solid #444; border-radius: 4px; transition: background 0.2s; }
-    #results-list li:hover { background-color: #505070; }
-    mark { background-color: rgba(255, 255, 0, 0.3); color: #fff; padding: 0 2px; border-radius: 2px; }
-    /* ===== iOS SAFARI FIX (ADD THIS AT THE VERY END) ===== */
-
-  html, body {
-    height: 100%;
-  }
-
-  body {
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
-  }
-
-  #sidebar {
-    min-height: 0;
-  }
-
-  #tree-container {
-    min-height: 0;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #viewer {
-    position: relative;
-  }
-
-  #pdf-overlay {
-    position: absolute;
-    inset: 40px 10px 10px 10px; /* below title, inside padding */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #1e1e2f;
-    z-index: 5;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-
-  #pdf-overlay.hidden {
-    opacity: 0;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-
-
-
-  /* Hide mobile top bar by default (desktop) */
-  #top-bar {
-    display: none;
-  }
-
-
-
-
-
-  /* Mobile PWA layout */
-  body.mobile {
-    flex-direction: column; /* sidebar on top, viewer below */
-  }
-
-  body.mobile #sidebar {
-    width: 100%;
-    height: 200px;         /* smaller sidebar height */
-    flex: none;            /* don't stretch */
-    overflow-x: auto;      /* scroll horizontally if needed */
-    border-right: none;
-    border-bottom: 1px solid #444;
-  }
-
-  body.mobile #doc-selector-container,
-  body.mobile #search-container {
-    padding: 8px 10px;
-  }
-
-  body.mobile #tree-container {
-    flex: 1;
-    max-height: 120px; /* small scrollable area */
-    overflow-y: auto;
-  }
-
-  body.mobile #viewer {
-    flex: 1;
-    height: calc(100vh - 48px); /* exact height of top bar */
-    padding: 5px;
-    overflow: hidden;
-  }
-
-
-  /* Touch-friendly list items */
-  body.mobile li {
-    padding: 12px 10px !important;
-    font-size: 1em;
-  }
-
-  body.mobile li.doc.selected {
-    border-left-color: #64b5f6;
-    background-color: #505070;
-  }
-
-
-  /* Mobile: make PDF viewer fill available space and remove rounded corners */
-  body.mobile #viewer iframe {
-    height: 100%;
-    width: 100%;
-    border-radius: 0;
-  }
-
-
-  /* ======================= Mobile Optimized Layout ======================= */
-  body.mobile {
-    flex-direction: column; /* sidebar on top, viewer below */
-    height: 100vh;
-    overflow: hidden;       /* prevent double scrollbars */
-  }
-
-  /* Sidebar styling */
-  body.mobile #sidebar {
-    width: 100%;
-    height: 180px;          /* smaller, fixed height */
-    flex: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border-right: none;
-    border-bottom: 1px solid #444;
-    display: none;           /* hidden by default, toggled via JS */
-    z-index: 99;
-  }
-
-  /* Sidebar containers */
-  body.mobile #doc-selector-container,
-  body.mobile #search-container {
-    padding: 8px 10px;
-    font-size: 0.95em;
-  }
-
-  /* Tree container scrollable */
-  body.mobile #tree-container {
-    max-height: 100px;
-    overflow-y: auto;
-    padding: 5px 10px;
-  }
-
-  /* Search results */
-  body.mobile #results-container {
-    max-height: 80px;
-    overflow-y: auto;
-    padding: 5px 10px;
-  }
-
-  /* Touch-friendly list items */
-  body.mobile li {
-    padding: 12px 10px !important;
-    font-size: 1em;
-  }
-
-  /* Folder toggles bigger for touch */
-  body.mobile li.folder::before {
-    width: 24px;
-  }
-
-  /* Viewer styling */
-  body.mobile #viewer {
-    flex: 1;
-    height: calc(100vh - 180px); /* remaining height under sidebar */
-    padding: 5px;
-    overflow: hidden;
-  }
-
-  /* Viewer iframe full size */
-  body.mobile #viewer iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-
-  /* PDF overlay remains centered */
-  body.mobile #pdf-overlay {
-    inset: 40px 10px 10px 10px;
-  }
-
-  /* Floating toggle button */
-  body.mobile button#mobile-toggle-btn {
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    z-index: 100;
-    padding: 6px 10px;
-    border-radius: 4px;
-    background: #2c2c3c;
-    color: #ddd;
-    border: none;
-    font-size: 1.2em;
-    cursor: pointer;
-  }
-
-  /* Optional: smoother scrolling */
-  body.mobile #tree-container,
-  body.mobile #results-container,
-  body.mobile #sidebar {
-    -webkit-overflow-scrolling: touch;
-  }
-    
-  body.mobile #results-container {
-    max-height: 150px;  /* bigger for touch */
-    width: 100%;
-    overflow-y: auto;
-    padding: 5px 10px;
-  }
-
-
-  /* Mobile full-screen sidebar menu */
-  body.mobile #sidebar {
-    position: fixed;
-    top: 30px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #2c2c3c;
-    z-index: 200;
-    flex-direction: column;
-    display: none;          /* hidden by default */
-    overflow-y: auto;
-    padding: 20px 10px;
-    transition: transform 0.3s ease;
-  }
-
-  /* When menu is open */
-  body.mobile #sidebar.open {
-    display: flex;
-    transform: translateX(0);
-  }
-
-  /* Hide sidebar by default offscreen */
-  body.mobile #sidebar {
-    transform: translateX(-100%);
-  }
-
-  /* Overlay behind menu for tap-to-close */
-  body.mobile #menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 150;
-    display: none;
-  }
-
-  /* Menu overlay visible */
-  body.mobile #menu-overlay.show {
-    display: block;
-  }
-
-  /* Menu button in top bar */
-  body.mobile #top-bar {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    background: #1e1e2f;
-    color: #ddd;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-
-  /* Optional: give title next to button */
-  body.mobile #top-bar span {
-    margin-left: 15px;
-    font-size: 1em;
-  }
-
-  /* Adjust viewer below top bar */
-  body.mobile #viewer {
-    flex: 1;
-    height: calc(100vh - 48px); /* exact height of top bar */
-    padding: 5px;
-    overflow: hidden;
-  }
-
-
-  /* Make tree and search scrollable */
-  body.mobile #tree-container,
-  body.mobile #results-container {
-    max-height: none;
-    overflow-y: auto;
-  }
-
-  /* Touch-friendly list items */
-  body.mobile li {
-    padding: 14px 12px !important;
-    font-size: 1.1em;
-  }
-
-  /* Show top bar ONLY on mobile */
-  body.mobile #top-bar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    height: 48px;
-    padding: 0 14px;
-    background: #1e1e2f;
-    border-bottom: 1px solid #444;
-    z-index: 300;
-  }
-
-  /* Disable iOS long-press highlight */
-  #reset-btn {
-    -webkit-touch-callout: none; /* disables callout menu */
-    -webkit-user-select: none;   /* prevents selection on iOS Safari */
-    -ms-user-select: none;       /* for older Edge */
-    user-select: none;           /* standard */
-    touch-action: manipulation;  /* prevents long-press highlight / tap delay */
+:root {
+  --bg: #0f172a;
+  --bg-elevated: #111827;
+  --panel: #182033;
+  --panel-2: #1f2937;
+  --text: #e5e7eb;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --accent-soft: rgba(96, 165, 250, 0.16);
+  --success: #34d399;
+  --shadow: 0 14px 40px rgba(2, 6, 23, 0.35);
 }
 
-/* Make reset and menu buttons slightly bigger on mobile */
-body.mobile #reset-btn,
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 30% 0%, #1e293b 0%, transparent 60%),
+    linear-gradient(160deg, #0b1020, #0f172a 48%, #111827);
+  color: var(--text);
+}
+
+#sidebar {
+  width: min(380px, 35vw);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(24, 32, 51, 0.95), rgba(16, 24, 41, 0.95));
+  backdrop-filter: blur(6px);
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+#doc-selector-container,
+#search-container,
+#results-container {
+  padding: 14px;
+}
+
+#doc-selector-container {
+  border-bottom: 1px solid var(--border);
+}
+
+#doc-selector {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  outline: none;
+}
+
+#doc-selector:focus,
+#search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+#search-container {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#search {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#reset-btn {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-weight: 600;
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#reset-btn:hover {
+  border-color: var(--accent);
+  background: #263247;
+}
+
+#tree-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 12px 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#results-container {
+  display: none;
+  border-top: 1px solid var(--border);
+  overflow-y: auto;
+  max-height: 40%;
+  background: rgba(16, 24, 41, 0.85);
+}
+
+#results-container h3 {
+  margin: 0 0 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+ul {
+  list-style: none;
+  padding-left: 14px;
+  margin: 0;
+}
+
+li {
+  margin: 4px 0;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.45;
+  border-radius: 8px;
+}
+
+li.folder,
+li.doc {
+  padding: 8px 10px;
+}
+
+li.folder::before {
+  content: "▸";
+  color: var(--text-muted);
+  display: inline-block;
+  width: 1.2em;
+  transition: transform 0.2s ease;
+}
+
+li.folder.open::before {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+li.doc::before {
+  content: "📄";
+  display: inline-block;
+  width: 1.2em;
+  opacity: 0.85;
+}
+
+li:hover {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+li.folder.active {
+  background: rgba(96, 165, 250, 0.14);
+  color: #dbeafe;
+}
+
+li.doc {
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+li.doc:not(.selected):hover {
+  border-left-color: #64748b;
+}
+
+li.doc.selected {
+  background: var(--accent-soft);
+  border-left-color: var(--accent-strong);
+  color: #dbeafe;
+}
+
+#results-list {
+  padding-left: 0;
+}
+
+#results-list li {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  margin: 0 0 8px;
+}
+
+#results-list li:hover {
+  border-color: var(--border);
+  background: rgba(148, 163, 184, 0.15);
+}
+
+mark {
+  background: rgba(52, 211, 153, 0.3);
+  color: #ecfeff;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+#viewer {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  overflow: hidden;
+}
+
+#viewer h2 {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(17, 24, 39, 0.75);
+  color: #f8fafc;
+  font-size: 1.02rem;
+  font-weight: 650;
+}
+
+#viewer iframe {
+  flex: 1;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+#pdf-overlay {
+  position: absolute;
+  inset: 64px 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 14, 24, 0.82);
+  border-radius: 14px;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+#pdf-overlay.hidden {
+  opacity: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#top-bar {
+  display: none;
+}
+
+#menu-overlay {
+  display: none;
+}
+
+body.mobile {
+  display: block;
+  overflow: hidden;
+}
+
+body.mobile #top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 14px;
+  background: rgba(10, 14, 24, 0.95);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+}
+
 body.mobile #menu-btn {
-  padding: 8px 12px;       /* slightly larger tap area */
-  font-size: 1em;          /* slightly bigger text */
-  border-radius: 6px;      /* optional: keep rounded corners */
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  padding: 8px 10px;
+  font-size: 1.1rem;
+}
+
+body.mobile #sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: min(92vw, 420px);
+  height: calc(100% - 56px);
+  transform: translateX(-104%);
+  transition: transform 0.25s ease;
+  border-right: 1px solid var(--border);
+}
+
+body.mobile #sidebar.open {
+  transform: translateX(0);
+}
+
+body.mobile #menu-overlay {
+  position: fixed;
+  inset: 56px 0 0;
+  background: rgba(2, 6, 23, 0.55);
+  z-index: 200;
+}
+
+body.mobile #menu-overlay.show {
+  display: block;
+}
+
+body.mobile #viewer {
+  height: calc(100dvh - 56px);
+  margin-top: 56px;
+  padding: 12px;
+}
+
+body.mobile li {
+  padding: 12px 10px !important;
+  font-size: 1rem;
 }
