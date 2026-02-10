@@ -2,77 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRJ200 Manual</title>
 
-  <!-- Prevent caching for Safari & other browsers -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
+  <meta name="theme-color" content="#101627">
 
-  <!-- Theme color for PWA -->
-  <meta name="theme-color" content="#1e1e2f">
-
-  <!-- Styles with cache-busting -->
-  <link rel="stylesheet" href="css/styles.css?v=20260130">
-
-  <!-- Manifest for PWA -->
+  <link rel="stylesheet" href="css/styles.css?v=20260210">
   <link rel="manifest" href="manifest.json?v=20260130">
 </head>
 <body>
-
-  <!-- Sidebar -->
-  <div id="sidebar">
-    <div id="doc-selector-container">
-      <select id="doc-selector">
-        <option value="AMM">AMM - Aircraft Maintenance Manual</option>
-        <option value="AIPC">AIPC - Illustrated Parts Catalog</option>
-        <option value="CMM">CMM</option>
-        <option value="ESPM">ESPM</option>
-        <option value="FIM">FIM</option>
-        <option value="MPM">MPM</option>
-        <option value="MTCM">MTCM</option>
-        <option value="NDT">NDT</option>
-        <option value="PPBM">PPBM</option>
-        <option value="SRM">SRM</option>
-        <option value="WM">WM</option>
-      </select>
-    </div>
-
-    <div id="search-container">
-      <input type="text" id="search" placeholder="Search documents...">
-      <button id="reset-btn">Reset</button>
-    </div>
-
-    <div id="tree-container"></div>
-
-    <div id="results-container">
-      <h3>Search Results</h3>
-      <ul id="results-list"></ul>
-    </div>
+  <div id="top-bar" aria-label="Mobile navigation">
+    <button id="menu-btn" type="button" aria-label="Toggle menu">☰</button>
+    <span>CRJ200 Digital Manual</span>
   </div>
 
-  <!-- Top bar for mobile -->
-  <div id="top-bar">
-    <button id="menu-btn">☰</button>
-    <span>CRJ200 Manual</span>
+  <div class="app-shell">
+    <aside id="sidebar" aria-label="Document navigation">
+      <header class="sidebar-header">
+        <p class="eyebrow">Aircraft Documentation</p>
+        <h1>CRJ200 Knowledge Hub</h1>
+        <p class="subtitle">Navigate manuals faster with structured browsing and instant search.</p>
+      </header>
+
+      <section class="panel" id="doc-selector-container">
+        <label for="doc-selector">Manual Library</label>
+        <select id="doc-selector">
+          <option value="AMM">AMM - Aircraft Maintenance Manual</option>
+          <option value="AIPC">AIPC - Illustrated Parts Catalog</option>
+          <option value="CMM">CMM</option>
+          <option value="ESPM">ESPM</option>
+          <option value="FIM">FIM</option>
+          <option value="MPM">MPM</option>
+          <option value="MTCM">MTCM</option>
+          <option value="NDT">NDT</option>
+          <option value="PPBM">PPBM</option>
+          <option value="SRM">SRM</option>
+          <option value="WM">WM</option>
+        </select>
+      </section>
+
+      <section class="panel" id="search-container">
+        <label for="search">Find Content</label>
+        <div class="search-row">
+          <input type="text" id="search" placeholder="Search manuals, procedures, ATA..." autocomplete="off">
+          <button id="reset-btn" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel tree-panel">
+        <h2>Document Tree</h2>
+        <div id="tree-container"></div>
+      </section>
+
+      <section class="panel" id="results-container">
+        <h3>Search Results</h3>
+        <ul id="results-list"></ul>
+      </section>
+    </aside>
+
+    <div id="menu-overlay"></div>
+
+    <main id="viewer" aria-live="polite">
+      <div class="viewer-empty-state">
+        <h2>Select a document</h2>
+        <p>Choose a manual and open a section from the navigation panel to view it here.</p>
+      </div>
+    </main>
   </div>
 
-  <!-- Overlay behind menu -->
-  <div id="menu-overlay"></div>
-
-  <!-- Viewer -->
-  <div id="viewer">
-    <h2>Select a document</h2>
-  </div>
-
-  <!-- Scripts with cache-busting -->
   <script src="js/data.js?v=20260130"></script>
   <script src="js/tree.js?v=20260130"></script>
   <script src="js/viewer.js?v=20260130"></script>
   <script src="js/search.js?v=20260130"></script>
   <script src="js/app.js?v=20260130"></script>
 
-  <!-- Temporary: Clear old service workers to avoid cached files -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -80,8 +86,5 @@
       });
     }
   </script>
-
 </body>
 </html>
-
-
