@@ -1,5 +1,8 @@
 const TASK_PATTERN = /\b(?:TASK|SUBTASK)\s+\d{2}[\-−]\d{2}[\-−]\d{2}[\-−]\d{3}[\-−]\d{3}\b/gi;
 
+let taskIndexPromise = null;
+let activeTaskLoadToken = 0;
+
 function normalizeTaskCode(taskLabel = '') {
   return taskLabel.replace(/[−–—]/g, '-').replace(/\s+/g, ' ').trim().toUpperCase();
 }
@@ -8,6 +11,102 @@ function buildPdfLink(file, taskCode, pageNumber) {
   const safeCode = encodeURIComponent(taskCode);
   const page = Number.isFinite(pageNumber) ? pageNumber : 1;
   return `${file}#page=${page}&search=${safeCode}`;
+}
+
+function getFileName(file = '') {
+  try {
+    const path = new URL(file, window.location.origin).pathname;
+    return path.split('/').filter(Boolean).pop() || '';
+  } catch (_) {
+    return file.split('/').filter(Boolean).pop() || '';
+  }
+}
+
+function parseTaskIndexEntries(entry, defaultFile) {
+  if (!entry) return [];
+
+  const taskList = Array.isArray(entry)
+    ? entry
+    : (Array.isArray(entry.tasks) ? entry.tasks : []);
+
+  return taskList
+    .map(item => {
+      const label = normalizeTaskCode(item.task || item.label || item.code || '');
+      const pageNumber = Number(item.page || item.pageNumber || 1);
+      const targetFile = item.targetFile || item.file || entry.file || defaultFile;
+
+      if (!label) return null;
+
+      return {
+        label,
+        pageNumber: Number.isFinite(pageNumber) && pageNumber > 0 ? pageNumber : 1,
+        targetFile
+      };
+    })
+    .filter(Boolean);
+}
+
+function findTasksInTaskIndex(index, context) {
+  if (!index || typeof index !== 'object') return [];
+
+  const documents = index.documents || {};
+  const byDocKey = index.by_doc_key || index.byDocKey || {};
+
+  const docKey = context.docKey || '';
+  const file = context.file || '';
+  const fileName = getFileName(file);
+
+  const candidates = [];
+
+  if (docKey && byDocKey[docKey]) candidates.push(byDocKey[docKey]);
+  if (docKey && documents[docKey]) candidates.push(documents[docKey]);
+  if (file && documents[file]) candidates.push(documents[file]);
+  if (fileName && documents[fileName]) candidates.push(documents[fileName]);
+
+  if (!candidates.length && Array.isArray(documents)) {
+    const matchedDoc = documents.find(doc => {
+      if (!doc) return false;
+      return (
+        doc.docKey === docKey ||
+        doc.key === docKey ||
+        doc.path === file ||
+        doc.file === file ||
+        getFileName(doc.path || doc.file || '') === fileName
+      );
+    });
+    if (matchedDoc) candidates.push(matchedDoc);
+  }
+
+  const dedupe = new Set();
+  const matches = [];
+
+  candidates.forEach(candidate => {
+    parseTaskIndexEntries(candidate, file).forEach(item => {
+      const key = `${item.label}|${item.pageNumber}|${item.targetFile}`;
+      if (dedupe.has(key)) return;
+      dedupe.add(key);
+      matches.push(item);
+    });
+  });
+
+  matches.sort((a, b) => a.pageNumber - b.pageNumber || a.label.localeCompare(b.label));
+  return matches;
+}
+
+async function loadTaskIndex() {
+  if (taskIndexPromise) return taskIndexPromise;
+
+  taskIndexPromise = fetch('task_index.json', { cache: 'no-store' })
+    .then(response => {
+      if (!response.ok) throw new Error(`task_index.json not found (${response.status})`);
+      return response.json();
+    })
+    .catch(error => {
+      console.warn('Task index unavailable, using runtime PDF scan:', error.message || error);
+      return null;
+    });
+
+  return taskIndexPromise;
 }
 
 async function extractTaskMatches(file) {
@@ -35,7 +134,8 @@ async function extractTaskMatches(file) {
 
         found.push({
           label: taskLabel,
-          pageNumber
+          pageNumber,
+          targetFile: file
         });
       });
     }
@@ -47,7 +147,14 @@ async function extractTaskMatches(file) {
   }
 }
 
-function renderTaskLinks(file, title, matches) {
+async function resolveTaskLinks(file, docKey) {
+  const index = await loadTaskIndex();
+  const indexedMatches = findTasksInTaskIndex(index, { file, docKey });
+  if (indexedMatches.length) return indexedMatches;
+  return extractTaskMatches(file);
+}
+
+function renderTaskLinks(matches) {
   const list = document.getElementById('task-links-list');
   const empty = document.getElementById('task-links-empty');
 
@@ -69,14 +176,14 @@ function renderTaskLinks(file, title, matches) {
     button.innerHTML = `<strong>${match.label}</strong><span>Page ${match.pageNumber}</span>`;
 
     button.addEventListener('click', () => {
-      openTaskInSplitView(file, title, match.label, match.pageNumber);
+      openTaskInSplitView(match.targetFile, match.label, match.pageNumber);
     });
 
     list.appendChild(button);
   });
 }
 
-function openTaskInSplitView(file, title, taskCode, pageNumber) {
+function openTaskInSplitView(file, taskCode, pageNumber) {
   const wrapper = document.getElementById('pdf-view-wrapper');
   const secondaryPanel = document.getElementById('secondary-panel');
   const secondaryTitle = document.getElementById('secondary-task-title');
@@ -148,6 +255,7 @@ function openPDF(file, title, docLi = null) {
   const iframe = document.getElementById('pdf-frame');
   const overlay = document.getElementById('pdf-overlay');
   const closeSplitBtn = document.getElementById('close-secondary-panel');
+  const taskLoadToken = ++activeTaskLoadToken;
 
   if (closeSplitBtn) {
     closeSplitBtn.addEventListener('click', closeTaskSplitView);
@@ -159,9 +267,14 @@ function openPDF(file, title, docLi = null) {
     setTimeout(() => overlay.remove(), 300);
   };
 
-  extractTaskMatches(file).then(matches => {
-    renderTaskLinks(file, title, matches);
-  });
+  resolveTaskLinks(file, docLi?.dataset?.key)
+    .then(matches => {
+      if (taskLoadToken !== activeTaskLoadToken) return;
+      renderTaskLinks(matches);
+    })
+    .catch(error => {
+      console.error('Unable to load task links:', error);
+    });
 
   // --------------------- Highlight selection ---------------------
   treeContainer.querySelectorAll('li.doc').forEach(d => d.classList.remove('selected'));
