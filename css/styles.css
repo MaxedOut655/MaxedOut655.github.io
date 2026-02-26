@@ -447,3 +447,56 @@ body.mobile #menu-btn {
   font-size: 1em;          /* slightly bigger text */
   border-radius: 6px;      /* optional: keep rounded corners */
 }
+
+#viewer-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+#viewer-toolbar h2 {
+  margin: 0;
+}
+
+#xref-back-btn {
+  display: none;
+  border: 1px solid #4a4a6a;
+  background: #2c2c3c;
+  color: #ddd;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+#xref-back-btn:hover {
+  background: #3a3a4a;
+}
+
+#cross-ref-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+  min-height: 30px;
+}
+
+.xref-link {
+  border: 1px solid #4a4a6a;
+  background: #2c2c3c;
+  color: #ddd;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.xref-link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.xref-muted {
+  color: #aaa;
+  font-size: 0.85rem;
+}
