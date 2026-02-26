@@ -43,6 +43,14 @@ function findBestTaskMatch(taskCode) {
   const groups = normalized.match(/^(\d{2})-(\d{2})-(\d{2})-(\d{3})-(\d{3})$/);
   if (!groups) return null;
 
+  return findBestSectionMatch(`${groups[1]}-${groups[2]}-${groups[3]}`);
+}
+
+function findBestSectionMatch(sectionCode) {
+  const normalized = normalizeTaskCode(sectionCode);
+  const groups = normalized.match(/^(\d{2})-(\d{2})-(\d{2})$/);
+  if (!groups) return null;
+
   const prefix = `${groups[1]}-${groups[2]}-${groups[3]}-`;
   const candidates = getDocsByPrefix(prefix);
   if (!candidates.length) return null;
@@ -55,14 +63,37 @@ function parseCrossReferences(text) {
   const refs = [];
   const seen = new Set();
 
-  const taskRegex = /Ref\.\s*TASK\s*(\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{3}[‐‑‒–—−-]\d{3})/gi;
-  let match;
-  while ((match = taskRegex.exec(text)) !== null) {
-    const taskCode = normalizeTaskCode(match[1]);
-    const key = `task:${taskCode}`;
-    if (seen.has(key)) continue;
+  function pushTask(taskCode, label = null) {
+    const normalized = normalizeTaskCode(taskCode);
+    const key = `task:${normalized}`;
+    if (seen.has(key)) return;
     seen.add(key);
-    refs.push({ type: 'task', label: `Ref. TASK ${taskCode}`, taskCode });
+    refs.push({ type: 'task', label: label || `Ref. TASK ${normalized}`, taskCode: normalized });
+  }
+
+  function pushSection(sectionCode, label = null) {
+    const normalized = normalizeTaskCode(sectionCode);
+    const key = `section:${normalized}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    refs.push({ type: 'section', label: label || `Ref. ${normalized}`, sectionCode: normalized });
+  }
+
+  let match;
+
+  const refRegex = /Ref\.?\s*(?:TASK\s*)?(\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}(?:[‐‑‒–—−-]\d{3}[‐‑‒–—−-]\d{3})?)/gi;
+  while ((match = refRegex.exec(text)) !== null) {
+    const normalized = normalizeTaskCode(match[1]);
+    if (/^\d{2}-\d{2}-\d{2}-\d{3}-\d{3}$/.test(normalized)) {
+      pushTask(normalized, `Ref. TASK ${normalized}`);
+    } else if (/^\d{2}-\d{2}-\d{2}$/.test(normalized)) {
+      pushSection(normalized, `Ref. ${normalized}`);
+    }
+  }
+
+  const standaloneTaskRegex = /(?:^|\s)TASK\s*(\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{3}[‐‑‒–—−-]\d{3})/gi;
+  while ((match = standaloneTaskRegex.exec(text)) !== null) {
+    pushTask(match[1], `TASK ${normalizeTaskCode(match[1])}`);
   }
 
   const chapterRegex = /(AMM\s*\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2})(?:\s*page\s*(\d+))?/gi;
@@ -75,7 +106,7 @@ function parseCrossReferences(text) {
     refs.push({ type: 'chapter', label: page ? `${keyCode} page ${page}` : keyCode, docKey: keyCode, page });
   }
 
-  return refs.slice(0, 20);
+  return refs.slice(0, 30);
 }
 
 function renderCrossReferences(refs = [], docState) {
@@ -83,7 +114,7 @@ function renderCrossReferences(refs = [], docState) {
   if (!panel) return;
 
   if (!refs.length) {
-    panel.innerHTML = '<span class="xref-muted">No TASK references detected in this PDF.</span>';
+    panel.innerHTML = '<span class="xref-muted">No references detected in this PDF.</span>';
     return;
   }
 
@@ -95,6 +126,8 @@ function renderCrossReferences(refs = [], docState) {
     let targetDoc = null;
     if (ref.type === 'task') {
       targetDoc = findBestTaskMatch(ref.taskCode);
+    } else if (ref.type === 'section') {
+      targetDoc = findBestSectionMatch(ref.sectionCode);
     } else if (ref.type === 'chapter') {
       targetDoc = treeContainer.querySelector(`li.doc[data-key="${ref.docKey}"]`);
     }
@@ -128,7 +161,7 @@ async function scanPdfForReferences(file, docState) {
     const loadingTask = pdfjs.getDocument({ url: file, withCredentials: false });
     const pdf = await loadingTask.promise;
 
-    const maxPages = Math.min(pdf.numPages, 30);
+    const maxPages = Math.min(pdf.numPages, 60);
     let mergedText = '';
 
     for (let i = 1; i <= maxPages; i++) {
