@@ -32,9 +32,14 @@ function createTree(node, parentPath = "") {
       li.classList.add('doc');
 
       li.addEventListener('click', e => {
-        e.stopPropagation();
-        openPDF(child.getAttribute('file') || '', li.dataset.path, li);
-      });
+  e.stopPropagation();
+
+  // Check if URL has ?task=...
+  const urlParams = new URLSearchParams(window.location.search);
+  const taskRef = urlParams.get("task"); // e.g., TASK 10−11−01−587−801
+
+  openPDF(child.getAttribute('file') || '', li.dataset.path, li, taskRef);
+});
 
     } else {
       continue;
@@ -44,6 +49,9 @@ function createTree(node, parentPath = "") {
   }
   return ul;
 }
+
+// Example: jump to a specific task
+openPDF(fileUrl, "AMM10-11-01-02", docLi, "TASK 10−11−01−587−801");
 
 function updateDocPadding() {
     const docs = treeContainer.querySelectorAll('li.doc');
@@ -97,4 +105,24 @@ function markParentFolders(docLi) {
     }
     parent = parent.parentElement;
   }
+}
+
+function highlightTask(taskRef, textLayerDiv, pageDiv) {
+  const textSpans = textLayerDiv.querySelectorAll("span");
+  textSpans.forEach(span => {
+    if (span.textContent.includes(taskRef)) {
+      // Highlight it
+      span.style.background = "rgba(255, 255, 0, 0.5)";
+      span.style.borderRadius = "2px";
+      span.style.color = "#000";
+
+      // Scroll to it
+      const parentRect = pageDiv.getBoundingClientRect();
+      const spanRect = span.getBoundingClientRect();
+      const offset = spanRect.top - parentRect.top;
+
+      pageDiv.scrollIntoView({ behavior: "smooth" }); // scroll page into view
+      window.scrollBy({ top: offset - 100, behavior: "smooth" }); // fine-tune
+    }
+  });
 }
