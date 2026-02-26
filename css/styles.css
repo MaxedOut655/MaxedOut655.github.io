@@ -447,3 +447,14 @@ body.mobile #menu-btn {
   font-size: 1em;          /* slightly bigger text */
   border-radius: 6px;      /* optional: keep rounded corners */
 }
+
+.textLayer {
+  pointer-events: none; /* allow clicks to pass through to canvas */
+}
+
+.textLayer span {
+  white-space: pre;
+  position: absolute;
+  font-size: 12px; /* roughly matches PDF scale */
+  line-height: 1;
+}
