@@ -61,11 +61,20 @@
   <div id="menu-overlay"></div>
 
   <!-- Viewer -->
+  <button id="pinned-menu-btn" title="Pinned files">📌</button>
+  <aside id="pinned-panel">
+    <div class="pinned-panel-header">Pinned Files</div>
+    <ul id="pinned-list"></ul>
+  </aside>
+
+  <div id="toast-stack"></div>
+
   <div id="viewer">
     <h2>Select a document</h2>
   </div>
 
   <!-- Scripts with cache-busting -->
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
   <script src="js/data.js?v=20260130"></script>
   <script src="js/tree.js?v=20260130"></script>
   <script src="js/viewer.js?v=20260130"></script>

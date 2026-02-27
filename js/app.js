@@ -8,6 +8,15 @@ const resetBtn = document.getElementById('reset-btn');
 const docSelector = document.getElementById('doc-selector');
 const menuBtn = document.getElementById('menu-btn');
 const overlay = document.getElementById('menu-overlay');
+const pinnedMenuBtn = document.getElementById('pinned-menu-btn');
+const pinnedPanel = document.getElementById('pinned-panel');
+const pinnedList = document.getElementById('pinned-list');
+const toastStack = document.getElementById('toast-stack');
+
+let currentDocContext = null;
+const pinnedDocs = new Map();
+let pinFeed = null;
+const sessionId = Math.random().toString(36).slice(2);
 
 // --------------------- URL Routing ---------------------
 function getUrlParam(name) {
@@ -23,6 +32,153 @@ function loadFromURL() {
     expandPathToDoc(docLi);
     openPDF(docLi.dataset.file, docLi.dataset.path, docLi);
   }
+}
+
+function setCurrentDocContext(context) {
+  currentDocContext = context;
+}
+
+function isDocPinned(docKey) {
+  return pinnedDocs.has(docKey);
+}
+
+function showToast(message) {
+  if (!toastStack) return;
+  const toast = document.createElement('div');
+  toast.className = 'toast-item';
+  toast.textContent = message;
+  toastStack.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 2800);
+}
+
+function togglePinnedPanel(forceOpen = null) {
+  if (!pinnedPanel) return;
+  const willOpen = forceOpen === null ? !pinnedPanel.classList.contains('open') : forceOpen;
+  pinnedPanel.classList.toggle('open', willOpen);
+}
+
+function updatePinnedMarkerInTree() {
+  treeContainer.querySelectorAll('li.doc').forEach(li => {
+    li.classList.toggle('is-pinned', pinnedDocs.has(li.dataset.key));
+  });
+
+  const pinBtn = document.getElementById('viewer-pin-btn');
+  if (pinBtn && currentDocContext?.key) {
+    const pinned = pinnedDocs.has(currentDocContext.key);
+    pinBtn.classList.toggle('active', pinned);
+    pinBtn.textContent = pinned ? '📌 Pinned' : '📌 Pin for everyone';
+  }
+}
+
+function renderPinnedList() {
+  if (!pinnedList) return;
+  pinnedList.innerHTML = '';
+
+  const docs = [...pinnedDocs.values()].sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+  if (!docs.length) {
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = 'No pinned files yet.';
+    pinnedList.appendChild(li);
+    return;
+  }
+
+  for (const doc of docs) {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="pin-dot">📌</span><span class="pin-title">${doc.title}</span>`;
+    li.addEventListener('click', () => openPinnedDocument(doc));
+    pinnedList.appendChild(li);
+  }
+}
+
+function openPinnedDocument(doc) {
+  if (docSelector.value !== doc.docSet) {
+    docSelector.value = doc.docSet;
+    loadDocument(doc.docSet);
+    requestAnimationFrame(() => {
+      const docLi = treeContainer.querySelector(`li[data-key="${doc.key}"]`);
+      if (docLi) {
+        expandPathToDoc(docLi);
+        openPDF(docLi.dataset.file, docLi.dataset.path, docLi);
+      }
+    });
+    return;
+  }
+
+  const docLi = treeContainer.querySelector(`li[data-key="${doc.key}"]`);
+  if (docLi) {
+    expandPathToDoc(docLi);
+    openPDF(docLi.dataset.file, docLi.dataset.path, docLi);
+  }
+}
+
+function pushPinUpdate(payload) {
+  if (!pinFeed) return;
+  pinFeed.get(payload.key).put(payload);
+}
+
+function pinCurrentDocumentForEveryone() {
+  if (!currentDocContext || !currentDocContext.key) return;
+
+  if (isDocPinned(currentDocContext.key)) {
+    pushPinUpdate({
+      key: currentDocContext.key,
+      status: 'unpinned',
+      updatedAt: Date.now(),
+      updatedBy: sessionId
+    });
+    return;
+  }
+
+  pushPinUpdate({
+    ...currentDocContext,
+    status: 'pinned',
+    updatedAt: Date.now(),
+    updatedBy: sessionId
+  });
+
+  togglePinnedPanel(true);
+}
+
+function initPinSync() {
+  if (!window.Gun) {
+    console.warn('Gun realtime script missing; falling back to local-only pin state.');
+    return;
+  }
+
+  const gun = window.Gun({ peers: ['https://gun-manhattan.herokuapp.com/gun'] });
+  pinFeed = gun.get('crj200-manual').get('pinned-docs');
+
+  pinFeed.map().on((data, key) => {
+    if (!data || data.status === 'unpinned') {
+      pinnedDocs.delete(key);
+      renderPinnedList();
+      updatePinnedMarkerInTree();
+      return;
+    }
+
+    pinnedDocs.set(key, {
+      key: data.key || key,
+      title: data.title || key,
+      file: data.file || '',
+      path: data.path || data.title || key,
+      docSet: data.docSet || 'AMM',
+      updatedAt: data.updatedAt || 0
+    });
+
+    renderPinnedList();
+    updatePinnedMarkerInTree();
+
+    if (data.updatedBy !== sessionId) {
+      showToast(`📌 ${data.title || key} was pinned`);
+      togglePinnedPanel(true);
+    }
+  });
 }
 
 // --------------------- Load a document tree ---------------------
@@ -41,6 +197,7 @@ function loadDocument(key) {
   const treeRoot = createTree(xmlDoc.documentElement);
   treeContainer.appendChild(treeRoot);
   updateDocPadding();
+  updatePinnedMarkerInTree();
 
   // ----------------- Reattach mobile doc click listeners -----------------
   if (document.body.classList.contains('mobile')) {
@@ -73,6 +230,12 @@ docSelector.addEventListener('change', () => {
 document.addEventListener('DOMContentLoaded', () => {
   // Load first document
   loadDocument('AMM');
+
+  initPinSync();
+
+  if (pinnedMenuBtn) {
+    pinnedMenuBtn.addEventListener('click', () => togglePinnedPanel());
+  }
 
   // --------------------- Initialize search/reset ---------------------
   setTimeout(() => {
@@ -135,10 +298,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------- AUTO-OPEN sidebar on first mobile load -----------------
     const docKey = getUrlParam('doc');
     if (!docKey) {
-      // Give DOM a moment to render before opening
       requestAnimationFrame(() => {
         openMenu();
       });
     }
   }
 });
+
+window.setCurrentDocContext = setCurrentDocContext;
+window.pinCurrentDocumentForEveryone = pinCurrentDocumentForEveryone;
+window.isDocPinned = isDocPinned;
