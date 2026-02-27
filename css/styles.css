@@ -500,3 +500,46 @@ body.mobile #menu-btn {
   color: #aaa;
   font-size: 0.85rem;
 }
+
+#pdf-workspace {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 8px;
+}
+
+#split-pane {
+  display: none;
+  width: 45%;
+  min-width: 360px;
+  border-left: 1px solid #444;
+  padding-left: 8px;
+  flex-direction: column;
+}
+
+#split-pane.visible {
+  display: flex;
+}
+
+#split-pane-header {
+  color: #bfc7d5;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#split-pdf-frame {
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  #split-pane,
+  #split-pane.visible {
+    display: none !important;
+  }
+}

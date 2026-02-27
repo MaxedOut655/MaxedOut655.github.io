@@ -2,6 +2,10 @@ const crossRefNavigationStack = [];
 let activeDocState = null;
 let pdfJsLoadingPromise = null;
 
+function isMobileViewerMode() {
+  return document.body.classList.contains('mobile') || window.innerWidth < 900;
+}
+
 function normalizeDashes(value = '') {
   return value.replace(/[‐‑‒–—−]/g, '-');
 }
@@ -119,6 +123,40 @@ function parseCrossReferences(text) {
   return refs.slice(0, 30);
 }
 
+function openReferenceTarget(targetDoc, ref = {}, docState = null) {
+  if (isMobileViewerMode()) {
+    crossRefNavigationStack.push(docState);
+    openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, {
+      source: 'xref',
+      page: ref.page || null
+    });
+    return;
+  }
+
+  const splitPane = document.getElementById('split-pane');
+  const splitTitle = document.getElementById('split-title');
+  const splitFrame = document.getElementById('split-pdf-frame');
+  if (!splitPane || !splitTitle || !splitFrame) return;
+
+  splitPane.classList.add('visible');
+  splitTitle.textContent = targetDoc.dataset.path;
+  splitFrame.src = `${targetDoc.dataset.file}${ref.page ? `#page=${ref.page}` : ''}`;
+
+  const backBtn = document.getElementById('xref-back-btn');
+  if (backBtn) backBtn.style.display = 'inline-flex';
+}
+
+function closeSplitPane() {
+  const splitPane = document.getElementById('split-pane');
+  const splitFrame = document.getElementById('split-pdf-frame');
+  if (!splitPane || !splitFrame) return false;
+  if (!splitPane.classList.contains('visible')) return false;
+
+  splitPane.classList.remove('visible');
+  splitFrame.src = 'about:blank';
+  return true;
+}
+
 function renderCrossReferences(refs = [], docState) {
   const panel = document.getElementById('cross-ref-panel');
   if (!panel) return;
@@ -147,13 +185,7 @@ function renderCrossReferences(refs = [], docState) {
       button.textContent = `${ref.label} (not found in this manual)`;
     } else {
       button.textContent = `${ref.label} → ${targetDoc.dataset.key}`;
-      button.addEventListener('click', () => {
-        crossRefNavigationStack.push(docState);
-        openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, {
-          source: 'xref',
-          page: ref.page || null
-        });
-      });
+      button.addEventListener('click', () => openReferenceTarget(targetDoc, ref, docState));
     }
 
     panel.appendChild(button);
@@ -173,17 +205,27 @@ async function scanPdfForReferences(file, docState) {
 
     const maxPages = Math.min(pdf.numPages, 60);
     let mergedText = '';
+    const refsWithPages = [];
 
     for (let i = 1; i <= maxPages; i++) {
       const page = await pdf.getPage(i);
       const textContent = await page.getTextContent({ normalizeWhitespace: true });
       const line = textContent.items.map(item => item.str || '').join(' ');
       mergedText += ` ${line}`;
+
+      const pageRefs = parseCrossReferences(line).map(ref => ({ ...ref, page: i }));
+      refsWithPages.push(...pageRefs);
     }
 
     if (!activeDocState || activeDocState.file !== docState.file) return;
 
-    const refs = parseCrossReferences(mergedText);
+    const refs = parseCrossReferences(mergedText).map(ref => {
+      const firstSeen = refsWithPages.find(candidate =>
+        candidate.type === ref.type
+        && candidate.label === ref.label
+      );
+      return firstSeen ? { ...ref, page: firstSeen.page } : ref;
+    });
     renderCrossReferences(refs, docState);
   } catch (error) {
     panel.innerHTML = `<span class="xref-muted">Cross-reference scan unavailable (${error.message}).</span>`;
@@ -194,6 +236,14 @@ function renderBackButton() {
   const btn = document.getElementById('xref-back-btn');
   if (!btn) return;
 
+  const splitPane = document.getElementById('split-pane');
+  if (splitPane && splitPane.classList.contains('visible')) {
+    btn.style.display = 'inline-flex';
+    btn.textContent = '← Close split view';
+    return;
+  }
+
+  btn.textContent = '← Back';
   if (!crossRefNavigationStack.length) {
     btn.style.display = 'none';
     return;
@@ -217,11 +267,18 @@ function openPDF(file, title, docLi = null, options = {}) {
 
     <div id="cross-ref-panel"></div>
 
-    <iframe
-      id="pdf-frame"
-      src="${file}${pageSuffix}"
-      style="flex:1;border:none;border-radius:4px;background:#fff;"
-    ></iframe>
+    <div id="pdf-workspace">
+      <iframe
+        id="pdf-frame"
+        src="${file}${pageSuffix}"
+        style="flex:1;border:none;border-radius:4px;background:#fff;"
+      ></iframe>
+
+      <div id="split-pane">
+        <div id="split-pane-header">Referenced: <span id="split-title"></span></div>
+        <iframe id="split-pdf-frame" src="about:blank"></iframe>
+      </div>
+    </div>
 
     <div id="pdf-overlay">
       <div style="
@@ -264,6 +321,11 @@ function openPDF(file, title, docLi = null, options = {}) {
 
   const backBtn = document.getElementById('xref-back-btn');
   backBtn?.addEventListener('click', () => {
+    if (closeSplitPane()) {
+      renderBackButton();
+      return;
+    }
+
     const previous = crossRefNavigationStack.pop();
     if (!previous) return;
 
