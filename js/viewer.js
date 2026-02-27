@@ -123,11 +123,6 @@ function parseCrossReferences(text) {
     }
   }
 
-  const standaloneTaskRegex = /(?:^|\s)TASK\s*(\d{2}(?:\s*[‐‑‒–—−-]\s*\d{2}){2}\s*[‐‑‒–—−-]\s*\d{3}\s*[‐‑‒–—−-]\s*\d{3})/gi;
-  while ((match = standaloneTaskRegex.exec(normalizedText)) !== null) {
-    pushTask(match[1], `TASK ${normalizeTaskCode(match[1])}`);
-  }
-
   const chapterRegex = /(AMM\s*\d{2}(?:\s*[‐‑‒–—−-]\s*\d{2}){3})(?:\s*page\s*(\d+))?/gi;
   while ((match = chapterRegex.exec(normalizedText)) !== null) {
     const keyCode = normalizeDashes(match[1]).replace(/\s+/g, '');
@@ -172,31 +167,51 @@ async function resolveTargetPage(targetFile, ref = {}) {
   return null;
 }
 
+function jumpToInDocumentReference(lookupText, page = null) {
+  const normalizedLookup = normalizeTaskCode(lookupText || '');
+  if (!normalizedLookup) return false;
+
+  const pagesContainer = document.getElementById('pdf-pages');
+  if (!pagesContainer) return false;
+
+  const spans = Array.from(pagesContainer.querySelectorAll('.pdf-text-layer span'));
+  const found = spans.find(span => normalizeTaskCode(span.textContent || '').includes(normalizedLookup));
+
+  if (found) {
+    found.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    found.classList.add('pdf-inline-ref-focus');
+    setTimeout(() => found.classList.remove('pdf-inline-ref-focus'), 2000);
+    return true;
+  }
+
+  if (page) {
+    const targetEl = document.getElementById(`pdf-page-${page}`);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      targetEl.classList.add('pdf-page-focus');
+      setTimeout(() => targetEl.classList.remove('pdf-page-focus'), 2000);
+      return true;
+    }
+  }
+
+  return false;
+}
+
 async function openReferenceTarget(targetDoc, ref = {}, docState = null) {
   const lookupText = getReferenceLookupText(ref);
   const resolvedPage = await resolveTargetPage(targetDoc.dataset.file, ref) || ref.page || null;
 
-  if (isMobileViewerMode()) {
-    crossRefNavigationStack.push(docState);
-    openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, {
-      source: 'xref',
-      page: resolvedPage,
-      lookupText
-    });
+  if (docState && targetDoc.dataset.file === docState.file) {
+    jumpToInDocumentReference(lookupText, resolvedPage);
     return;
   }
 
-  const splitPane = document.getElementById('split-pane');
-  const splitTitle = document.getElementById('split-title');
-  const splitFrame = document.getElementById('split-pdf-frame');
-  if (!splitPane || !splitTitle || !splitFrame) return;
-
-  splitPane.classList.add('visible');
-  splitTitle.textContent = targetDoc.dataset.path;
-  splitFrame.src = `${targetDoc.dataset.file}${resolvedPage ? `#page=${resolvedPage}` : ''}`;
-
-  const backBtn = document.getElementById('xref-back-btn');
-  if (backBtn) backBtn.style.display = 'inline-flex';
+  crossRefNavigationStack.push(docState);
+  openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, {
+    source: 'xref',
+    page: resolvedPage,
+    lookupText
+  });
 }
 
 function closeSplitPane() {
@@ -311,6 +326,9 @@ async function renderMainPdfDocument(file, docState, initialPage = null, lookupT
       if (normalizedLookup && !bestMatchElement) {
         const spans = Array.from(textLayerDiv.querySelectorAll('span'));
         bestMatchElement = spans.find(span => normalizeTaskCode(span.textContent || '').includes(normalizedLookup)) || null;
+        if (!bestMatchElement && normalizeTaskCode(line).includes(normalizedLookup)) {
+          bestMatchElement = pageDiv;
+        }
       }
     }
 
@@ -339,7 +357,7 @@ function renderCrossReferences(refs = [], docState) {
   if (!panel) return;
 
   if (!refs.length) {
-    panel.innerHTML = '<span class="xref-muted">No references detected in this PDF.</span>';
+    panel.innerHTML = '<span class="xref-muted">No Ref. references detected in this PDF.</span>';
     return;
   }
 
@@ -414,13 +432,6 @@ function renderBackButton() {
   const btn = document.getElementById('xref-back-btn');
   if (!btn) return;
 
-  const splitPane = document.getElementById('split-pane');
-  if (splitPane && splitPane.classList.contains('visible')) {
-    btn.style.display = 'inline-flex';
-    btn.textContent = '← Close split view';
-    return;
-  }
-
   btn.textContent = '← Back';
   if (!crossRefNavigationStack.length) {
     btn.style.display = 'none';
@@ -489,11 +500,6 @@ function openPDF(file, title, docLi = null, options = {}) {
 
   const backBtn = document.getElementById('xref-back-btn');
   backBtn?.addEventListener('click', () => {
-    if (closeSplitPane()) {
-      renderBackButton();
-      return;
-    }
-
     const previous = crossRefNavigationStack.pop();
     if (!previous) return;
 

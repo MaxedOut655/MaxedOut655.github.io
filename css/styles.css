@@ -594,3 +594,8 @@ body.mobile #menu-btn {
   background: rgba(255, 235, 59, 0.35);
   box-shadow: inset 0 -2px 0 rgba(255, 193, 7, 0.95);
 }
+
+
+.pdf-page-focus {
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.85), 0 2px 8px rgba(0,0,0,0.28);
+}
