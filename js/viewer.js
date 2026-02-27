@@ -73,6 +73,14 @@ function findBestSectionMatch(sectionCode) {
   return preferred || candidates[0];
 }
 
+
+function getTargetDocForRef(ref) {
+  if (ref.type === 'task') return findBestTaskMatch(ref.taskCode);
+  if (ref.type === 'section') return findBestSectionMatch(ref.sectionCode);
+  if (ref.type === 'chapter') return treeContainer.querySelector(`li.doc[data-key="${ref.docKey}"]`);
+  return null;
+}
+
 function parseCrossReferences(text) {
   const normalizedText = normalizeReferenceText(text);
   const refs = [];
@@ -197,6 +205,119 @@ function closeSplitPane() {
   return true;
 }
 
+function buildRefsFromPageLines(pageLines = []) {
+  const seen = new Set();
+  const refs = [];
+
+  pageLines.forEach(({ page, text }) => {
+    parseCrossReferences(text).forEach(ref => {
+      const key = `${ref.type}:${ref.label}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      refs.push({ ...ref, page });
+    });
+  });
+
+  return refs;
+}
+
+async function annotateInlineReferences(textLayerDiv, docState) {
+  const spans = Array.from(textLayerDiv.querySelectorAll('span'));
+  for (const span of spans) {
+    const text = span.textContent || '';
+    const refs = parseCrossReferences(text);
+    if (!refs.length) continue;
+
+    const ref = refs[0];
+    const targetDoc = getTargetDocForRef(ref);
+    if (!targetDoc) continue;
+
+    span.classList.add('pdf-inline-ref');
+    span.title = `Open ${targetDoc.dataset.key}`;
+    span.addEventListener('click', async event => {
+      event.preventDefault();
+      event.stopPropagation();
+      await openReferenceTarget(targetDoc, ref, docState);
+    });
+  }
+}
+
+async function renderMainPdfDocument(file, docState, initialPage = null) {
+  const pagesContainer = document.getElementById('pdf-pages');
+  if (!pagesContainer) return;
+
+  pagesContainer.innerHTML = '<div class="xref-muted">Rendering PDF pages…</div>';
+
+  try {
+    const pdfjs = await ensurePdfJs();
+    const loadingTask = pdfjs.getDocument({ url: file, withCredentials: false });
+    const pdf = await loadingTask.promise;
+
+    if (!activeDocState || activeDocState.file !== docState.file) return;
+
+    pagesContainer.innerHTML = '';
+    const pageLines = [];
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      if (!activeDocState || activeDocState.file !== docState.file) return;
+
+      const page = await pdf.getPage(i);
+      const viewport = page.getViewport({ scale: 1.25 });
+      const pageDiv = document.createElement('div');
+      pageDiv.className = 'pdf-page';
+      pageDiv.id = `pdf-page-${i}`;
+      pageDiv.style.width = `${viewport.width}px`;
+      pageDiv.style.height = `${viewport.height}px`;
+
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d', { alpha: false });
+      canvas.width = Math.floor(viewport.width);
+      canvas.height = Math.floor(viewport.height);
+      canvas.style.width = `${viewport.width}px`;
+      canvas.style.height = `${viewport.height}px`;
+
+      const textLayerDiv = document.createElement('div');
+      textLayerDiv.className = 'pdf-text-layer';
+
+      pageDiv.appendChild(canvas);
+      pageDiv.appendChild(textLayerDiv);
+      pagesContainer.appendChild(pageDiv);
+
+      await page.render({ canvasContext: context, viewport }).promise;
+
+      const textContent = await page.getTextContent({ normalizeWhitespace: true });
+      const line = textContent.items.map(item => item.str || '').join(' ');
+      pageLines.push({ page: i, text: line });
+
+      const textLayerTask = pdfjs.renderTextLayer({
+        textContent,
+        container: textLayerDiv,
+        viewport,
+        textDivs: []
+      });
+      if (textLayerTask.promise) {
+        await textLayerTask.promise;
+      }
+
+      await annotateInlineReferences(textLayerDiv, docState);
+    }
+
+    const refs = buildRefsFromPageLines(pageLines);
+    renderCrossReferences(refs, docState);
+
+    if (initialPage) {
+      const targetEl = document.getElementById(`pdf-page-${initialPage}`);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  } catch (error) {
+    pagesContainer.innerHTML = `<div class="xref-muted">Unable to render PDF (${error.message}).</div>`;
+    const panel = document.getElementById('cross-ref-panel');
+    if (panel) panel.innerHTML = `<span class="xref-muted">Cross-reference scan unavailable (${error.message}).</span>`;
+  }
+}
+
 function renderCrossReferences(refs = [], docState) {
   const panel = document.getElementById('cross-ref-panel');
   if (!panel) return;
@@ -211,14 +332,7 @@ function renderCrossReferences(refs = [], docState) {
     const button = document.createElement('button');
     button.className = 'xref-link';
 
-    let targetDoc = null;
-    if (ref.type === 'task') {
-      targetDoc = findBestTaskMatch(ref.taskCode);
-    } else if (ref.type === 'section') {
-      targetDoc = findBestSectionMatch(ref.sectionCode);
-    } else if (ref.type === 'chapter') {
-      targetDoc = treeContainer.querySelector(`li.doc[data-key="${ref.docKey}"]`);
-    }
+    const targetDoc = getTargetDocForRef(ref);
 
     if (!targetDoc) {
       button.disabled = true;
@@ -316,11 +430,7 @@ function openPDF(file, title, docLi = null, options = {}) {
     <div id="cross-ref-panel"></div>
 
     <div id="pdf-workspace">
-      <iframe
-        id="pdf-frame"
-        src="${file}${pageSuffix}"
-        style="flex:1;border:none;border-radius:4px;background:#fff;"
-      ></iframe>
+      <div id="pdf-pages"></div>
 
       <div id="split-pane">
         <div id="split-pane-header">Referenced: <span id="split-title"></span></div>
@@ -340,13 +450,7 @@ function openPDF(file, title, docLi = null, options = {}) {
     </div>
   `;
 
-  const iframe = document.getElementById('pdf-frame');
   const overlay = document.getElementById('pdf-overlay');
-
-  iframe.onload = () => {
-    overlay.classList.add('hidden');
-    setTimeout(() => overlay.remove(), 300);
-  };
 
   treeContainer.querySelectorAll('li.doc').forEach(d => d.classList.remove('selected'));
   if (docLi) docLi.classList.add('selected');
@@ -382,5 +486,8 @@ function openPDF(file, title, docLi = null, options = {}) {
   });
 
   renderBackButton();
-  scanPdfForReferences(file, activeDocState);
+  renderMainPdfDocument(file, activeDocState, options.page || null).finally(() => {
+    overlay.classList.add('hidden');
+    setTimeout(() => overlay.remove(), 300);
+  });
 }

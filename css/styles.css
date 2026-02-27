@@ -543,3 +543,47 @@ body.mobile #menu-btn {
     display: none !important;
   }
 }
+
+
+#pdf-pages {
+  flex: 1;
+  overflow: auto;
+  background: #3b3b4c;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.pdf-page {
+  position: relative;
+  margin: 0 auto 10px auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+.pdf-page canvas {
+  display: block;
+}
+
+.pdf-text-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.pdf-text-layer span {
+  position: absolute;
+  color: transparent;
+  transform-origin: 0% 0%;
+  white-space: pre;
+  cursor: text;
+}
+
+.pdf-text-layer .pdf-inline-ref {
+  color: rgba(70, 130, 220, 0.25);
+  background: rgba(100, 181, 246, 0.25);
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: rgba(70, 130, 220, 0.8);
+}
