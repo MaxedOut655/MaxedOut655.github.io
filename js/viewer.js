@@ -81,6 +81,15 @@ function getTargetDocForRef(ref) {
   return null;
 }
 
+
+function getReferenceLookupText(ref = {}) {
+  if (ref.type === 'task' && ref.taskCode) return `TASK ${normalizeTaskCode(ref.taskCode)}`;
+  if (ref.type === 'section' && ref.sectionCode) return normalizeTaskCode(ref.sectionCode);
+  if (ref.type === 'chapter' && ref.docKey) return normalizeTaskCode(ref.docKey.replace(/^AMM/i, ''));
+  return '';
+}
+
+
 function parseCrossReferences(text) {
   const normalizedText = normalizeReferenceText(text);
   const refs = [];
@@ -135,13 +144,7 @@ function parseCrossReferences(text) {
 async function resolveTargetPage(targetFile, ref = {}) {
   if (ref.page) return ref.page;
 
-  let lookupText = '';
-  if (ref.type === 'task' && ref.taskCode) {
-    lookupText = `TASK ${normalizeTaskCode(ref.taskCode)}`;
-  } else if (ref.type === 'section' && ref.sectionCode) {
-    lookupText = normalizeTaskCode(ref.sectionCode);
-  }
-
+  const lookupText = getReferenceLookupText(ref);
   if (!lookupText) return null;
 
   const cacheKey = `${targetFile}::${lookupText}`;
@@ -170,13 +173,15 @@ async function resolveTargetPage(targetFile, ref = {}) {
 }
 
 async function openReferenceTarget(targetDoc, ref = {}, docState = null) {
+  const lookupText = getReferenceLookupText(ref);
   const resolvedPage = await resolveTargetPage(targetDoc.dataset.file, ref) || ref.page || null;
 
   if (isMobileViewerMode()) {
     crossRefNavigationStack.push(docState);
     openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, {
       source: 'xref',
-      page: resolvedPage
+      page: resolvedPage,
+      lookupText
     });
     return;
   }
@@ -242,7 +247,7 @@ async function annotateInlineReferences(textLayerDiv, docState) {
   }
 }
 
-async function renderMainPdfDocument(file, docState, initialPage = null) {
+async function renderMainPdfDocument(file, docState, initialPage = null, lookupText = "") {
   const pagesContainer = document.getElementById('pdf-pages');
   if (!pagesContainer) return;
 
@@ -257,6 +262,8 @@ async function renderMainPdfDocument(file, docState, initialPage = null) {
 
     pagesContainer.innerHTML = '';
     const pageLines = [];
+    const normalizedLookup = normalizeTaskCode(lookupText || "");
+    let bestMatchElement = null;
 
     for (let i = 1; i <= pdf.numPages; i++) {
       if (!activeDocState || activeDocState.file !== docState.file) return;
@@ -300,12 +307,21 @@ async function renderMainPdfDocument(file, docState, initialPage = null) {
       }
 
       await annotateInlineReferences(textLayerDiv, docState);
+
+      if (normalizedLookup && !bestMatchElement) {
+        const spans = Array.from(textLayerDiv.querySelectorAll('span'));
+        bestMatchElement = spans.find(span => normalizeTaskCode(span.textContent || '').includes(normalizedLookup)) || null;
+      }
     }
 
     const refs = buildRefsFromPageLines(pageLines);
     renderCrossReferences(refs, docState);
 
-    if (initialPage) {
+    if (bestMatchElement) {
+      bestMatchElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      bestMatchElement.classList.add('pdf-inline-ref-focus');
+      setTimeout(() => bestMatchElement.classList.remove('pdf-inline-ref-focus'), 2000);
+    } else if (initialPage) {
       const targetEl = document.getElementById(`pdf-page-${initialPage}`);
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -486,7 +502,7 @@ function openPDF(file, title, docLi = null, options = {}) {
   });
 
   renderBackButton();
-  renderMainPdfDocument(file, activeDocState, options.page || null).finally(() => {
+  renderMainPdfDocument(file, activeDocState, options.page || null, options.lookupText || "").finally(() => {
     overlay.classList.add('hidden');
     setTimeout(() => overlay.remove(), 300);
   });
