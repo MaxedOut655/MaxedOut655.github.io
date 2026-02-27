@@ -153,32 +153,31 @@ function initPinSync() {
   }
 
   const peers = [
-    'https://gun-manhattan.herokuapp.com/gun',
-    'https://gunjs.herokuapp.com/gun',
     'https://peer.wallie.io/gun',
-    'https://gun-us.herokuapp.com/gun'
+    'https://gun-manhattan.herokuapp.com/gun',
+    'https://gunjs.herokuapp.com/gun'
   ];
 
   const gun = window.Gun({
     peers,
-    localStorage: false,
-    retry: 1500
+    retry: 1200
   });
 
-  let connectedToRelay = false;
-  gun.on('hi', () => {
-    if (connectedToRelay) return;
-    connectedToRelay = true;
-    showToast('✅ Realtime sync connected');
-  });
-
-  setTimeout(() => {
-    if (!connectedToRelay) {
-      showToast('⚠️ Realtime relay offline. Pinning may not sync for others.');
-    }
-  }, 5000);
-
+  let syncToastShown = false;
   pinFeed = gun.get('crj200-manual-v2').get('pinned-docs');
+
+  // We mark sync as live when the client observes *any* network state from the relay mesh.
+  // This avoids false "offline" warnings that were shown on some devices.
+  gun.on('hi', () => {
+    if (syncToastShown) return;
+    syncToastShown = true;
+    showToast('✅ Realtime relay connected');
+  });
+
+  gun.on('bye', () => {
+    // Only informational; do not spam users with hard-failure toasts because Gun auto-reconnects.
+    console.warn('Realtime relay disconnected; Gun will keep retrying in background.');
+  });
 
   pinFeed.map().on((data, key) => {
     if (!data || data.status === 'unpinned') {
