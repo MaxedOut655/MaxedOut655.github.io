@@ -148,11 +148,37 @@ function pinCurrentDocumentForEveryone() {
 function initPinSync() {
   if (!window.Gun) {
     console.warn('Gun realtime script missing; falling back to local-only pin state.');
+    showToast('⚠️ Realtime pin sync unavailable right now');
     return;
   }
 
-  const gun = window.Gun({ peers: ['https://gun-manhattan.herokuapp.com/gun'] });
-  pinFeed = gun.get('crj200-manual').get('pinned-docs');
+  const peers = [
+    'https://gun-manhattan.herokuapp.com/gun',
+    'https://gunjs.herokuapp.com/gun',
+    'https://peer.wallie.io/gun',
+    'https://gun-us.herokuapp.com/gun'
+  ];
+
+  const gun = window.Gun({
+    peers,
+    localStorage: false,
+    retry: 1500
+  });
+
+  let connectedToRelay = false;
+  gun.on('hi', () => {
+    if (connectedToRelay) return;
+    connectedToRelay = true;
+    showToast('✅ Realtime sync connected');
+  });
+
+  setTimeout(() => {
+    if (!connectedToRelay) {
+      showToast('⚠️ Realtime relay offline. Pinning may not sync for others.');
+    }
+  }, 5000);
+
+  pinFeed = gun.get('crj200-manual-v2').get('pinned-docs');
 
   pinFeed.map().on((data, key) => {
     if (!data || data.status === 'unpinned') {
