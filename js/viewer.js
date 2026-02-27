@@ -10,6 +10,15 @@ function normalizeTaskCode(code = '') {
   return normalizeDashes(code).replace(/\s+/g, '');
 }
 
+function normalizeReferenceText(text = '') {
+  return normalizeDashes(text)
+    .replace(/\s*[‐‑‒–—−-]\s*/g, '-')
+    .replace(/TASK\s*(?=\d)/gi, 'TASK ')
+    .replace(/Ref\s*\./gi, 'Ref.')
+    .replace(/\(\s+/g, '(')
+    .replace(/\s+\)/g, ')');
+}
+
 function ensurePdfJs() {
   if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
   if (pdfJsLoadingPromise) return pdfJsLoadingPromise;
@@ -60,6 +69,7 @@ function findBestSectionMatch(sectionCode) {
 }
 
 function parseCrossReferences(text) {
+  const normalizedText = normalizeReferenceText(text);
   const refs = [];
   const seen = new Set();
 
@@ -81,8 +91,8 @@ function parseCrossReferences(text) {
 
   let match;
 
-  const refRegex = /Ref\.?\s*(?:TASK\s*)?(\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}(?:[‐‑‒–—−-]\d{3}[‐‑‒–—−-]\d{3})?)/gi;
-  while ((match = refRegex.exec(text)) !== null) {
+  const refRegex = /Ref\.?\s*(?:TASK\s*)?(\d{2}(?:\s*[‐‑‒–—−-]\s*\d{2}){2}(?:\s*[‐‑‒–—−-]\s*\d{3}\s*[‐‑‒–—−-]\s*\d{3})?)/gi;
+  while ((match = refRegex.exec(normalizedText)) !== null) {
     const normalized = normalizeTaskCode(match[1]);
     if (/^\d{2}-\d{2}-\d{2}-\d{3}-\d{3}$/.test(normalized)) {
       pushTask(normalized, `Ref. TASK ${normalized}`);
@@ -91,13 +101,13 @@ function parseCrossReferences(text) {
     }
   }
 
-  const standaloneTaskRegex = /(?:^|\s)TASK\s*(\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{3}[‐‑‒–—−-]\d{3})/gi;
-  while ((match = standaloneTaskRegex.exec(text)) !== null) {
+  const standaloneTaskRegex = /(?:^|\s)TASK\s*(\d{2}(?:\s*[‐‑‒–—−-]\s*\d{2}){2}\s*[‐‑‒–—−-]\s*\d{3}\s*[‐‑‒–—−-]\s*\d{3})/gi;
+  while ((match = standaloneTaskRegex.exec(normalizedText)) !== null) {
     pushTask(match[1], `TASK ${normalizeTaskCode(match[1])}`);
   }
 
-  const chapterRegex = /(AMM\s*\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2}[‐‑‒–—−-]\d{2})(?:\s*page\s*(\d+))?/gi;
-  while ((match = chapterRegex.exec(text)) !== null) {
+  const chapterRegex = /(AMM\s*\d{2}(?:\s*[‐‑‒–—−-]\s*\d{2}){3})(?:\s*page\s*(\d+))?/gi;
+  while ((match = chapterRegex.exec(normalizedText)) !== null) {
     const keyCode = normalizeDashes(match[1]).replace(/\s+/g, '');
     const page = match[2] ? Number.parseInt(match[2], 10) : null;
     const key = `chapter:${keyCode}:${page || ''}`;
@@ -166,7 +176,7 @@ async function scanPdfForReferences(file, docState) {
 
     for (let i = 1; i <= maxPages; i++) {
       const page = await pdf.getPage(i);
-      const textContent = await page.getTextContent();
+      const textContent = await page.getTextContent({ normalizeWhitespace: true });
       const line = textContent.items.map(item => item.str || '').join(' ');
       mergedText += ` ${line}`;
     }
