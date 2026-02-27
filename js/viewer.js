@@ -1,6 +1,7 @@
 const crossRefNavigationStack = [];
 let activeDocState = null;
 let pdfJsLoadingPromise = null;
+const targetPageLookupCache = new Map();
 
 function isMobileViewerMode() {
   return document.body.classList.contains('mobile') || window.innerWidth < 900;
@@ -123,12 +124,51 @@ function parseCrossReferences(text) {
   return refs.slice(0, 30);
 }
 
-function openReferenceTarget(targetDoc, ref = {}, docState = null) {
+async function resolveTargetPage(targetFile, ref = {}) {
+  if (ref.page) return ref.page;
+
+  let lookupText = '';
+  if (ref.type === 'task' && ref.taskCode) {
+    lookupText = `TASK ${normalizeTaskCode(ref.taskCode)}`;
+  } else if (ref.type === 'section' && ref.sectionCode) {
+    lookupText = normalizeTaskCode(ref.sectionCode);
+  }
+
+  if (!lookupText) return null;
+
+  const cacheKey = `${targetFile}::${lookupText}`;
+  if (targetPageLookupCache.has(cacheKey)) return targetPageLookupCache.get(cacheKey);
+
+  try {
+    const pdfjs = await ensurePdfJs();
+    const loadingTask = pdfjs.getDocument({ url: targetFile, withCredentials: false });
+    const pdf = await loadingTask.promise;
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent({ normalizeWhitespace: true });
+      const line = normalizeReferenceText(textContent.items.map(item => item.str || '').join(' '));
+      if (line.includes(lookupText)) {
+        targetPageLookupCache.set(cacheKey, i);
+        return i;
+      }
+    }
+  } catch (error) {
+    console.warn('Target page lookup failed:', error);
+  }
+
+  targetPageLookupCache.set(cacheKey, null);
+  return null;
+}
+
+async function openReferenceTarget(targetDoc, ref = {}, docState = null) {
+  const resolvedPage = await resolveTargetPage(targetDoc.dataset.file, ref) || ref.page || null;
+
   if (isMobileViewerMode()) {
     crossRefNavigationStack.push(docState);
     openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, {
       source: 'xref',
-      page: ref.page || null
+      page: resolvedPage
     });
     return;
   }
@@ -140,7 +180,7 @@ function openReferenceTarget(targetDoc, ref = {}, docState = null) {
 
   splitPane.classList.add('visible');
   splitTitle.textContent = targetDoc.dataset.path;
-  splitFrame.src = `${targetDoc.dataset.file}${ref.page ? `#page=${ref.page}` : ''}`;
+  splitFrame.src = `${targetDoc.dataset.file}${resolvedPage ? `#page=${resolvedPage}` : ''}`;
 
   const backBtn = document.getElementById('xref-back-btn');
   if (backBtn) backBtn.style.display = 'inline-flex';
@@ -185,7 +225,15 @@ function renderCrossReferences(refs = [], docState) {
       button.textContent = `${ref.label} (not found in this manual)`;
     } else {
       button.textContent = `${ref.label} → ${targetDoc.dataset.key}`;
-      button.addEventListener('click', () => openReferenceTarget(targetDoc, ref, docState));
+      button.addEventListener('click', async () => {
+        if (button.disabled) return;
+        button.disabled = true;
+        const originalText = button.textContent;
+        button.textContent = `${originalText} (opening...)`;
+        await openReferenceTarget(targetDoc, ref, docState);
+        button.textContent = originalText;
+        button.disabled = false;
+      });
     }
 
     panel.appendChild(button);
