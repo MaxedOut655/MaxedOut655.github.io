@@ -1,7 +1,56 @@
-const PDFJS_WORKER_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const PDFJS_CDN_SOURCES = [
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
+  'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js',
+  'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js'
+];
 
+const PDFJS_WORKER_SOURCES = [
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
+  'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js',
+  'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js'
+];
+
+let pdfJsLoadPromise = null;
 let taskIndexPromise = null;
 
+
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+    document.head.appendChild(script);
+  });
+}
+
+async function ensurePdfJsLoaded() {
+  if (window.pdfjsLib) return window.pdfjsLib;
+
+  if (!pdfJsLoadPromise) {
+    pdfJsLoadPromise = (async () => {
+      for (const src of PDFJS_CDN_SOURCES) {
+        try {
+          await loadScript(src);
+          if (window.pdfjsLib) break;
+        } catch (_) {
+          // try next CDN
+        }
+      }
+
+      if (!window.pdfjsLib) {
+        throw new Error('PDF.js library could not be loaded (CDN unavailable).');
+      }
+
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_SOURCES[0];
+      return window.pdfjsLib;
+    })();
+  }
+
+  return pdfJsLoadPromise;
+}
 function getTaskIndex() {
   if (!taskIndexPromise) {
     taskIndexPromise = fetch('task_index.json')
@@ -53,15 +102,20 @@ async function jumpToTaskReference(taskId) {
 }
 
 async function renderPdfWithPdfJs(file, options = {}) {
-  if (!window.pdfjsLib) {
-    throw new Error('PDF.js did not load.');
-  }
+  const pdfjs = await ensurePdfJsLoaded();
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_SRC;
+  for (const workerSrc of PDFJS_WORKER_SOURCES) {
+    try {
+      pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+      break;
+    } catch (_) {
+      // no-op and keep fallback loop behavior
+    }
+  }
 
   const pdfContainer = document.getElementById('pdf-container');
   const overlay = document.getElementById('pdf-overlay');
-  const loadingTask = pdfjsLib.getDocument(file);
+  const loadingTask = pdfjs.getDocument(file);
   const pdf = await loadingTask.promise;
 
   pdfContainer.innerHTML = '';
@@ -90,7 +144,7 @@ async function renderPdfWithPdfJs(file, options = {}) {
 
     await page.render({ canvasContext: context, viewport }).promise;
     const textContent = await page.getTextContent();
-    await pdfjsLib.renderTextLayer({ textContentSource: textContent, container: textLayer, viewport }).promise;
+    await pdfjs.renderTextLayer({ textContentSource: textContent, container: textLayer, viewport }).promise;
   }
 
   overlay.classList.add('hidden');
