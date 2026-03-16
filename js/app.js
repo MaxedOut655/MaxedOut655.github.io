@@ -25,11 +25,17 @@ function loadFromURL() {
   }
 }
 
+function sanitizeXmlForParser(xmlString) {
+  return xmlString.replace(/&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)/g, '&amp;');
+}
+
 // --------------------- Load a document tree ---------------------
 function loadDocument(key) {
   const parser = new DOMParser();
-  const xmlString = documents[key];
-  const xmlDoc = parser.parseFromString(xmlString.trim(), "text/xml");
+  const xmlString = documents[key] || '';
+  const sanitizedXml = sanitizeXmlForParser(xmlString);
+  const xmlDoc = parser.parseFromString(sanitizedXml.trim(), "text/xml");
+  const parserError = xmlDoc.querySelector('parsererror');
 
   treeContainer.innerHTML = '';
   resultsList.innerHTML = '';
@@ -38,7 +44,14 @@ function loadDocument(key) {
   viewer.innerHTML = `<h2>Select a document</h2>`;
 
   // Create tree
-  const treeRoot = createTree(xmlDoc.documentElement);
+  const rootNode = parserError ? null : xmlDoc.documentElement;
+  if (!rootNode) {
+    viewer.innerHTML = `<h2>Could not load manual tree</h2>`;
+    treeContainer.innerHTML = '<p style="color:#ff8a80;padding:8px;">Manual data contains invalid XML.</p>';
+    return;
+  }
+
+  const treeRoot = createTree(rootNode);
   treeContainer.appendChild(treeRoot);
   updateDocPadding();
 
