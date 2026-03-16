@@ -447,3 +447,47 @@ body.mobile #menu-btn {
   font-size: 1em;          /* slightly bigger text */
   border-radius: 6px;      /* optional: keep rounded corners */
 }
+
+#viewer .pdf-hint {
+  font-size: 0.85em;
+  color: #9fb4d1;
+  margin: 0 0 8px 0;
+}
+
+#pdf-container {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+  background: #111827;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.pdf-page {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 12px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+
+.pdf-page canvas {
+  display: block;
+  background: #fff;
+}
+
+.textLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.textLayer span,
+.textLayer br {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  transform-origin: 0% 0%;
+  cursor: pointer;
+}
