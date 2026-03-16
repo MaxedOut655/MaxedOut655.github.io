@@ -101,6 +101,22 @@ async function jumpToTaskReference(taskId) {
   openPDF(targetDoc.dataset.file, targetDoc.dataset.path, targetDoc, { page, yPercent });
 }
 
+
+function renderPdfFallback(file, title, options = {}) {
+  const page = Number(options.page) > 0 ? Number(options.page) : null;
+  const fallbackUrl = page ? `${file}#page=${page}` : file;
+
+  viewer.innerHTML = `
+    <h2>${title}</h2>
+    <div class="pdf-hint" style="color:#ffcc80;">PDF.js could not fetch this cross-origin PDF. Showing browser fallback viewer (TASK click-jump unavailable in fallback mode).</div>
+    <iframe
+      id="pdf-frame"
+      src="${fallbackUrl}"
+      style="flex:1;border:none;border-radius:4px;background:#fff;"
+    ></iframe>
+  `;
+}
+
 async function renderPdfWithPdfJs(file, options = {}) {
   const pdfjs = await ensurePdfJsLoaded();
 
@@ -178,6 +194,12 @@ function openPDF(file, title, docLi = null, options = {}) {
   `;
 
   renderPdfWithPdfJs(file, options).catch(err => {
+    const isFetchFailure = /Failed to fetch|NetworkError|Unexpected server response/i.test(String(err && err.message ? err.message : err));
+    if (isFetchFailure) {
+      renderPdfFallback(file, title, options);
+      return;
+    }
+
     const pdfContainer = document.getElementById('pdf-container');
     const overlay = document.getElementById('pdf-overlay');
     if (overlay) overlay.remove();
