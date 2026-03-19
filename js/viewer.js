@@ -60,6 +60,11 @@ function loadTaskIndex() {
   return taskIndexPromise;
 }
 
+function getReferencesForFile(file) {
+  const sourceKey = normalizeManualPath(file);
+  return referencesBySource?.get(sourceKey) || [];
+}
+
 function findDocLiByFile(targetFile) {
   const target = normalizeManualPath(targetFile);
   if (!target) return null;
@@ -105,6 +110,36 @@ function hideViewerLoadingState() {
   }
 }
 
+function pushNavigationState(ref) {
+  const currentViewer = document.getElementById('pdf-viewer-content');
+  const currentScrollTop = currentViewer ? currentViewer.scrollTop : 0;
+
+  openNavigationStack.push({
+    file: ref.source_file,
+    title: document.querySelector('#viewer h2')?.textContent || 'Document',
+    scrollTop: currentScrollTop,
+    page: ref.source_page,
+    docLi: findDocLiByFile(ref.source_file)
+  });
+}
+
+function navigateToReferenceTarget(ref) {
+  pushNavigationState(ref);
+
+  const targetDocLi = findDocLiByFile(ref.target_file);
+  const fallbackTitle = ref.target_task || ref.target_file;
+
+  openPDF(
+    targetDocLi ? targetDocLi.dataset.file : ref.target_file,
+    targetDocLi ? targetDocLi.dataset.path : fallbackTitle,
+    targetDocLi,
+    {
+      initialPage: Number(ref.target_page) + 1,
+      fromReference: true
+    }
+  );
+}
+
 function buildReferenceButton(ref) {
   const button = document.createElement('button');
   button.type = 'button';
@@ -117,30 +152,7 @@ function buildReferenceButton(ref) {
   button.addEventListener('click', event => {
     event.preventDefault();
     event.stopPropagation();
-
-    const currentViewer = document.getElementById('pdf-viewer-content');
-    const currentScrollTop = currentViewer ? currentViewer.scrollTop : 0;
-
-    openNavigationStack.push({
-      file: ref.source_file,
-      title: document.querySelector('#viewer h2')?.textContent || 'Document',
-      scrollTop: currentScrollTop,
-      page: ref.source_page,
-      docLi: findDocLiByFile(ref.source_file)
-    });
-
-    const targetDocLi = findDocLiByFile(ref.target_file);
-    const fallbackTitle = ref.target_task || ref.target_file;
-
-    openPDF(
-      targetDocLi ? targetDocLi.dataset.file : ref.target_file,
-      targetDocLi ? targetDocLi.dataset.path : fallbackTitle,
-      targetDocLi,
-      {
-        initialPage: Number(ref.target_page) + 1,
-        fromReference: true
-      }
-    );
+    navigateToReferenceTarget(ref);
   });
 
   return button;
@@ -188,7 +200,68 @@ function renderBackButton() {
   if (toolbar) toolbar.appendChild(button);
 }
 
-async function renderPdfIntoViewer(file, options = {}) {
+function buildPageAwareUrl(file, page) {
+  if (!page || Number(page) <= 0) return file;
+  const safePage = Number(page);
+  const hasHash = file.includes('#');
+  return `${file}${hasHash ? '&' : '#'}page=${safePage}`;
+}
+
+function renderReferenceList(refs) {
+  const list = document.getElementById('pdf-reference-list');
+  if (!list) return;
+
+  list.innerHTML = '';
+  if (!refs.length) {
+    const empty = document.createElement('li');
+    empty.className = 'reference-item-empty';
+    empty.textContent = 'No indexed references on this PDF.';
+    list.appendChild(empty);
+    return;
+  }
+
+  refs.forEach(ref => {
+    const item = document.createElement('li');
+    item.className = 'reference-item';
+
+    const page = Number(ref.source_page) + 1;
+    item.innerHTML = `<span class="reference-meta">Pg ${page}</span><span class="reference-task">${ref.target_task || 'Reference'}</span>`;
+
+    item.addEventListener('click', () => {
+      navigateToReferenceTarget(ref);
+    });
+
+    list.appendChild(item);
+  });
+}
+
+function renderIframeFallback(file, options = {}, refs = []) {
+  const viewerContent = document.getElementById('pdf-viewer-content');
+  if (!viewerContent) return;
+
+  const iframeSrc = buildPageAwareUrl(file, options.initialPage);
+
+  viewerContent.innerHTML = `
+    <div id="pdf-fallback-layout">
+      <iframe id="pdf-frame" src="${iframeSrc}" style="flex:1;border:none;border-radius:4px;background:#fff;"></iframe>
+      <aside id="pdf-reference-sidebar">
+        <h4>Indexed References</h4>
+        <ul id="pdf-reference-list"></ul>
+      </aside>
+    </div>
+  `;
+
+  const frame = document.getElementById('pdf-frame');
+  if (frame) {
+    frame.addEventListener('load', hideViewerLoadingState, { once: true });
+  } else {
+    hideViewerLoadingState();
+  }
+
+  renderReferenceList(refs);
+}
+
+async function renderPdfIntoViewer(file, refs, options = {}) {
   if (!window.pdfjsLib) {
     throw new Error('PDF.js failed to load.');
   }
@@ -197,11 +270,9 @@ async function renderPdfIntoViewer(file, options = {}) {
   setViewerLoadingState();
 
   const viewerContent = document.getElementById('pdf-viewer-content');
-  const sourceKey = normalizeManualPath(file);
-  const sourceRefs = referencesBySource?.get(sourceKey) || [];
 
   const refsByPage = new Map();
-  sourceRefs.forEach(ref => {
+  refs.forEach(ref => {
     const page = Number(ref.source_page) || 0;
     if (!refsByPage.has(page)) refsByPage.set(page, []);
     refsByPage.get(page).push(ref);
@@ -287,20 +358,12 @@ async function openPDF(file, title, docLi = null, options = {}) {
   await loadTaskIndex();
   renderBackButton();
 
-  try {
-    await renderPdfIntoViewer(file, options);
-  } catch (error) {
-    console.error(error);
-    hideViewerLoadingState();
+  const refs = getReferencesForFile(file);
 
-    const viewerContent = document.getElementById('pdf-viewer-content');
-    if (viewerContent) {
-      viewerContent.innerHTML = `
-        <div class="pdf-error">
-          <p>Unable to render this PDF in the custom viewer.</p>
-          <a href="${file}" target="_blank" rel="noopener noreferrer">Open PDF in a new tab</a>
-        </div>
-      `;
-    }
+  try {
+    await renderPdfIntoViewer(file, refs, options);
+  } catch (error) {
+    console.warn('PDF.js render failed; falling back to iframe mode.', error);
+    renderIframeFallback(file, options, refs);
   }
 }

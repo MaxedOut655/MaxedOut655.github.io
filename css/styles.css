@@ -524,3 +524,79 @@ body.mobile #menu-btn {
 .pdf-error a {
   color: #8ec8ff;
 }
+
+#pdf-fallback-layout {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+}
+
+#pdf-reference-sidebar {
+  width: 280px;
+  min-width: 220px;
+  max-width: 320px;
+  background: #1f2a3d;
+  border: 1px solid #3a4e6d;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+#pdf-reference-sidebar h4 {
+  margin: 0 0 8px;
+  color: #d7e8ff;
+  font-size: 0.95rem;
+}
+
+#pdf-reference-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reference-item {
+  border: 1px solid #4c648b;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  background: #24324a;
+  color: #eef5ff;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reference-item:hover {
+  background: #2e4262;
+}
+
+.reference-meta {
+  font-size: 0.75rem;
+  color: #9ac0ff;
+}
+
+.reference-task {
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+.reference-item-empty {
+  color: #9fb3d1;
+  font-size: 0.85rem;
+}
+
+body.mobile #pdf-fallback-layout {
+  flex-direction: column;
+}
+
+body.mobile #pdf-reference-sidebar {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  max-height: 140px;
+}
