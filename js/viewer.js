@@ -8,6 +8,7 @@ let taskIndexPromise = null;
 let referencesBySource = null;
 let openNavigationStack = [];
 let activeRenderToken = 0;
+let globalDocIndex = null;
 
 function normalizeManualPath(path) {
   if (!path) return '';
@@ -65,6 +66,37 @@ function getReferencesForFile(file) {
   return referencesBySource?.get(sourceKey) || [];
 }
 
+function buildGlobalDocIndex() {
+  if (globalDocIndex) return globalDocIndex;
+
+  const map = new Map();
+  const parser = new DOMParser();
+
+  Object.entries(documents || {}).forEach(([manualKey, xmlString]) => {
+    const xmlDoc = parser.parseFromString((xmlString || '').trim(), 'text/xml');
+    const docNodes = xmlDoc.querySelectorAll('doc');
+
+    docNodes.forEach(node => {
+      const file = node.getAttribute('file') || '';
+      const title = node.getAttribute('title') || 'Document';
+      const key = node.getAttribute('key') || '';
+      const normalized = normalizeManualPath(file);
+      if (!normalized) return;
+
+      map.set(normalized, {
+        file,
+        title,
+        key,
+        manualKey,
+        path: `${manualKey} > ${title}`
+      });
+    });
+  });
+
+  globalDocIndex = map;
+  return map;
+}
+
 function findDocLiByFile(targetFile) {
   const target = normalizeManualPath(targetFile);
   if (!target) return null;
@@ -77,6 +109,36 @@ function findDocLiByFile(targetFile) {
   }
 
   return null;
+}
+
+function resolveDocByFile(targetFile) {
+  const inTree = findDocLiByFile(targetFile);
+  if (inTree) {
+    return {
+      file: inTree.dataset.file,
+      title: inTree.dataset.path,
+      docLi: inTree,
+      manualKey: docSelector.value
+    };
+  }
+
+  const index = buildGlobalDocIndex();
+  const fallback = index.get(normalizeManualPath(targetFile));
+  if (fallback) {
+    return {
+      file: fallback.file,
+      title: fallback.path,
+      docLi: null,
+      manualKey: fallback.manualKey
+    };
+  }
+
+  return {
+    file: targetFile,
+    title: targetFile,
+    docLi: null,
+    manualKey: null
+  };
 }
 
 function updateSelectedDoc(docLi) {
@@ -114,28 +176,31 @@ function pushNavigationState(ref) {
   const currentViewer = document.getElementById('pdf-viewer-content');
   const currentScrollTop = currentViewer ? currentViewer.scrollTop : 0;
 
+  const sourceDoc = resolveDocByFile(ref.source_file);
+
   openNavigationStack.push({
-    file: ref.source_file,
-    title: document.querySelector('#viewer h2')?.textContent || 'Document',
+    file: sourceDoc.file,
+    title: sourceDoc.title || document.querySelector('#viewer h2')?.textContent || 'Document',
     scrollTop: currentScrollTop,
     page: ref.source_page,
-    docLi: findDocLiByFile(ref.source_file)
+    docLi: sourceDoc.docLi,
+    manualKey: sourceDoc.manualKey
   });
 }
 
 function navigateToReferenceTarget(ref) {
   pushNavigationState(ref);
 
-  const targetDocLi = findDocLiByFile(ref.target_file);
-  const fallbackTitle = ref.target_task || ref.target_file;
+  const targetDoc = resolveDocByFile(ref.target_file);
 
   openPDF(
-    targetDocLi ? targetDocLi.dataset.file : ref.target_file,
-    targetDocLi ? targetDocLi.dataset.path : fallbackTitle,
-    targetDocLi,
+    targetDoc.file,
+    targetDoc.title || ref.target_task || ref.target_file,
+    targetDoc.docLi,
     {
       initialPage: Number(ref.target_page) + 1,
-      fromReference: true
+      fromReference: true,
+      targetManualKey: targetDoc.manualKey
     }
   );
 }
@@ -191,7 +256,8 @@ function renderBackButton() {
       {
         restoreScrollTop: previous.scrollTop,
         initialPage: Number(previous.page) + 1,
-        fromBackNavigation: true
+        fromBackNavigation: true,
+        targetManualKey: previous.manualKey
       }
     );
   });
@@ -348,6 +414,17 @@ async function openPDF(file, title, docLi = null, options = {}) {
       "></div>
     </div>
   `;
+
+
+  if (!docLi && options.targetManualKey && options.targetManualKey !== docSelector.value) {
+    docSelector.value = options.targetManualKey;
+    loadDocument(options.targetManualKey);
+    const refreshed = findDocLiByFile(file);
+    if (refreshed) {
+      openPDF(refreshed.dataset.file, refreshed.dataset.path, refreshed, options);
+      return;
+    }
+  }
 
   updateSelectedDoc(docLi);
   updateUrl(docLi);
