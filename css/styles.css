@@ -154,6 +154,41 @@
     color: #999;
     font-size: 0.85em;
   }
+  #pdf-canvas-wrap {
+    position: relative;
+    overflow: auto;
+    background: #2a2a2a;
+    border-radius: 4px;
+    flex: 1;
+    padding: 8px;
+  }
+  #pdf-canvas {
+    display: block;
+    margin: 0 auto;
+    background: #fff;
+  }
+  #pdf-text-layer {
+    position: absolute;
+    inset: 8px auto auto 50%;
+    transform: translateX(-50%);
+    color: transparent;
+    pointer-events: auto;
+  }
+  .pdf-text-item {
+    position: absolute;
+    white-space: pre;
+    line-height: 1;
+    color: transparent;
+  }
+  .inline-task-ref {
+    color: #64b5f6;
+    text-decoration: underline;
+    pointer-events: auto;
+  }
+  .pdf-page-label {
+    font-size: 0.85em;
+    color: #bbb;
+  }
     #viewer iframe { flex: 1; border: none; border-radius: 4px; background: #fff; }
     #results-list li { padding: 5px; border-bottom: 1px solid #444; border-radius: 4px; transition: background 0.2s; }
     #results-list li:hover { background-color: #505070; }
