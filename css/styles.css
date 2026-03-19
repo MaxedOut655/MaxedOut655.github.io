@@ -447,3 +447,70 @@ body.mobile #menu-btn {
   font-size: 1em;          /* slightly bigger text */
   border-radius: 6px;      /* optional: keep rounded corners */
 }
+
+.viewer-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.pdf-back-btn {
+  border: none;
+  border-radius: 6px;
+  background: #4a4a6a;
+  color: #ddd;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+.pdf-back-btn:hover {
+  background: #5a5a80;
+}
+
+.task-references {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #252535;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.task-references h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.9em;
+}
+
+.task-references ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+.task-references li {
+  list-style: none;
+  margin: 0 0 4px 0;
+  padding: 0;
+}
+
+.task-references.empty {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.task-ref-link {
+  border: none;
+  background: transparent;
+  color: #7ec8ff;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-size: 0.88em;
+}
+
+.task-ref-link:hover {
+  color: #a6dcff;
+}

@@ -71,6 +71,9 @@ docSelector.addEventListener('change', () => {
 
 // --------------------- Initialize everything ---------------------
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof ensureTaskIndexLoaded === 'function') {
+    ensureTaskIndexLoaded();
+  }
   // Load first document
   loadDocument('AMM');
 
