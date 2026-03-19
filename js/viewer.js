@@ -1,12 +1,73 @@
+const PDF_HOST = 'https://crj200rvc.github.io/crj200-manual-files/';
+const referenceHistory = [];
+
+function normalizeTaskFilePath(filePath = '') {
+  const normalized = filePath.replace(/\\/g, '/').replace(/^\.\//, '').replace(/^\//, '');
+  return `${PDF_HOST}${normalized.replace(/^\.\//, '').replace(/^\.\//, '')}`;
+}
+
+function getPdfUrlWithLocation(file, taskId = null) {
+  if (!taskId || !taskIndexData?.tasks?.[taskId]) return file;
+  const task = taskIndexData.tasks[taskId];
+  const page = Number.isFinite(task.page) ? task.page + 1 : null;
+  const search = encodeURIComponent(`TASK ${taskId}`);
+  if (!page) return `${normalizeTaskFilePath(task.file)}#search=${search}`;
+  return `${normalizeTaskFilePath(task.file)}#page=${page}&search=${search}`;
+}
+
+function getReferencesForFile(file) {
+  if (!taskIndexData?.tasks) return [];
+  const fileName = (file.split('/').pop() || '').toLowerCase();
+  const references = new Set();
+  const allTasks = Object.entries(taskIndexData.tasks);
+
+  allTasks.forEach(([, task]) => {
+    const taskFileName = ((task.file || '').replace(/\\/g, '/').split('/').pop() || '').toLowerCase();
+    if (taskFileName !== fileName) return;
+
+    const normalizedTitle = (task.title || '').replace(/\u2212/g, '-');
+    const matches = normalizedTitle.match(/\b\d{2}-\d{2}-\d{2}-\d{3}-\d{3}\b/g) || [];
+    matches.forEach(match => {
+      if (taskIndexData.tasks[match]) references.add(match);
+    });
+  });
+
+  return Array.from(references).sort();
+}
+
 // --------------------- openPDF function ---------------------
-function openPDF(file, title, docLi = null) {
+function openPDF(file, title, docLi = null, options = {}) {
+  const { fromReference = false, targetTaskId = null } = options;
+  const resolvedFile = targetTaskId ? normalizeTaskFilePath(taskIndexData?.tasks?.[targetTaskId]?.file || file) : file;
+  const pdfUrl = targetTaskId ? getPdfUrlWithLocation(resolvedFile, targetTaskId) : resolvedFile;
+
+  if (fromReference) {
+    const iframe = document.getElementById('pdf-frame');
+    const previousSrc = iframe ? iframe.src : '';
+    referenceHistory.push({ file: previousSrc || file, title });
+  }
+
+  const references = getReferencesForFile(resolvedFile);
+  const backButton = referenceHistory.length
+    ? `<button id="pdf-back-btn" class="pdf-toolbar-btn">← Back to previous PDF</button>`
+    : '';
+  const refsHtml = references.length
+    ? `<div id="task-ref-list">${references
+      .map(ref => `<button class="task-ref-link" data-task="${ref}">Ref. TASK ${ref}</button>`)
+      .join('')}</div>`
+    : `<div id="task-ref-list" class="empty">No task references detected in this PDF.</div>`;
+
   // Update the viewer area
   viewer.innerHTML = `
     <h2>${title}</h2>
+    <div id="pdf-toolbar">
+      ${backButton}
+      ${refsHtml}
+    </div>
 
     <iframe
       id="pdf-frame"
-      src="${file}"
+      src="${pdfUrl}"
       style="flex:1;border:none;border-radius:4px;background:#fff;"
     ></iframe>
 
@@ -24,6 +85,7 @@ function openPDF(file, title, docLi = null) {
 
   const iframe = document.getElementById('pdf-frame');
   const overlay = document.getElementById('pdf-overlay');
+  const backBtn = document.getElementById('pdf-back-btn');
 
   // Hide overlay once PDF loads
   iframe.onload = () => {
@@ -52,4 +114,28 @@ if (docLi && docLi.dataset.key) {
   window.history.replaceState({}, '', url);
 }
 
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      const previous = referenceHistory.pop();
+      if (!previous) return;
+      openPDF(previous.file, previous.title, null);
+    });
+  }
+
+  document.querySelectorAll('.task-ref-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const taskId = btn.dataset.task;
+      const currentFrame = document.getElementById('pdf-frame');
+      referenceHistory.push({
+        file: currentFrame ? currentFrame.src : file,
+        title
+      });
+      openPDF(
+        normalizeTaskFilePath(taskIndexData.tasks[taskId].file),
+        `TASK ${taskId}`,
+        null,
+        { fromReference: false, targetTaskId: taskId }
+      );
+    });
+  });
 }

@@ -8,6 +8,18 @@ const resetBtn = document.getElementById('reset-btn');
 const docSelector = document.getElementById('doc-selector');
 const menuBtn = document.getElementById('menu-btn');
 const overlay = document.getElementById('menu-overlay');
+let taskIndexData = null;
+
+async function loadTaskIndex() {
+  try {
+    const response = await fetch('task_index.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Failed to load task index: ${response.status}`);
+    taskIndexData = await response.json();
+  } catch (error) {
+    console.error(error);
+    taskIndexData = null;
+  }
+}
 
 // --------------------- URL Routing ---------------------
 function getUrlParam(name) {
@@ -71,6 +83,7 @@ docSelector.addEventListener('change', () => {
 
 // --------------------- Initialize everything ---------------------
 document.addEventListener('DOMContentLoaded', () => {
+  loadTaskIndex();
   // Load first document
   loadDocument('AMM');
 
