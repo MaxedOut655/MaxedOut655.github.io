@@ -447,3 +447,64 @@ body.mobile #menu-btn {
   font-size: 1em;          /* slightly bigger text */
   border-radius: 6px;      /* optional: keep rounded corners */
 }
+
+#viewer-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#viewer-header-row h2 {
+  margin: 0;
+}
+
+#task-ref-back-btn {
+  border: 1px solid #4f6b8d;
+  background: #27384d;
+  color: #cfe6ff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+#task-ref-back-btn:hover {
+  background: #31506d;
+}
+
+#task-ref-panel {
+  border: 1px solid #3d4b5f;
+  background: #252d39;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.task-ref-title {
+  font-size: 0.85em;
+  color: #9fb3c9;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.task-ref-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.task-ref-link {
+  border: 1px solid #3b7cc2;
+  background: #1c3c5f;
+  color: #cbe7ff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+.task-ref-link:hover {
+  background: #245788;
+}

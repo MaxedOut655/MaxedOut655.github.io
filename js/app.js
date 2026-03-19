@@ -16,12 +16,15 @@ function getUrlParam(name) {
 
 function loadFromURL() {
   const docKey = getUrlParam('doc'); // e.g., ?doc=AMM05-20-00
+  const taskId = getUrlParam('task');
   if (!docKey) return;
 
   const docLi = treeContainer.querySelector(`li[data-key="${docKey}"]`);
   if (docLi) {
     expandPathToDoc(docLi);
-    openPDF(docLi.dataset.file, docLi.dataset.path, docLi);
+    openPDF(docLi.dataset.file, docLi.dataset.path, docLi, {
+      targetTaskId: taskId || ''
+    });
   }
 }
 
@@ -36,6 +39,11 @@ function loadDocument(key) {
   resultsContainer.style.display = 'none';
   resultsContainer.style.opacity = 0;
   viewer.innerHTML = `<h2>Select a document</h2>`;
+
+  if (window.viewerState) {
+    window.viewerState.referenceBackStack = [];
+    window.viewerState.activeContext = null;
+  }
 
   // Create tree
   const treeRoot = createTree(xmlDoc.documentElement);
