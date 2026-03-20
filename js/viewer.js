@@ -133,8 +133,13 @@ function resolveDocByFile(targetFile) {
     };
   }
 
+  const normalizedTarget = normalizeManualPath(targetFile);
+  const absoluteFallback = normalizedTarget
+    ? `https://crj200rvc.github.io/crj200-manual-files/${normalizedTarget}`
+    : targetFile;
+
   return {
-    file: targetFile,
+    file: absoluteFallback,
     title: targetFile,
     docLi: null,
     manualKey: null
