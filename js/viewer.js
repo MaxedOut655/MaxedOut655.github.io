@@ -1,12 +1,28 @@
+// --------------------- Document viewer helpers ---------------------
+function getViewerUrl(file) {
+  if (!/\.xlsx?(?:[?#]|$)/i.test(file)) return file;
+
+  const fileUrl = new URL(file, window.location.href);
+
+  // Excel files served by the external manual repository download in browsers.
+  // Office for the web renders those public files inside this application's iframe.
+  if (fileUrl.origin === window.location.origin) return file;
+
+  return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(fileUrl.href)}`;
+}
+
 // --------------------- openPDF function ---------------------
 function openPDF(file, title, docLi = null) {
+  const viewerUrl = getViewerUrl(file);
+
   // Update the viewer area
   viewer.innerHTML = `
     <h2>${title}</h2>
 
     <iframe
       id="pdf-frame"
-      src="${file}"
+      src="${viewerUrl}"
+      title="${title}"
       style="flex:1;border:none;border-radius:4px;background:#fff;"
     ></iframe>
 
