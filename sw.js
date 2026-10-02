@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `crj200-manual-${CACHE_VERSION}`;
 
 const ASSETS = [
