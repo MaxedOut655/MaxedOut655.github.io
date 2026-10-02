@@ -1,5 +1,6 @@
 let activePdfLoad = null;
 let activePdfObjectUrl = null;
+const PDF_RENDER_SETTLE_DELAY = 1800;
 
 function hidePdfOverlay(overlay) {
   overlay.classList.add('hidden');
@@ -14,7 +15,15 @@ async function preloadPDF(file, iframe, overlay) {
   let pdfAssigned = false;
 
   iframe.onload = () => {
-    if (pdfAssigned) hidePdfOverlay(overlay);
+    if (!pdfAssigned) return;
+
+    // Native PDF viewers report iframe load before their first page has painted.
+    // Keep the loader up through that rendering handoff to avoid a white flash.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTimeout(() => hidePdfOverlay(overlay), PDF_RENDER_SETTLE_DELAY);
+      });
+    });
   };
 
   try {
