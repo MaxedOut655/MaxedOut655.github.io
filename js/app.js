@@ -14,14 +14,49 @@ function getUrlParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
 
+function findDocumentForDoc(docKey) {
+  const keyAttribute = `key="${docKey}"`;
+
+  return Object.entries(documents).find(([, xmlString]) =>
+    xmlString.includes(keyAttribute)
+  )?.[0] || null;
+}
+
+function findDocInTree(docKey) {
+  return Array.from(treeContainer.querySelectorAll('li.doc')).find(
+    docLi => docLi.dataset.key === docKey
+  );
+}
+
 function loadFromURL() {
   const docKey = getUrlParam('doc'); // e.g., ?doc=AMM05-20-00
   if (!docKey) return;
 
-  const docLi = treeContainer.querySelector(`li[data-key="${docKey}"]`);
+  const manualKey = getUrlParam('manual');
+  const requestedManualContainsDoc = manualKey && documents[manualKey]?.includes(`key="${docKey}"`);
+
+  // New shared links include the manual, which also disambiguates document
+  // keys that occur in more than one manual.
+  if (requestedManualContainsDoc && manualKey !== docSelector.value) {
+    docSelector.value = manualKey;
+    loadDocument(manualKey);
+    return;
+  }
+
+  const docLi = findDocInTree(docKey);
   if (docLi) {
     expandPathToDoc(docLi);
     openPDF(docLi.dataset.file, docLi.dataset.path, docLi);
+    return;
+  }
+
+  // Older shared links only include the document key. Find the manual that
+  // contains that key, then render its tree before opening the PDF.
+  const documentKey = findDocumentForDoc(docKey);
+
+  if (documentKey && documentKey !== docSelector.value) {
+    docSelector.value = documentKey;
+    loadDocument(documentKey);
   }
 }
 
