@@ -1,12 +1,76 @@
+let activePdfLoad = null;
+let activePdfObjectUrl = null;
+
+function hidePdfOverlay(overlay) {
+  overlay.classList.add('hidden');
+  setTimeout(() => overlay.remove(), 300);
+}
+
+async function preloadPDF(file, iframe, overlay) {
+  const controller = new AbortController();
+  activePdfLoad = controller;
+  const status = overlay.querySelector('.pdf-loader__detail');
+  const progress = overlay.querySelector('.pdf-loader__progress');
+  let pdfAssigned = false;
+
+  iframe.onload = () => {
+    if (pdfAssigned) hidePdfOverlay(overlay);
+  };
+
+  try {
+    const response = await fetch(file, { signal: controller.signal });
+    if (!response.ok || !response.body) throw new Error(`PDF request failed: ${response.status}`);
+
+    const totalBytes = Number(response.headers.get('content-length'));
+    const reader = response.body.getReader();
+    const chunks = [];
+    let receivedBytes = 0;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      receivedBytes += value.length;
+
+      if (Number.isFinite(totalBytes) && totalBytes > 0) {
+        const percent = Math.min((receivedBytes / totalBytes) * 100, 100);
+        progress.style.setProperty('--pdf-progress', `${percent}%`);
+        status.textContent = `Downloading document · ${Math.round(percent)}%`;
+      } else {
+        status.textContent = `Downloading document · ${(receivedBytes / 1024 / 1024).toFixed(1)} MB`;
+      }
+    }
+
+    if (controller.signal.aborted) return;
+    status.textContent = 'Opening document…';
+    progress.style.setProperty('--pdf-progress', '100%');
+    activePdfObjectUrl = URL.createObjectURL(new Blob(chunks, { type: 'application/pdf' }));
+    pdfAssigned = true;
+    iframe.src = activePdfObjectUrl;
+  } catch (error) {
+    if (controller.signal.aborted) return;
+
+    // Keep PDFs usable if a host does not permit cross-origin preloading.
+    status.textContent = 'Opening document…';
+    pdfAssigned = true;
+    iframe.src = file;
+  }
+}
+
 // --------------------- openPDF function ---------------------
 function openPDF(file, title, docLi = null) {
+  if (activePdfLoad) activePdfLoad.abort();
+  if (activePdfObjectUrl) {
+    URL.revokeObjectURL(activePdfObjectUrl);
+    activePdfObjectUrl = null;
+  }
+
   // Update the viewer area
   viewer.innerHTML = `
     <h2>${title}</h2>
 
     <iframe
       id="pdf-frame"
-      src="${file}"
       style="flex:1;border:none;border-radius:4px;background:#fff;"
     ></iframe>
 
@@ -27,8 +91,9 @@ function openPDF(file, title, docLi = null) {
       </div>
       <div class="pdf-loader__copy">
         <span class="pdf-loader__eyebrow">Preparing document</span>
-        <strong>Loading PDF</strong>
-        <span class="pdf-loader__detail">Just a moment while the viewer gets ready.</span>
+        <strong>Downloading PDF</strong>
+        <span class="pdf-loader__detail">Connecting to document…</span>
+        <span class="pdf-loader__progress" aria-hidden="true"><span></span></span>
       </div>
     </div>
   `;
@@ -36,11 +101,9 @@ function openPDF(file, title, docLi = null) {
   const iframe = document.getElementById('pdf-frame');
   const overlay = document.getElementById('pdf-overlay');
 
-  // Hide overlay once PDF loads
-  iframe.onload = () => {
-    overlay.classList.add('hidden');
-    setTimeout(() => overlay.remove(), 300);
-  };
+  // Download the file before handing it to the browser's PDF viewer so the
+  // branded loading screen remains visible instead of a blank viewer.
+  void preloadPDF(file, iframe, overlay);
 
   // --------------------- Highlight selection ---------------------
   treeContainer.querySelectorAll('li.doc').forEach(d => d.classList.remove('selected'));

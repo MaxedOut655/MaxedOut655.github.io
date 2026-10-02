@@ -221,7 +221,7 @@
     animation: pdf-plane 2.5s cubic-bezier(.42, 0, .3, 1) infinite;
   }
 
-  .pdf-loader__copy { display: grid; gap: 5px; text-align: center; }
+  .pdf-loader__copy { display: grid; gap: 5px; min-width: min(300px, 74vw); text-align: center; }
   .pdf-loader__eyebrow {
     color: #72c7f5;
     font-size: 0.68rem;
@@ -231,6 +231,24 @@
   }
   .pdf-loader__copy strong { color: #f1f8ff; font-size: 1.05rem; letter-spacing: 0.01em; }
   .pdf-loader__detail { color: #91a7ba; font-size: 0.78rem; }
+  .pdf-loader__progress {
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin-top: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(148, 188, 215, 0.16);
+  }
+  .pdf-loader__progress span {
+    display: block;
+    width: var(--pdf-progress, 12%);
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #55bdf3, #c6efff);
+    box-shadow: 0 0 10px rgba(108, 205, 255, 0.8);
+    transition: width 0.18s ease;
+  }
 
   @keyframes pdf-wind {
     from { transform: translateX(0); opacity: 0; }
