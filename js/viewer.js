@@ -38,18 +38,11 @@ function openPDF(file, title, docLi = null) {
   markParentFolders(docLi); // open parent folders
 
   // --------------------- Update URL for routing ---------------------
-  if (docLi) {
-    const url = new URL(window.location); // current URL
-    const key = docLi.dataset.path.split(' > ').pop(); // last part of path = doc key
-    url.searchParams.set('doc', key); // set ?doc=...
-    window.history.replaceState({}, '', url); // update browser URL without reload
+  if (docLi && docLi.dataset.key) {
+    const url = new URL(window.location);
+    url.searchParams.set('doc', docLi.dataset.key);
+    url.searchParams.set('manual', document.getElementById('doc-selector').value);
+    window.history.replaceState({}, '', url);
   }
-
-  // ✅ Update URL using the document key
-if (docLi && docLi.dataset.key) {
-  const url = new URL(window.location);
-  url.searchParams.set('doc', docLi.dataset.key);
-  window.history.replaceState({}, '', url);
-}
 
 }
