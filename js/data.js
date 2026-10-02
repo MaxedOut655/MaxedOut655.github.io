@@ -6326,64 +6326,64 @@ const documents = {
   AIPC: `<?xml version="1.0"?>
   <toc key="AIPC" series="CRJ200" title="Aircraft Illustrated Parts Catalog" rev="45" date="20120810">
   <folder key="LOETR" type="loetr" title="List of Effective TRs" file="loetr.html">
-    <doc type="tr" trnum="TR11-0125" trdate="Jul 17/2012" title="[TR11-0125] FIG AIPC11-30-01-01C - INTERIOR PLACARDS AND MARKINGS - FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR11-0125.pdf.pdf" refloc="AIPC11-30-01-01C"/>
-    <doc type="tr" trnum="TR25-0280" trdate="Jul 26/2012" title="[TR25-0280] FIG AIPC25-52-00-10P - BAGGAGE COMPARTMENT LINING INSTALLATION (UNIVERSAL CONFIGURATION)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR25-0280.pdf.pdf" refloc="AIPC25-52-00-10P"/>
-    <doc type="tr" trnum="TR25-0281" trdate="Jul 26/2012" title="[TR25-0281] FIG AIPC25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR25-0281.pdf.pdf" refloc="AIPC25-52-00-10G">
+    <doc type="tr" trnum="TR11-0125" trdate="Jul 17/2012" title="[TR11-0125] FIG AIPC11-30-01-01C - INTERIOR PLACARDS AND MARKINGS - FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR11-0125.pdf" refloc="AIPC11-30-01-01C"/>
+    <doc type="tr" trnum="TR25-0280" trdate="Jul 26/2012" title="[TR25-0280] FIG AIPC25-52-00-10P - BAGGAGE COMPARTMENT LINING INSTALLATION (UNIVERSAL CONFIGURATION)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR25-0280.pdf" refloc="AIPC25-52-00-10P"/>
+    <doc type="tr" trnum="TR25-0281" trdate="Jul 26/2012" title="[TR25-0281] FIG AIPC25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR25-0281.pdf" refloc="AIPC25-52-00-10G">
       <folder type="history" title="History of AIPC25-52-00-10G">
-        <doc title="FIG 25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC25-52-00-10G.pdf.pdf" type="history" refloc="AIPC25-52-00-10G"/>
+        <doc title="FIG 25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10G.pdf" type="history" refloc="AIPC25-52-00-10G"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR25-0282" trdate="Aug 09/2012" title="[TR25-0282] FIG AIPC25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR25-0282.pdf.pdf" refloc="AIPC25-24-00-01J">
+    <doc type="tr" trnum="TR25-0282" trdate="Aug 09/2012" title="[TR25-0282] FIG AIPC25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR25-0282.pdf" refloc="AIPC25-24-00-01J">
       <folder type="history" title="History of AIPC25-24-00-01J">
-        <doc title="FIG 25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC25-24-00-01J.pdf.pdf" type="history" refloc="AIPC25-24-00-01J"/>
+        <doc title="FIG 25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-24-00-01J.pdf" type="history" refloc="AIPC25-24-00-01J"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR27-0088" trdate="Jun 21/2012" title="[TR27-0088] FIG AIPC27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR27-0088.pdf.pdf" refloc="AIPC27-42-01-01">
+    <doc type="tr" trnum="TR27-0088" trdate="Jun 21/2012" title="[TR27-0088] FIG AIPC27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR27-0088.pdf" refloc="AIPC27-42-01-01">
       <folder type="history" title="History of AIPC27-42-01-01">
-        <doc title="FIG 27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC27-42-01-01.pdf.pdf" type="history" refloc="AIPC27-42-01-01"/>
+        <doc title="FIG 27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-42-01-01.pdf" type="history" refloc="AIPC27-42-01-01"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR27-0090" trdate="Aug 10/2012" title="[TR27-0090] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR27-0090.pdf.pdf" refloc="AIPC27-35-00-01">
+    <doc type="tr" trnum="TR27-0090" trdate="Aug 10/2012" title="[TR27-0090] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR27-0090.pdf" refloc="AIPC27-35-00-01">
       <folder type="history" title="History of AIPC27-35-00-01">
-        <doc type="history" trnum="TR27-0089" trdate="Aug 09/2012" title="[TR27-0089] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR27-0089.pdf.pdf" refloc="AIPC27-35-00-01"/>
-        <doc title="FIG 27-35-00-01 - STALL   PROTECTION COMPONENTS  (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC27-35-00-01.pdf.pdf" type="history" refloc="AIPC27-35-00-01"/>
+        <doc type="history" trnum="TR27-0089" trdate="Aug 09/2012" title="[TR27-0089] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR27-0089.pdf" refloc="AIPC27-35-00-01"/>
+        <doc title="FIG 27-35-00-01 - STALL   PROTECTION COMPONENTS  (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-35-00-01.pdf" type="history" refloc="AIPC27-35-00-01"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR33-0089" trdate="Jul 16/2012" title="[TR33-0089] FIG AIPC33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR33-0089.pdf.pdf" refloc="AIPC33-21-04-01F">
+    <doc type="tr" trnum="TR33-0089" trdate="Jul 16/2012" title="[TR33-0089] FIG AIPC33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR33-0089.pdf" refloc="AIPC33-21-04-01F">
       <folder type="history" title="History of AIPC33-21-04-01F">
-        <doc title="FIG 33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC33-21-04-01F.pdf.pdf" type="history" refloc="AIPC33-21-04-01F"/>
+        <doc title="FIG 33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC33-21-04-01F.pdf" type="history" refloc="AIPC33-21-04-01F"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR52-0099" trdate="Jul 25/2012" title="[TR52-0099] FIG AIPC52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR52-0099.pdf.pdf" refloc="AIPC52-11-03-15">
+    <doc type="tr" trnum="TR52-0099" trdate="Jul 25/2012" title="[TR52-0099] FIG AIPC52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR52-0099.pdf" refloc="AIPC52-11-03-15">
       <folder type="history" title="History of AIPC52-11-03-15">
-        <doc title="FIG 52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC52-11-03-15.pdf.pdf" type="history" refloc="AIPC52-11-03-15"/>
+        <doc title="FIG 52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC52-11-03-15.pdf" type="history" refloc="AIPC52-11-03-15"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR71-0019" trdate="Jul 03/2012" title="[TR71-0019] FIG AIPC71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR71-0019.pdf.pdf" refloc="AIPC71-11-01-01">
+    <doc type="tr" trnum="TR71-0019" trdate="Jul 03/2012" title="[TR71-0019] FIG AIPC71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR71-0019.pdf" refloc="AIPC71-11-01-01">
       <folder type="history" title="History of AIPC71-11-01-01">
-        <doc title="FIG 71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC71-11-01-01.pdf.pdf" type="history" refloc="AIPC71-11-01-01"/>
+        <doc title="FIG 71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC71-11-01-01.pdf" type="history" refloc="AIPC71-11-01-01"/>
       </folder>
     </doc>
   </folder>
   <folder key="AIPC00-00" title="Front Matter">
-    <doc key="AIPC00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf"/>
-    <doc key="AIPC00-02" title="Manual Change Request" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf"/>
-    <doc key="AIPC00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf"/>
-    <doc key="AIPC00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ROTR.pdf.pdf"/>
-    <doc key="AIPC00-05" title="List of Chapters" file="https://crj200rvc.github.io/crj200-manual-files/amm/LOC.pdf.pdf"/>
+    <doc key="AIPC00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TRANSLTR.pdf"/>
+    <doc key="AIPC00-02" title="Manual Change Request" file="https://crj200rvc.github.io/crj200-manual-files/aipc/USERCOMM.pdf"/>
+    <doc key="AIPC00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/aipc/RECOFREV.pdf"/>
+    <doc key="AIPC00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/aipc/ROTR.pdf"/>
+    <doc key="AIPC00-05" title="List of Chapters" file="https://crj200rvc.github.io/crj200-manual-files/aipc/LOC.pdf"/>
   </folder>
   <folder key="AIPC00-06" title="Introduction">
-    <doc key="AIPC00-07" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/ILEP.pdf.pdf"/>
-    <doc key="AIPC00-08" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf"/>
-    <doc key="AIPC00-09" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf"/>
+    <doc key="AIPC00-07" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/aipc/ILEP.pdf"/>
+    <doc key="AIPC00-08" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/aipc/ITOC.pdf"/>
+    <doc key="AIPC00-09" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/aipc/INTRO.pdf"/>
   </folder>
-  <doc key="AIPC00-10" title="Vendor Index" file="https://crj200rvc.github.io/crj200-manual-files/amm/VENDOR.pdf.pdf"/>
-  <doc key="AIPC00-11" title="Numeric Index" file="https://crj200rvc.github.io/crj200-manual-files/amm/NUM.pdf.pdf"/>
-  <doc key="AIPC00-12" title="Alpha Index" file="https://crj200rvc.github.io/crj200-manual-files/amm/ALPHA.pdf.pdf"/>
+  <doc key="AIPC00-10" title="Vendor Index" file="https://crj200rvc.github.io/crj200-manual-files/aipc/VENDOR.pdf"/>
+  <doc key="AIPC00-11" title="Numeric Index" file="https://crj200rvc.github.io/crj200-manual-files/aipc/NUM.pdf"/>
+  <doc key="AIPC00-12" title="Alpha Index" file="https://crj200rvc.github.io/crj200-manual-files/aipc/ALPHA.pdf"/>
   <folder key="AIPC11" title="CH 11 - PLACARDS AND MARKINGS">
     <folder key="AIPC11-FM" title="Front Matter">
-      <doc key="CLEP-11" title="List of Effective Figures" file="https://crj200rvc.github.io/crj200-manual-files/amm/CLEP-11.pdf"/>
-      <doc key="CTOC-11" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/CTOC-11.pdf"/>
+      <doc key="CLEP-11" title="List of Effective Figures" file="https://crj200rvc.github.io/crj200-manual-files/aipc/CLEP-11.pdf"/>
+      <doc key="CTOC-11" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/aipc/CTOC-11.pdf"/>
     </folder>
     <folder key="AIPC11-00" title="Section 00 - PLACARDS AND MARKINGS">
       <folder key="AIPC11-00-00" title="11-00-00 - PLACARDS AND MARKINGS">
@@ -6635,7 +6635,7 @@ const documents = {
       <folder key="AIPC11-30-01" title="11-30-01 - INTERIOR PLACARDS AND MARKINGS">
         <doc key="AIPC11-30-01-01A" title="FIG 11-30-01-01A - INTERIOR PLACARDS AND MARKINGS - FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC11-30-01-01A.pdf"/>
         <doc key="AIPC11-30-01-01B" title="FIG 11-30-01-01B - INTERIOR PLACARDS AND MARKINGS-FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC11-30-01-01B.pdf"/>
-        <doc type="tr" key="AIPC11-30-01-01C" trnum="TR11-0125" trdate="Jul 17/2012" title="[TR11-0125] FIG AIPC11-30-01-01C - INTERIOR PLACARDS AND MARKINGS - FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR11-0125.pdf.pdf"/>
+        <doc type="tr" key="AIPC11-30-01-01C" trnum="TR11-0125" trdate="Jul 17/2012" title="[TR11-0125] FIG AIPC11-30-01-01C - INTERIOR PLACARDS AND MARKINGS - FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR11-0125.pdf"/>
         <doc key="AIPC11-30-01-01E" title="FIG 11-30-01-01E - INTERIOR PLACARDS AND MARKINGS-FLIGHT COMPARTMENT" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC11-30-01-01E.pdf"/>
         <doc key="AIPC11-30-01-05A" title="FIG 11-30-01-05A - AIRSPEED LIMITATION PLACARD" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC11-30-01-05A.pdf"/>
         <doc key="AIPC11-30-01-05B" title="FIG 11-30-01-05B - AIRSPEED LIMITATION PLACARD" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC11-30-01-05B.pdf"/>
@@ -7797,7 +7797,7 @@ const documents = {
         <doc key="AIPC25-24-00-01H" title="FIG 25-24-00-01H - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-24-00-01H.pdf"/>
         <doc type="tr" key="AIPC25-24-00-01J" trnum="TR25-0282" trdate="Aug 09/2012" title="[TR25-0282] FIG AIPC25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-24-00-01J.pdf">
           <folder type="history" title="History of AIPC25-24-00-01J">
-            <doc title="FIG 25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC25-24-00-01J.pdf.pdf" type="history" refloc="AIPC25-24-00-01J"/>
+            <doc title="FIG 25-24-00-01J - WARDROBE UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-24-00-01J.pdf" type="history" refloc="AIPC25-24-00-01J"/>
           </folder>
         </doc>
         <doc key="AIPC25-24-00-01K" title="FIG 25-24-00-01K - WARDROBE  UNIT INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-24-00-01K.pdf"/>
@@ -8466,7 +8466,7 @@ const documents = {
         <doc key="AIPC25-52-00-10F" title="FIG 25-52-00-10F - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10F.pdf"/>
         <doc type="tr" key="AIPC25-52-00-10G" trnum="TR25-0281" trdate="Jul 26/2012" title="[TR25-0281] FIG AIPC25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10G.pdf">
           <folder type="history" title="History of AIPC25-52-00-10G">
-            <doc title="FIG 25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC25-52-00-10G.pdf.pdf" type="history" refloc="AIPC25-52-00-10G"/>
+            <doc title="FIG 25-52-00-10G - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10G.pdf" type="history" refloc="AIPC25-52-00-10G"/>
           </folder>
         </doc>
         <doc key="AIPC25-52-00-10H" title="FIG 25-52-00-10H - BAGGAGE COMPARTMENT LINING INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10H.pdf"/>
@@ -8475,7 +8475,7 @@ const documents = {
         <doc key="AIPC25-52-00-10L" title="FIG 25-52-00-10L - BAGGAGE COMPARTMENT LINING INSTALLATION (NORTH AMERICAN WITH LOAD DIVIDER)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10L.pdf"/>
         <doc key="AIPC25-52-00-10M" title="FIG 25-52-00-10M - BAGGAGE COMPARTMENT LINING INSTALLATION (NORTH AMERICAN WITHOUT LOAD DIVIDERS)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10M.pdf"/>
         <doc key="AIPC25-52-00-10N" title="FIG 25-52-00-10N - BAGGAGE COMPARTMENT LINING INSTALLATION (EUROPEAN WING LOAD DIV)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-10N.pdf"/>
-        <doc type="tr" key="AIPC25-52-00-10P" trnum="TR25-0280" trdate="Jul 26/2012" title="[TR25-0280] FIG AIPC25-52-00-10P - BAGGAGE COMPARTMENT LINING INSTALLATION (UNIVERSAL CONFIGURATION)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR25-0280.pdf.pdf"/>
+        <doc type="tr" key="AIPC25-52-00-10P" trnum="TR25-0280" trdate="Jul 26/2012" title="[TR25-0280] FIG AIPC25-52-00-10P - BAGGAGE COMPARTMENT LINING INSTALLATION (UNIVERSAL CONFIGURATION)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR25-0280.pdf"/>
         <doc key="AIPC25-52-00-15" title="FIG 25-52-00-15 - BAGGAGE COMPARTMENT LINING  INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC25-52-00-15.pdf"/>
       </folder>
     </folder>
@@ -8931,8 +8931,8 @@ const documents = {
       <folder key="AIPC27-35-00" title="27-35-00 - STALL PROTECTION SYSTEM">
         <doc type="tr" key="AIPC27-35-00-01" trnum="TR27-0090" trdate="Aug 10/2012" title="[TR27-0090] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-35-00-01.pdf">
           <folder type="history" title="History of AIPC27-35-00-01">
-            <doc type="history" trnum="TR27-0089" trdate="Aug 09/2012" title="[TR27-0089] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR27-0089.pdf.pdf" refloc="AIPC27-35-00-01"/>
-            <doc title="FIG 27-35-00-01 - STALL   PROTECTION COMPONENTS  (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC27-35-00-01.pdf.pdf" type="history" refloc="AIPC27-35-00-01"/>
+            <doc type="history" trnum="TR27-0089" trdate="Aug 09/2012" title="[TR27-0089] FIG AIPC27-35-00-01 - STALL PROTECTION COMPONENTS (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/TR27-0089.pdf" refloc="AIPC27-35-00-01"/>
+            <doc title="FIG 27-35-00-01 - STALL   PROTECTION COMPONENTS  (INDICATING SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-35-00-01.pdf" type="history" refloc="AIPC27-35-00-01"/>
           </folder>
         </doc>
         <doc key="AIPC27-35-00-05" title="FIG 27-35-00-05 - STALL   PROTECTION COMPONENTS  (STICK PUSHER SYSTEM)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-35-00-05.pdf"/>
@@ -8947,7 +8947,7 @@ const documents = {
       <folder key="AIPC27-42-01" title="27-42-01 - HORIZONTAL STABILIZER TRIM ACTUATING SYSTEM">
         <doc type="tr" key="AIPC27-42-01-01" trnum="TR27-0088" trdate="Jun 21/2012" title="[TR27-0088] FIG AIPC27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-42-01-01.pdf">
           <folder type="history" title="History of AIPC27-42-01-01">
-            <doc title="FIG 27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC27-42-01-01.pdf.pdf" type="history" refloc="AIPC27-42-01-01"/>
+            <doc title="FIG 27-42-01-01 - HORIZONTAL STABILIZER TRIM ACTUATOR" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC27-42-01-01.pdf" type="history" refloc="AIPC27-42-01-01"/>
           </folder>
         </doc>
       </folder>
@@ -9793,7 +9793,7 @@ const documents = {
         <doc key="AIPC33-21-04-01E" title="FIG 33-21-04-01E - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC33-21-04-01E.pdf"/>
         <doc type="tr" key="AIPC33-21-04-01F" trnum="TR33-0089" trdate="Jul 16/2012" title="[TR33-0089] FIG AIPC33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC33-21-04-01F.pdf">
           <folder type="history" title="History of AIPC33-21-04-01F">
-            <doc title="FIG 33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC33-21-04-01F.pdf.pdf" type="history" refloc="AIPC33-21-04-01F"/>
+            <doc title="FIG 33-21-04-01F - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC33-21-04-01F.pdf" type="history" refloc="AIPC33-21-04-01F"/>
           </folder>
         </doc>
         <doc key="AIPC33-21-04-01G" title="FIG 33-21-04-01G - POWER UNITS AND RELAYS" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC33-21-04-01G.pdf"/>
@@ -10843,7 +10843,7 @@ const documents = {
         <doc key="AIPC52-11-03-10" title="FIG 52-11-03-10 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC52-11-03-10.pdf"/>
         <doc type="tr" key="AIPC52-11-03-15" trnum="TR52-0099" trdate="Jul 25/2012" title="[TR52-0099] FIG AIPC52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC52-11-03-15.pdf">
           <folder type="history" title="History of AIPC52-11-03-15">
-            <doc title="FIG 52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC52-11-03-15.pdf.pdf" type="history" refloc="AIPC52-11-03-15"/>
+            <doc title="FIG 52-11-03-15 - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC52-11-03-15.pdf" type="history" refloc="AIPC52-11-03-15"/>
           </folder>
         </doc>
         <doc key="AIPC52-11-03-15A" title="FIG 52-11-03-15A - PASSENGER DOOR HANDLE INSTALLATION" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC52-11-03-15A.pdf"/>
@@ -11447,7 +11447,7 @@ const documents = {
       <folder key="AIPC71-11-01" title="71-11-01 - TRANSLATING COWL DOOR">
         <doc type="tr" key="AIPC71-11-01-01" trnum="TR71-0019" trdate="Jul 03/2012" title="[TR71-0019] FIG AIPC71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC71-11-01-01.pdf">
           <folder type="history" title="History of AIPC71-11-01-01">
-            <doc title="FIG 71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/amm/AIPC71-11-01-01.pdf.pdf" type="history" refloc="AIPC71-11-01-01"/>
+            <doc title="FIG 71-11-01-01 - TRANSLATING COWL DOOR INSTALLATION (UPPER)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC71-11-01-01.pdf" type="history" refloc="AIPC71-11-01-01"/>
           </folder>
         </doc>
         <doc key="AIPC71-11-01-05" title="FIG 71-11-01-05 - TRANSLATING COWL DOOR INSTALLATION (LOWER)" file="https://crj200rvc.github.io/crj200-manual-files/aipc/AIPC71-11-01-05.pdf"/>
@@ -11624,8 +11624,8 @@ const documents = {
   </folder>
   <folder key="AIPC75" title="CH 75 - AIR">
     <folder key="AIPC75-FM" title="Front Matter">
-      <doc key="CLEP-75" title="List of Effective Figures" file="https://crj200rvc.github.io/crj200-manual-files/amm/CLEP-75.pdf"/>
-      <doc key="CTOC-75" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/CTOC-75.pdf"/>
+      <doc key="CLEP-75" title="List of Effective Figures" file="https://crj200rvc.github.io/crj200-manual-files/aipc/CLEP-75.pdf"/>
+      <doc key="CTOC-75" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/aipc/CTOC-75.pdf"/>
     </folder>
     <folder key="AIPC75-20" title="Section 20 - SEAL PRESSURIZING SYSTEM">
       <folder key="AIPC75-20-01" title="75-20-01 - SEAL PRESSURIZING SYSTEM">
@@ -11837,16 +11837,16 @@ const documents = {
   CMM: `<?xml version="1.0"?>
 <toc key="CMM" series="CRJ200" title="Component Maintenance Manual" rev="6" date="20120710">
 <folder key="IFM00-00" title="Front Matter">
-<doc key="CMM00-02" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf"/>
-<doc key="CMM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf"/>
-<doc key="CMM00-04" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf"/>
-<doc key="CMM00-05" title="List of Effective Bombardier CMMs by P/N" file="https://crj200rvc.github.io/crj200-manual-files/amm/CRJ-LECMM-PARTNUM.pdf.pdf"/>
-<doc key="CMM00-06" title="List of Effective Bombardier CMMs by ATA P/N" file="https://crj200rvc.github.io/crj200-manual-files/amm/CRJ-LECMM-ATA-PARTNUM.pdf.pdf"/>
+<doc key="CMM00-02" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/cmm/TRANSLTR.pdf"/>
+<doc key="CMM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/cmm/RECOFREV.pdf"/>
+<doc key="CMM00-04" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/cmm/USERCOMM.pdf"/>
+<doc key="CMM00-05" title="List of Effective Bombardier CMMs by P/N" file="https://crj200rvc.github.io/crj200-manual-files/cmm/CRJ-LECMM-PARTNUM.pdf"/>
+<doc key="CMM00-06" title="List of Effective Bombardier CMMs by ATA P/N" file="https://crj200rvc.github.io/crj200-manual-files/cmm/CRJ-LECMM-ATA-PARTNUM.pdf"/>
 </folder>
 <folder key="IFM00-10" title="Introduction">
-<doc key="CMM00-011" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/MLEP.pdf.pdf"/>
-<doc key="CMM00-012" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTOC.pdf.pdf"/>
-<doc key="CMM00-013" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf"/>
+<doc key="CMM00-011" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/cmm/MLEP.pdf"/>
+<doc key="CMM00-012" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/cmm/MTOC.pdf"/>
+<doc key="CMM00-013" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/cmm/INTRO.pdf"/>
 </folder>
 <folder key="CMM21-20-01" title="CMM21-20-01 AIR-CONDITIONING SUPPLY DUCT, LHS - COMPOSITE ASSEMBLY Part Number 601R95211-1, -71, -85">
 <folder key="CMM21-20-01-FM" title="Front Matter">
@@ -15109,15 +15109,15 @@ const documents = {
   ESPM: `<?xml version="1.0"?>
 <toc key="ESPM" series="CRJ200" title="Electrical/Electronic Components - Standard Practices Manual" rev="41" date="20120910">
 <folder key="ESPM00-00" title="Front Matter">
-<doc key="ESPM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf"/>
-<doc key="ESPM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf"/>
-<doc key="ESPM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf"/>
-<doc key="ESPM00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ROTR.pdf.pdf"/>
+<doc key="ESPM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/espm/TRANSLTR.pdf"/>
+<doc key="ESPM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/espm/USERCOMM.pdf"/>
+<doc key="ESPM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/espm/RECOFREV.pdf"/>
+<doc key="ESPM00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/espm/ROTR.pdf"/>
 </folder>
-<folder key="ESPM00-05" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf">
-<doc key="ESPM00-06" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/ILEP.pdf.pdf"/>
-<doc key="ESPM00-07" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf"/>
-<doc key="ESPM00-08" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf"/>
+<folder key="ESPM00-05" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/espm/ITOC.pdf">
+<doc key="ESPM00-06" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/espm/ILEP.pdf"/>
+<doc key="ESPM00-07" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/espm/ITOC.pdf"/>
+<doc key="ESPM00-08" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/espm/INTRO.pdf"/>
 </folder>
 <folder key="ESPM20" title="CH 20 - AIRFRAME STANDARD PRACTICES">
 <folder key="ESPM20-FM" title="Front Matter">
@@ -15125,69 +15125,69 @@ const documents = {
 <doc key="CTOC-20" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/espm/CTOC-20.pdf"/>
 </folder>
 <folder key="ESPM20-00" title="20-00 - STANDARD PRACTICES">
-<doc key="ESPM20-00-00" title="20-00-00 - Standard Practices - Description and Operation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-00-00.pdf.pdf"/>
+<doc key="ESPM20-00-00" title="20-00-00 - Standard Practices - Description and Operation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-00-00.pdf"/>
 </folder>
 <folder key="ESPM20-10" title="20-10 - WIRE IDENTIFICATION">
-<doc key="ESPM20-10-00" title="20-10-00 - Wire Identification - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-10-00.pdf.pdf"/>
+<doc key="ESPM20-10-00" title="20-10-00 - Wire Identification - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-10-00.pdf"/>
 </folder>
 <folder key="ESPM20-11" title="20-11 - WIRE STRIPPING/SOLDERING">
-<doc key="ESPM20-11-00" title="20-11-00 - Wire Stripping and Wire/Cable Damage Repair - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-11-00.pdf.pdf"/>
-<doc key="ESPM20-11-10" title="20-11-10 - Tinning and Soldering - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-11-10.pdf.pdf"/>
+<doc key="ESPM20-11-00" title="20-11-00 - Wire Stripping and Wire/Cable Damage Repair - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-11-00.pdf"/>
+<doc key="ESPM20-11-10" title="20-11-10 - Tinning and Soldering - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-11-10.pdf"/>
 </folder>
 <folder key="ESPM20-12" title="20-12 - WIRING">
-<doc key="ESPM20-12-00" title="20-12-00 - Wiring - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-12-00.pdf.pdf"/>
-<doc key="ESPM20-12-01" title="20-12-01 - Electrical Wiring - Continuity Testing" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-12-01.pdf.pdf"/>
+<doc key="ESPM20-12-00" title="20-12-00 - Wiring - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-12-00.pdf"/>
+<doc key="ESPM20-12-01" title="20-12-01 - Electrical Wiring - Continuity Testing" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-12-01.pdf"/>
 </folder>
 <folder key="ESPM20-13" title="20-13 - FLEXIBLE CONDUIT">
-<doc key="ESPM20-13-00" title="20-13-00 - Flexible Conduit - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-13-00.pdf.pdf"/>
+<doc key="ESPM20-13-00" title="20-13-00 - Flexible Conduit - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-13-00.pdf"/>
 </folder>
 <folder key="ESPM20-14" title="20-14 - CONVOLEX TUBING">
-<doc key="ESPM20-14-00" title="20-14-00 - Convolex Tubing/Conduit - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-14-00.pdf.pdf"/>
+<doc key="ESPM20-14-00" title="20-14-00 - Convolex Tubing/Conduit - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-14-00.pdf"/>
 </folder>
 <folder key="ESPM20-15" title="20-15 - SHIELDING">
-<doc key="ESPM20-15-00" title="20-15-00 - Shielding - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-15-00.pdf.pdf"/>
+<doc key="ESPM20-15-00" title="20-15-00 - Shielding - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-15-00.pdf"/>
 </folder>
 <folder key="ESPM20-16" title="20-16 - WIRE SPLICING">
-<doc key="ESPM20-16-00" title="20-16-00 - Crimp Wire Splicing - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-16-00.pdf.pdf"/>
-<doc key="ESPM20-16-10" title="20-16-10 - Solder Sleeve Wire Splicing - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-16-10.pdf.pdf"/>
+<doc key="ESPM20-16-00" title="20-16-00 - Crimp Wire Splicing - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-16-00.pdf"/>
+<doc key="ESPM20-16-10" title="20-16-10 - Solder Sleeve Wire Splicing - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-16-10.pdf"/>
 </folder>
 <folder key="ESPM20-17" title="20-17 - CONNECTORS">
-<doc key="ESPM20-17-00" title="20-17-00 - Electrical Connectors - Description and Operation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-00.pdf.pdf"/>
-<doc key="ESPM20-17-10" title="20-17-10 - Electrical Connectors - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-10.pdf.pdf"/>
-<doc key="ESPM20-17-11" title="20-17-11 - Fire and Overheat Detection Element Connectors - Removal and Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-11.pdf.pdf"/>
-<doc key="ESPM20-17-20" title="20-17-20 - Bendix Connectors, JT/LJT/SJT - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-20.pdf.pdf"/>
-<doc key="ESPM20-17-30" title="20-17-30 - Bendix Connectors, PTCE - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-30.pdf.pdf"/>
-<doc key="ESPM20-17-40" title="20-17-40 - Connectors, M83723 - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-40.pdf.pdf"/>
-<doc key="ESPM20-17-50" title="20-17-50 - Connectors, MS24266 and Bendix Pygmy Type SE - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-50.pdf.pdf"/>
-<doc key="ESPM20-17-51" title="20-17-51 - Connectors, Amp Sealed Circular Plastic (CPC), Series I - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-51.pdf.pdf"/>
-<doc key="ESPM20-17-60" title="20-17-60 - ARINC 600 Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-60.pdf.pdf"/>
-<doc key="ESPM20-17-70" title="20-17-70 - ARINC 404A Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-70.pdf.pdf"/>
-<doc key="ESPM20-17-75" title="20-17-75 - Hexashield Backshell - Right Angle - HEXDB-AC-90-A9-1" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-75.pdf.pdf"/>
-<doc key="ESPM20-17-80" title="20-17-80 - MIL-C-38999 Series III Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-80.pdf.pdf"/>
-<doc key="ESPM20-17-81" title="20-17-81 - Fuel Tank Receptacle Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-81.pdf.pdf"/>
-<doc key="ESPM20-17-90" title="20-17-90 - Assembly of Coaxial Cables to Radio Frequency Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-17-90.pdf.pdf"/>
+<doc key="ESPM20-17-00" title="20-17-00 - Electrical Connectors - Description and Operation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-00.pdf"/>
+<doc key="ESPM20-17-10" title="20-17-10 - Electrical Connectors - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-10.pdf"/>
+<doc key="ESPM20-17-11" title="20-17-11 - Fire and Overheat Detection Element Connectors - Removal and Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-11.pdf"/>
+<doc key="ESPM20-17-20" title="20-17-20 - Bendix Connectors, JT/LJT/SJT - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-20.pdf"/>
+<doc key="ESPM20-17-30" title="20-17-30 - Bendix Connectors, PTCE - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-30.pdf"/>
+<doc key="ESPM20-17-40" title="20-17-40 - Connectors, M83723 - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-40.pdf"/>
+<doc key="ESPM20-17-50" title="20-17-50 - Connectors, MS24266 and Bendix Pygmy Type SE - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-50.pdf"/>
+<doc key="ESPM20-17-51" title="20-17-51 - Connectors, Amp Sealed Circular Plastic (CPC), Series I - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-51.pdf"/>
+<doc key="ESPM20-17-60" title="20-17-60 - ARINC 600 Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-60.pdf"/>
+<doc key="ESPM20-17-70" title="20-17-70 - ARINC 404A Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-70.pdf"/>
+<doc key="ESPM20-17-75" title="20-17-75 - Hexashield Backshell - Right Angle - HEXDB-AC-90-A9-1" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-75.pdf"/>
+<doc key="ESPM20-17-80" title="20-17-80 - MIL-C-38999 Series III Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-80.pdf"/>
+<doc key="ESPM20-17-81" title="20-17-81 - Fuel Tank Receptacle Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-81.pdf"/>
+<doc key="ESPM20-17-90" title="20-17-90 - Assembly of Coaxial Cables to Radio Frequency Connectors - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-17-90.pdf"/>
 </folder>
 <folder key="ESPM20-18" title="20-18 - TERMINAL MODULES">
-<doc key="ESPM20-18-00" title="20-18-00 - Terminal Junction Module, MIL-T-81714 - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-18-00.pdf.pdf"/>
-<doc key="ESPM20-18-10" title="20-18-10 - Terminal Block Modules - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-18-10.pdf.pdf"/>
+<doc key="ESPM20-18-00" title="20-18-00 - Terminal Junction Module, MIL-T-81714 - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-18-00.pdf"/>
+<doc key="ESPM20-18-10" title="20-18-10 - Terminal Block Modules - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-18-10.pdf"/>
 </folder>
 <folder key="ESPM20-19" title="20-19 - SEALANTS">
-<doc key="ESPM20-19-00" title="20-19-00 - Humiseal - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-19-00.pdf.pdf"/>
+<doc key="ESPM20-19-00" title="20-19-00 - Humiseal - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-19-00.pdf"/>
 </folder>
 <folder key="ESPM20-20" title="20-20 - TERMINAL LUGS">
-<doc key="ESPM20-20-00" title="20-20-00 - Terminal Lugs - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-20-00.pdf.pdf"/>
+<doc key="ESPM20-20-00" title="20-20-00 - Terminal Lugs - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-20-00.pdf"/>
 </folder>
 <folder key="ESPM20-21" title="20-21 - FIBER OPTICS">
-<doc key="ESPM20-21-00" title="20-21-00 - Fiber Optics - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-21-00.pdf.pdf"/>
+<doc key="ESPM20-21-00" title="20-21-00 - Fiber Optics - Maintenance Practices" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-21-00.pdf"/>
 </folder>
 <folder key="ESPM20-22" title="20-22 - RELAYS">
-<doc key="ESPM20-22-00" title="20-22-00 - Relays - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-22-00.pdf.pdf"/>
+<doc key="ESPM20-22-00" title="20-22-00 - Relays - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-22-00.pdf"/>
 </folder>
 <folder key="ESPM20-23" title="20-23 - CIRCUIT BREAKERS">
-<doc key="ESPM20-23-00" title="20-23-00 - Circuit Breakers - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-23-00.pdf.pdf"/>
+<doc key="ESPM20-23-00" title="20-23-00 - Circuit Breakers - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-23-00.pdf"/>
 </folder>
 <folder key="ESPM20-24" title="20-24 - PUSHBUTTON ANNUNCIATOR (PBA) SWITCHES">
-<doc key="ESPM20-24-00" title="20-24-00 - Pushbutton Annunciator (PBA) Switches - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM20-24-00.pdf.pdf"/>
+<doc key="ESPM20-24-00" title="20-24-00 - Pushbutton Annunciator (PBA) Switches - Removal/Installation" file="https://crj200rvc.github.io/crj200-manual-files/espm/WM20-24-00.pdf"/>
 </folder>
 </folder>
 </toc>`,
@@ -15195,17 +15195,17 @@ const documents = {
   FIM: `<?xml version="1.0" encoding="UTF-8"?>
 <toc key="FIM" series="CRJ200" title="Fault Isolation Manual" rev="44" date="20120810">
 <folder key="FIM00-00" title="Front Matter">
-<doc key="FIM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf" />
-<doc key="FIM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf" />
-<doc key="FIM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf" />
-<doc key="FIM00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ROTR.pdf.pdf" />
+<doc key="FIM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/fim/TRANSLTR.pdf" />
+<doc key="FIM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/fim/USERCOMM.pdf" />
+<doc key="FIM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/fim/RECOFREV.pdf" />
+<doc key="FIM00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/fim/ROTR.pdf" />
 </folder>
 <folder key="FIM00-05" title="Introduction">
-<doc key="FIM00-06" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/ILEP.pdf.pdf" />
-<doc key="FIM00-07" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf" />
-<doc key="FIM00-08" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf" />
-<doc key="FIM00-09" title="EICAS MESSAGES" file="https://crj200rvc.github.io/crj200-manual-files/amm/EICAS.pdf.pdf" />
-<doc key="FIM00-10" title="FAULT MESSAGE RESET PROCEDURES" file="https://crj200rvc.github.io/crj200-manual-files/amm/FMRP.pdf.pdf" />
+<doc key="FIM00-06" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/fim/ILEP.pdf" />
+<doc key="FIM00-07" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/fim/ITOC.pdf" />
+<doc key="FIM00-08" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/fim/INTRO.pdf" />
+<doc key="FIM00-09" title="EICAS MESSAGES" file="https://crj200rvc.github.io/crj200-manual-files/fim/EICAS.pdf" />
+<doc key="FIM00-10" title="FAULT MESSAGE RESET PROCEDURES" file="https://crj200rvc.github.io/crj200-manual-files/fim/FMRP.pdf" />
 </folder>
 <folder key="FIM21" title="CH 21 - AIR CONDITIONING">
 <folder key="FIM21-FM" title="Front Matter">
@@ -16053,182 +16053,182 @@ const documents = {
   
   MPM: `<?xml version="1.0"?>
 <toc key="MPM" series="CRJ200" title="Maintenance Planning Manual" rev="25" date="20120510">
-<doc key="CDMPM" title="CD Date of Issue: Sep 10, 2012" file="https://crj200rvc.github.io/crj200-manual-files/amm/MPM.pdf.pdf"/>
-<doc key="MPMSLOC" title="Summary List of Changes" file="https://crj200rvc.github.io/crj200-manual-files/amm/SLOC.pdf.pdf"/>
-<doc key="MPMMPMMFMATR" title="Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/amm/MPMMFMATR.pdf.pdf"/>
-<doc key="MPMMCR" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/MCR.pdf.pdf"/>
-<doc key="MPMETR" title="Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ETR.pdf.pdf"/>
-<doc key="MPMsection1" title="Section 1  -  Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/section1.pdf.pdf"/>
-<doc key="MPMsection2" title="Section 2  -  Task Card Cross-References" file="https://crj200rvc.github.io/crj200-manual-files/amm/section2.pdf.pdf"/>
-<doc key="MPMsection3" title="Section 3  -  Systems and Powerplant Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section3.pdf.pdf"/>
-<doc key="MPMsection4" title="Section 4  -  Structures Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section4.pdf.pdf"/>
-<doc key="MPMsection5" title="Section 5  -  Zonal Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section5.pdf.pdf"/>
-<doc key="MPMsection6" title="Section 6  -  CPCP Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section6.pdf.pdf"/>
-<doc key="MPMsection7" title="Section 7  -  CMRs" file="https://crj200rvc.github.io/crj200-manual-files/amm/section7.pdf.pdf"/>
-<doc key="MPMsection8" title="Section 8  -  Airworthiness Limitations" file="https://crj200rvc.github.io/crj200-manual-files/amm/section8.pdf.pdf"/>
-<doc key="MPMsection9" title="Section 9  -  Supplementary Requirements" file="https://crj200rvc.github.io/crj200-manual-files/amm/section9.pdf.pdf"/>
-<doc key="MPMsection10" title="Section 10 -  Precluded Tasks" file="https://crj200rvc.github.io/crj200-manual-files/amm/section10.pdf.pdf"/>
-<doc key="MPMsection11" title="Section 11 -  Fuel System Limitations" file="https://crj200rvc.github.io/crj200-manual-files/amm/section11.pdf.pdf"/>
-<doc key="MPMsection12" title="Section 12 -  Electrical Wiring Interconnection System (EWIS)" file="https://crj200rvc.github.io/crj200-manual-files/amm/section12.pdf.pdf"/>
+<doc key="CDMPM" title="CD Date of Issue: Sep 10, 2012" file="https://crj200rvc.github.io/crj200-manual-files/mpm/MPM.pdf"/>
+<doc key="MPMSLOC" title="Summary List of Changes" file="https://crj200rvc.github.io/crj200-manual-files/mpm/SLOC.pdf"/>
+<doc key="MPMMPMMFMATR" title="Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/mpm/MPMMFMATR.pdf"/>
+<doc key="MPMMCR" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/mpm/MCR.pdf"/>
+<doc key="MPMETR" title="Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/mpm/ETR.pdf"/>
+<doc key="MPMsection1" title="Section 1  -  Introduction" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section1.pdf"/>
+<doc key="MPMsection2" title="Section 2  -  Task Card Cross-References" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section2.pdf"/>
+<doc key="MPMsection3" title="Section 3  -  Systems and Powerplant Program" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section3.pdf"/>
+<doc key="MPMsection4" title="Section 4  -  Structures Program" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section4.pdf"/>
+<doc key="MPMsection5" title="Section 5  -  Zonal Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section5.pdf"/>
+<doc key="MPMsection6" title="Section 6  -  CPCP Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section6.pdf"/>
+<doc key="MPMsection7" title="Section 7  -  CMRs" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section7.pdf"/>
+<doc key="MPMsection8" title="Section 8  -  Airworthiness Limitations" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section8.pdf"/>
+<doc key="MPMsection9" title="Section 9  -  Supplementary Requirements" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section9.pdf"/>
+<doc key="MPMsection10" title="Section 10 -  Precluded Tasks" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section10.pdf"/>
+<doc key="MPMsection11" title="Section 11 -  Fuel System Limitations" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section11.pdf"/>
+<doc key="MPMsection12" title="Section 12 -  Electrical Wiring Interconnection System (EWIS)" file="https://crj200rvc.github.io/crj200-manual-files/mpm/section12.pdf"/>
 </toc>`,
   
   MRM: `<?xml version="1.0"?>
 <toc key="MRM" series="CRJ200" title="Maintenance Requirements Manual " rev="00" date="20120910">
-<doc key="CDMRM" title="CD Date of Issue: Sep 10, 2012" file="https://crj200rvc.github.io/crj200-manual-files/amm/MRM.pdf.pdf"/>
-<doc key="MRMMRMMFMATR" title="MRM Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/amm/MRMMFMATR.pdf.pdf"/>
-<doc key="MRMMRMINTRO" title="MRM Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/MRMINTRO.pdf.pdf"/>
+<doc key="CDMRM" title="CD Date of Issue: Sep 10, 2012" file="https://crj200rvc.github.io/crj200-manual-files/mrm/MRM.pdf"/>
+<doc key="MRMMRMMFMATR" title="MRM Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/mrm/MRMMFMATR.pdf"/>
+<doc key="MRMMRMINTRO" title="MRM Introduction" file="https://crj200rvc.github.io/crj200-manual-files/mrm/MRMINTRO.pdf"/>
 <folder key="Folder1" title="Part 1 Revision 16">
-<doc key="MRMPART1MFMATR" title="Part 1 Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/amm/PART1MFMATR.pdf.pdf"/>
+<doc key="MRMPART1MFMATR" title="Part 1 Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/mrm/PART1MFMATR.pdf"/>
 <doc key="MRMCRJ200_MRM_Part1_Rev16" title="Excel file" file="CRJ200_MRM_Part1_Rev16.xls"/>
-<doc key="MRMETR1" title="Part 1 Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ETR1.pdf.pdf"/>
-<doc key="MRMsection1" title="Section 1 MRBR Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/section1.pdf.pdf"/>
-<doc key="MRMsection2" title="Section 2 Systems/Powerplant Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section2.pdf.pdf"/>
-<doc key="MRMsection3" title="Section 3 Structures Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section3.pdf.pdf"/>
-<doc key="MRMsection4" title="Section 4 Zonal Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section4.pdf.pdf"/>
-<doc key="MRMsection5" title="Section 5 Corrosion Prevention and Control Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section5.pdf.pdf"/>
-<doc key="MRMsection6" title="Section 6 Maintenance Significant Items" file="https://crj200rvc.github.io/crj200-manual-files/amm/section6.pdf.pdf"/>
-<doc key="MRMsection7" title="Section 7 Structural Significant Items" file="https://crj200rvc.github.io/crj200-manual-files/amm/section7.pdf.pdf"/>
-<doc key="MRMsection8" title="Section 8 Electrical Wiring Interconnection System Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/amm/section8.pdf.pdf"/>
+<doc key="MRMETR1" title="Part 1 Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/mrm/ETR1.pdf"/>
+<doc key="MRMsection1" title="Section 1 MRBR Introduction" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section1.pdf"/>
+<doc key="MRMsection2" title="Section 2 Systems/Powerplant Program" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section2.pdf"/>
+<doc key="MRMsection3" title="Section 3 Structures Program" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section3.pdf"/>
+<doc key="MRMsection4" title="Section 4 Zonal Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section4.pdf"/>
+<doc key="MRMsection5" title="Section 5 Corrosion Prevention and Control Program" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section5.pdf"/>
+<doc key="MRMsection6" title="Section 6 Maintenance Significant Items" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section6.pdf"/>
+<doc key="MRMsection7" title="Section 7 Structural Significant Items" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section7.pdf"/>
+<doc key="MRMsection8" title="Section 8 Electrical Wiring Interconnection System Inspection Program" file="https://crj200rvc.github.io/crj200-manual-files/mrm/section8.pdf"/>
 </folder>
 <folder key="Folder2" title="Part 2 Revision 8">
-<doc key="MRMPART2MFMATR" title="Part 2 Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/amm/PART2MFMATR.pdf.pdf"/>
+<doc key="MRMPART2MFMATR" title="Part 2 Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/mrm/PART2MFMATR.pdf"/>
 <doc key="MRMCRJ200_MRM_Part2_Rev8" title="Excel file" file="CRJ200_MRM_Part2_Rev8.xls"/>
-<doc key="MRMETR2" title="Part 2 Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ETR2.pdf.pdf"/>
-<doc key="MRMappendixa" title="Appendix A Certification Maintenance Requirements (CMRs)" file="https://crj200rvc.github.io/crj200-manual-files/amm/appendixa.pdf.pdf"/>
-<doc key="MRMappendixb" title="Appendix B Airworthiness Requirements (AWLs)" file="https://crj200rvc.github.io/crj200-manual-files/amm/appendixb.pdf.pdf"/>
-<doc key="MRMappendixc" title="Appendix C Powerplant Limitations (PPLs)" file="https://crj200rvc.github.io/crj200-manual-files/amm/appendixc.pdf.pdf"/>
-<doc key="MRMappendixd" title="Appendix D Fuel Systems Limitations (FSLs)" file="https://crj200rvc.github.io/crj200-manual-files/amm/appendixd.pdf.pdf"/>
-<doc key="MRMsupplement1" title="Supplement 1 Aircraft Serial Number Specific Airworthiness Limitations" file="https://crj200rvc.github.io/crj200-manual-files/amm/supplement1.pdf.pdf"/>
-<doc key="MRMsupplement2" title="Supplement 2 Airworthiness Limitations (For CIS Operations only)" file="https://crj200rvc.github.io/crj200-manual-files/amm/supplement2.pdf.pdf"/>
-<doc key="MRMsupplement3" title="Supplement 3 Airworthiness Limitations (For Ukrainian Operations only)" file="https://crj200rvc.github.io/crj200-manual-files/amm/supplement3.pdf.pdf"/>
+<doc key="MRMETR2" title="Part 2 Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/mrm/ETR2.pdf"/>
+<doc key="MRMappendixa" title="Appendix A Certification Maintenance Requirements (CMRs)" file="https://crj200rvc.github.io/crj200-manual-files/mrm/appendixa.pdf"/>
+<doc key="MRMappendixb" title="Appendix B Airworthiness Requirements (AWLs)" file="https://crj200rvc.github.io/crj200-manual-files/mrm/appendixb.pdf"/>
+<doc key="MRMappendixc" title="Appendix C Powerplant Limitations (PPLs)" file="https://crj200rvc.github.io/crj200-manual-files/mrm/appendixc.pdf"/>
+<doc key="MRMappendixd" title="Appendix D Fuel Systems Limitations (FSLs)" file="https://crj200rvc.github.io/crj200-manual-files/mrm/appendixd.pdf"/>
+<doc key="MRMsupplement1" title="Supplement 1 Aircraft Serial Number Specific Airworthiness Limitations" file="https://crj200rvc.github.io/crj200-manual-files/mrm/supplement1.pdf"/>
+<doc key="MRMsupplement2" title="Supplement 2 Airworthiness Limitations (For CIS Operations only)" file="https://crj200rvc.github.io/crj200-manual-files/mrm/supplement2.pdf"/>
+<doc key="MRMsupplement3" title="Supplement 3 Airworthiness Limitations (For Ukrainian Operations only)" file="https://crj200rvc.github.io/crj200-manual-files/mrm/supplement3.pdf"/>
 </folder>
 </toc>`,
 
   MTCM: `<?xml version="1.0"?>
 <toc key="MTCM" series="CRJ200" title="Maintenance Task Card Manual" rev="37" date="20120510">
   <folder key="LOETR" type="loetr" title="List of Effective TRs" file="loetr.html">
-    <doc type="tr" trnum="TR565" trdate="APR 13/12" title="[TR565] MTCM000-27-590-741 - Functional Check of the Left Wing Outboard Flap Actuator Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR565.pdf.pdf" refloc="MTCM000-27-590-741">
+    <doc type="tr" trnum="TR565" trdate="APR 13/12" title="[TR565] MTCM000-27-590-741 - Functional Check of the Left Wing Outboard Flap Actuator Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR565.pdf" refloc="MTCM000-27-590-741">
       <folder type="history" title="History of MTCM000-27-590-741">
-        <doc title="Task Card 000-27-590-741" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-590-741.pdf.pdf" type="history" refloc="MTCM000-27-590-741"/>
+        <doc title="Task Card 000-27-590-741" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-741.pdf" type="history" refloc="MTCM000-27-590-741"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR566" trdate="APR 13/12" title="[TR566] MTCM000-27-690-741 - Functional Check of the Right Wing Outboard Flap Actuator Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR566.pdf.pdf" refloc="MTCM000-27-690-741">
+    <doc type="tr" trnum="TR566" trdate="APR 13/12" title="[TR566] MTCM000-27-690-741 - Functional Check of the Right Wing Outboard Flap Actuator Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR566.pdf" refloc="MTCM000-27-690-741">
       <folder type="history" title="History of MTCM000-27-690-741">
-        <doc title="Task Card 000-27-690-741" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-690-741.pdf.pdf" type="history" refloc="MTCM000-27-690-741"/>
+        <doc title="Task Card 000-27-690-741" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-741.pdf" type="history" refloc="MTCM000-27-690-741"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR567" trdate="MAY 04/12" title="[TR567] MTCM000-52-830-002 - DI Detailed Inspection of the Cargo Compartment Door" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR567.pdf.pdf" refloc="MTCM000-52-830-002">
+    <doc type="tr" trnum="TR567" trdate="MAY 04/12" title="[TR567] MTCM000-52-830-002 - DI Detailed Inspection of the Cargo Compartment Door" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR567.pdf" refloc="MTCM000-52-830-002">
       <folder type="history" title="History of MTCM000-52-830-002">
-        <doc title="Task Card 000-52-830-002" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-52-830-002.pdf.pdf" type="history" refloc="MTCM000-52-830-002"/>
+        <doc title="Task Card 000-52-830-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-52-830-002.pdf" type="history" refloc="MTCM000-52-830-002"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR568" trdate="Jun 04/12" title="[TR568] MTCM000-27-320-104 - Special Detailed Inspection of the HSTA Primary Spur Gear" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR568.pdf.pdf" refloc="MTCM000-27-320-104"/>
-    <doc type="tr" trnum="TR569" trdate="Jun 04/12" title="[TR569] MTCM000-27-320-105 - FC Functional Check of the HSTA Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR569.pdf.pdf" refloc="MTCM000-27-320-105"/>
-    <doc type="tr" trnum="TR570" trdate="Jun 04/12" title="[TR570] MTCM000-27-320-600 - Special Detailed Inspection of the Horizontal Stabilizer Trim Actuator Assembly" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR570.pdf.pdf" refloc="MTCM000-27-320-600">
+    <doc type="tr" trnum="TR568" trdate="Jun 04/12" title="[TR568] MTCM000-27-320-104 - Special Detailed Inspection of the HSTA Primary Spur Gear" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR568.pdf" refloc="MTCM000-27-320-104"/>
+    <doc type="tr" trnum="TR569" trdate="Jun 04/12" title="[TR569] MTCM000-27-320-105 - FC Functional Check of the HSTA Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR569.pdf" refloc="MTCM000-27-320-105"/>
+    <doc type="tr" trnum="TR570" trdate="Jun 04/12" title="[TR570] MTCM000-27-320-600 - Special Detailed Inspection of the Horizontal Stabilizer Trim Actuator Assembly" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR570.pdf" refloc="MTCM000-27-320-600">
       <folder type="history" title="History of MTCM000-27-320-600">
-        <doc title="Task Card 000-27-320-600" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-320-600.pdf.pdf" type="history" refloc="MTCM000-27-320-600"/>
+        <doc title="Task Card 000-27-320-600" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-600.pdf" type="history" refloc="MTCM000-27-320-600"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR571" trdate="Jun 04/12" title="[TR571] MTCM000-27-140-103 - Operational Check of the Horizontal Stabilizer Trim Control-Unit" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR571.pdf.pdf" refloc="MTCM000-27-140-103"/>
-    <doc type="tr" trnum="TR572" trdate="Jun 04/12" title="[TR572] MTCM000-53-220-603 - SDI Special Detailed Inspection of the Windshield Side Post Upper and Lower Joints to Sills and Fuselage Fittings" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR572.pdf.pdf" refloc="MTCM000-53-220-603">
+    <doc type="tr" trnum="TR571" trdate="Jun 04/12" title="[TR571] MTCM000-27-140-103 - Operational Check of the Horizontal Stabilizer Trim Control-Unit" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR571.pdf" refloc="MTCM000-27-140-103"/>
+    <doc type="tr" trnum="TR572" trdate="Jun 04/12" title="[TR572] MTCM000-53-220-603 - SDI Special Detailed Inspection of the Windshield Side Post Upper and Lower Joints to Sills and Fuselage Fittings" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR572.pdf" refloc="MTCM000-53-220-603">
       <folder type="history" title="History of MTCM000-53-220-603">
-        <doc title="Task Card 000-53-220-603" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-53-220-603.pdf.pdf" type="history" refloc="MTCM000-53-220-603"/>
+        <doc title="Task Card 000-53-220-603" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-603.pdf" type="history" refloc="MTCM000-53-220-603"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR573" trdate="Jun 04/12" title="[TR573] MTCM000-53-220-605 - DI Detailed Inspection of the Windshield Side Post Upper and Lower Joints to Sills and Fuselage Fittings" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR573.pdf.pdf" refloc="MTCM000-53-220-605">
+    <doc type="tr" trnum="TR573" trdate="Jun 04/12" title="[TR573] MTCM000-53-220-605 - DI Detailed Inspection of the Windshield Side Post Upper and Lower Joints to Sills and Fuselage Fittings" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR573.pdf" refloc="MTCM000-53-220-605">
       <folder type="history" title="History of MTCM000-53-220-605">
-        <doc title="Task Card 000-53-220-605" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-53-220-605.pdf.pdf" type="history" refloc="MTCM000-53-220-605"/>
+        <doc title="Task Card 000-53-220-605" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-605.pdf" type="history" refloc="MTCM000-53-220-605"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR574" trdate="Jun 04/12" title="[TR574] MTCM000-57-540-603 - Special Detailed Inspection of the Left Wing Drain Holes in the Lower Wing Plank" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR574.pdf.pdf" refloc="MTCM000-57-540-603">
+    <doc type="tr" trnum="TR574" trdate="Jun 04/12" title="[TR574] MTCM000-57-540-603 - Special Detailed Inspection of the Left Wing Drain Holes in the Lower Wing Plank" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR574.pdf" refloc="MTCM000-57-540-603">
       <folder type="history" title="History of MTCM000-57-540-603">
-        <doc title="Task Card 000-57-540-603" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-540-603.pdf.pdf" type="history" refloc="MTCM000-57-540-603"/>
+        <doc title="Task Card 000-57-540-603" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-603.pdf" type="history" refloc="MTCM000-57-540-603"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR575" trdate="Jun 04/12" title="[TR575] MTCM000-57-640-603 - Special Detailed Inspection of the Right Wing Drain Holes in the Lower Wing Plank" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR575.pdf.pdf" refloc="MTCM000-57-640-603">
+    <doc type="tr" trnum="TR575" trdate="Jun 04/12" title="[TR575] MTCM000-57-640-603 - Special Detailed Inspection of the Right Wing Drain Holes in the Lower Wing Plank" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR575.pdf" refloc="MTCM000-57-640-603">
       <folder type="history" title="History of MTCM000-57-640-603">
-        <doc title="Task Card 000-57-640-603" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-640-603.pdf.pdf" type="history" refloc="MTCM000-57-640-603"/>
+        <doc title="Task Card 000-57-640-603" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-603.pdf" type="history" refloc="MTCM000-57-640-603"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR576" trdate="Jun 04/12" title="[TR576] MTCM000-57-540-608 - Special Detailed Inspection of the Left Wing Drain Holes in the Lower Wing Plank (Alternate Inspection Procedure)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR576.pdf.pdf" refloc="MTCM000-57-540-608">
+    <doc type="tr" trnum="TR576" trdate="Jun 04/12" title="[TR576] MTCM000-57-540-608 - Special Detailed Inspection of the Left Wing Drain Holes in the Lower Wing Plank (Alternate Inspection Procedure)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR576.pdf" refloc="MTCM000-57-540-608">
       <folder type="history" title="History of MTCM000-57-540-608">
-        <doc title="Task Card 000-57-540-608" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-540-608.pdf.pdf" type="history" refloc="MTCM000-57-540-608"/>
+        <doc title="Task Card 000-57-540-608" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-608.pdf" type="history" refloc="MTCM000-57-540-608"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR577" trdate="Jun 04/12" title="[TR577] MTCM000-57-640-608 - Special Detailed Inspection of the Right Wing Drain Holes in the Lower Wing Plank (Alternate Inspection Procedure)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR577.pdf.pdf" refloc="MTCM000-57-640-608">
+    <doc type="tr" trnum="TR577" trdate="Jun 04/12" title="[TR577] MTCM000-57-640-608 - Special Detailed Inspection of the Right Wing Drain Holes in the Lower Wing Plank (Alternate Inspection Procedure)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR577.pdf" refloc="MTCM000-57-640-608">
       <folder type="history" title="History of MTCM000-57-640-608">
-        <doc title="Task Card 000-57-640-608" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-640-608.pdf.pdf" type="history" refloc="MTCM000-57-640-608"/>
+        <doc title="Task Card 000-57-640-608" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-608.pdf" type="history" refloc="MTCM000-57-640-608"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR578" trdate="Jun 13/12" title="[TR578] MTCM000-24-900-701 - OP Operational Check of the GCU Overvoltage Protection" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR578.pdf.pdf" refloc="MTCM000-24-900-701">
+    <doc type="tr" trnum="TR578" trdate="Jun 13/12" title="[TR578] MTCM000-24-900-701 - OP Operational Check of the GCU Overvoltage Protection" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR578.pdf" refloc="MTCM000-24-900-701">
       <folder type="history" title="History of MTCM000-24-900-701">
-        <doc title="Task Card 000-24-900-701" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-24-900-701.pdf.pdf" type="history" refloc="MTCM000-24-900-701"/>
+        <doc title="Task Card 000-24-900-701" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-24-900-701.pdf" type="history" refloc="MTCM000-24-900-701"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR579" trdate="Jul 06/12" title="[TR579] MTCM000-27-580-704 - RS Restoration of the Left Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR579.pdf.pdf" refloc="MTCM000-27-580-704"/>
-    <doc type="tr" trnum="TR580" trdate="Jul 06/12" title="[TR580] MTCM000-27-680-704 - RS Restoration of the Right Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR580.pdf.pdf" refloc="MTCM000-27-680-704"/>
-    <doc type="tr" trnum="TR581" trdate="Jul 06/12" title="[TR581] MTCM000-27-590-743 - RS Restoration of the Left Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR581.pdf.pdf" refloc="MTCM000-27-590-743"/>
-    <doc type="tr" trnum="TR582" trdate="Jul 06/12" title="[TR582] MTCM000-27-690-743 - Restoration of the Right Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR582.pdf.pdf" refloc="MTCM000-27-690-743"/>
-    <doc type="tr" trnum="TR583" trdate="Jul 20/12" title="[TR583] MTCM000-32-710-001 - General Visual Inspection of the Nose Landing Gear Components and Doors" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR583.pdf.pdf" refloc="MTCM000-32-710-001">
+    <doc type="tr" trnum="TR579" trdate="Jul 06/12" title="[TR579] MTCM000-27-580-704 - RS Restoration of the Left Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR579.pdf" refloc="MTCM000-27-580-704"/>
+    <doc type="tr" trnum="TR580" trdate="Jul 06/12" title="[TR580] MTCM000-27-680-704 - RS Restoration of the Right Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR580.pdf" refloc="MTCM000-27-680-704"/>
+    <doc type="tr" trnum="TR581" trdate="Jul 06/12" title="[TR581] MTCM000-27-590-743 - RS Restoration of the Left Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR581.pdf" refloc="MTCM000-27-590-743"/>
+    <doc type="tr" trnum="TR582" trdate="Jul 06/12" title="[TR582] MTCM000-27-690-743 - Restoration of the Right Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR582.pdf" refloc="MTCM000-27-690-743"/>
+    <doc type="tr" trnum="TR583" trdate="Jul 20/12" title="[TR583] MTCM000-32-710-001 - General Visual Inspection of the Nose Landing Gear Components and Doors" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR583.pdf" refloc="MTCM000-32-710-001">
       <folder type="history" title="History of MTCM000-32-710-001">
-        <doc title="Task Card 000-32-710-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-710-001.pdf.pdf" type="history" refloc="MTCM000-32-710-001"/>
+        <doc title="Task Card 000-32-710-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-710-001.pdf" type="history" refloc="MTCM000-32-710-001"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR584" trdate="Jul 20/12" title="[TR584] MTCM000-32-730-001 - General Visual Inspection of the Left Main Landing Gear Components and Door" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR584.pdf.pdf" refloc="MTCM000-32-730-001">
+    <doc type="tr" trnum="TR584" trdate="Jul 20/12" title="[TR584] MTCM000-32-730-001 - General Visual Inspection of the Left Main Landing Gear Components and Door" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR584.pdf" refloc="MTCM000-32-730-001">
       <folder type="history" title="History of MTCM000-32-730-001">
-        <doc title="Task Card 000-32-730-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-730-001.pdf.pdf" type="history" refloc="MTCM000-32-730-001"/>
+        <doc title="Task Card 000-32-730-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-001.pdf" type="history" refloc="MTCM000-32-730-001"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR585" trdate="Jul 20/12" title="[TR585] MTCM000-32-740-001 - General Visual Inspection of the Right Main Landing Gear Components and Door" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR585.pdf.pdf" refloc="MTCM000-32-740-001">
+    <doc type="tr" trnum="TR585" trdate="Jul 20/12" title="[TR585] MTCM000-32-740-001 - General Visual Inspection of the Right Main Landing Gear Components and Door" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR585.pdf" refloc="MTCM000-32-740-001">
       <folder type="history" title="History of MTCM000-32-740-001">
-        <doc title="Task Card 000-32-740-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-740-001.pdf.pdf" type="history" refloc="MTCM000-32-740-001"/>
+        <doc title="Task Card 000-32-740-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-001.pdf" type="history" refloc="MTCM000-32-740-001"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR586" trdate="Jul 20/12" title="[TR586] MTCM000-32-730-100 - Detailed Inspection of the Left Main-Landing Gear (MLG) Components" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR586.pdf.pdf" refloc="MTCM000-32-730-100">
+    <doc type="tr" trnum="TR586" trdate="Jul 20/12" title="[TR586] MTCM000-32-730-100 - Detailed Inspection of the Left Main-Landing Gear (MLG) Components" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR586.pdf" refloc="MTCM000-32-730-100">
       <folder type="history" title="History of MTCM000-32-730-100">
-        <doc title="Task Card 000-32-730-100" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-730-100.pdf.pdf" type="history" refloc="MTCM000-32-730-100"/>
+        <doc title="Task Card 000-32-730-100" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-100.pdf" type="history" refloc="MTCM000-32-730-100"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR587" trdate="Jul 20/12" title="[TR587] MTCM000-32-740-100 - Detailed Inspection of the Right Main-Landing Gear (MLG) Components" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR587.pdf.pdf" refloc="MTCM000-32-740-100">
+    <doc type="tr" trnum="TR587" trdate="Jul 20/12" title="[TR587] MTCM000-32-740-100 - Detailed Inspection of the Right Main-Landing Gear (MLG) Components" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR587.pdf" refloc="MTCM000-32-740-100">
       <folder type="history" title="History of MTCM000-32-740-100">
-        <doc title="Task Card 000-32-740-100" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-740-100.pdf.pdf" type="history" refloc="MTCM000-32-740-100"/>
+        <doc title="Task Card 000-32-740-100" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-100.pdf" type="history" refloc="MTCM000-32-740-100"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR588" trdate="Aug 06/12" title="[TR588] MTCM000-25-220-701 - Functional Check of the Flight Compartment Reinforced Door Decompression Latch" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR588.pdf.pdf" refloc="MTCM000-25-220-701">
+    <doc type="tr" trnum="TR588" trdate="Aug 06/12" title="[TR588] MTCM000-25-220-701 - Functional Check of the Flight Compartment Reinforced Door Decompression Latch" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR588.pdf" refloc="MTCM000-25-220-701">
       <folder type="history" title="History of MTCM000-25-220-701">
-        <doc title="Task Card 000-25-220-701" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-25-220-701.pdf.pdf" type="history" refloc="MTCM000-25-220-701"/>
+        <doc title="Task Card 000-25-220-701" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-701.pdf" type="history" refloc="MTCM000-25-220-701"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR589" trdate="Aug 07/12" title="[TR589] MTCM000-27-900-716 - Functional Check of the Spoiler Ground Lift Dump (GLD)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR589.pdf.pdf" refloc="MTCM000-27-900-716">
+    <doc type="tr" trnum="TR589" trdate="Aug 07/12" title="[TR589] MTCM000-27-900-716 - Functional Check of the Spoiler Ground Lift Dump (GLD)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR589.pdf" refloc="MTCM000-27-900-716">
       <folder type="history" title="History of MTCM000-27-900-716">
-        <doc title="Task Card 000-27-900-716" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-900-716.pdf.pdf" type="history" refloc="MTCM000-27-900-716"/>
+        <doc title="Task Card 000-27-900-716" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-716.pdf" type="history" refloc="MTCM000-27-900-716"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR590" trdate="Aug 28/12" title="[TR590] MTCM000-25-220-001 - Detailed Inspection of the Flight Compartment Reinforced Door Decompression Latch" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR590.pdf.pdf" refloc="MTCM000-25-220-001">
+    <doc type="tr" trnum="TR590" trdate="Aug 28/12" title="[TR590] MTCM000-25-220-001 - Detailed Inspection of the Flight Compartment Reinforced Door Decompression Latch" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR590.pdf" refloc="MTCM000-25-220-001">
       <folder type="history" title="History of MTCM000-25-220-001">
-        <doc title="Task Card 000-25-220-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-25-220-001.pdf.pdf" type="history" refloc="MTCM000-25-220-001"/>
+        <doc title="Task Card 000-25-220-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-001.pdf" type="history" refloc="MTCM000-25-220-001"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR591" trdate="Sep 04/12" title="[TR591] MTCM000-31-900-130 - Functional Check of the Flight Data Recorder Dedicated Sensors" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR591.pdf.pdf" refloc="MTCM000-31-900-130">
+    <doc type="tr" trnum="TR591" trdate="Sep 04/12" title="[TR591] MTCM000-31-900-130 - Functional Check of the Flight Data Recorder Dedicated Sensors" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR591.pdf" refloc="MTCM000-31-900-130">
       <folder type="history" title="History of MTCM000-31-900-130">
-        <doc title="Task Card 000-31-900-130" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-31-900-130.pdf.pdf" type="history" refloc="MTCM000-31-900-130"/>
+        <doc title="Task Card 000-31-900-130" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-31-900-130.pdf" type="history" refloc="MTCM000-31-900-130"/>
       </folder>
     </doc>
   </folder>
   <folder key="MTCM00-00" title="Front Matter">
-    <doc key="MTCM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf"/>
-    <doc key="MTCM00-02" title="Summary of Changes" file="https://crj200rvc.github.io/crj200-manual-files/amm/SOC.pdf.pdf"/>
-    <doc key="MTCM00-03" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf"/>
-    <doc key="MTCM00-04" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf"/>
-    <doc key="MTCM00-05" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ROTR.pdf.pdf"/>
+    <doc key="MTCM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TRANSLTR.pdf"/>
+    <doc key="MTCM00-02" title="Summary of Changes" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/SOC.pdf"/>
+    <doc key="MTCM00-03" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/USERCOMM.pdf"/>
+    <doc key="MTCM00-04" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/RECOFREV.pdf"/>
+    <doc key="MTCM00-05" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/ROTR.pdf"/>
   </folder>
   <folder key="MTCM00-06" title="Excel File - List of Effective Task Card">
-    <doc key="MTCM00-07" title="Excel File - List of Effective Task Card" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM-LOETC.xls.pdf"/>
+    <doc key="MTCM00-07" title="Excel File - List of Effective Task Card" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM-LOETC.xls.pdf"/>
   </folder>
   <folder key="MTCM00-08" title="Introduction">
-    <doc key="MTCM00-09" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf"/>
-    <doc key="MTCM00-10" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/ILEP.pdf.pdf"/>
-    <doc key="MTCM00-11" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf"/>
+    <doc key="MTCM00-09" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/ITOC.pdf"/>
+    <doc key="MTCM00-10" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/ILEP.pdf"/>
+    <doc key="MTCM00-11" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/INTRO.pdf"/>
   </folder>
   <folder key="MTCM05" title="CH 05 TIME LIMITS/MAINTENANCE CHECKS">
     <folder key="MTCM05-FM" title="Front Matter">
@@ -16376,7 +16376,7 @@ const documents = {
     <doc key="MTCM000-24-900-700" title="Task Card 000-24-900-700" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-24-900-700.pdf"/>
     <doc type="tr" key="MTCM000-24-900-701" trnum="TR578" trdate="Jun 13/12" title="[TR578] MTCM000-24-900-701 - OP Operational Check of the GCU Overvoltage Protection" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-24-900-701.pdf">
       <folder type="history" title="History of MTCM000-24-900-701">
-        <doc title="Task Card 000-24-900-701" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-24-900-701.pdf.pdf" type="history" refloc="MTCM000-24-900-701"/>
+        <doc title="Task Card 000-24-900-701" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-24-900-701.pdf" type="history" refloc="MTCM000-24-900-701"/>
       </folder>
     </doc>
     <doc key="MTCM000-24-900-702" title="Task Card 000-24-900-702" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-24-900-702.pdf"/>
@@ -16390,7 +16390,7 @@ const documents = {
     </folder>
     <doc type="tr" key="MTCM000-25-220-001" trnum="TR590" trdate="Aug 28/12" title="[TR590] MTCM000-25-220-001 - Detailed Inspection of the Flight Compartment Reinforced Door Decompression Latch" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-001.pdf">
       <folder type="history" title="History of MTCM000-25-220-001">
-        <doc title="Task Card 000-25-220-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-25-220-001.pdf.pdf" type="history" refloc="MTCM000-25-220-001"/>
+        <doc title="Task Card 000-25-220-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-001.pdf" type="history" refloc="MTCM000-25-220-001"/>
       </folder>
     </doc>
     <doc key="MTCM000-25-220-101" title="Task Card 000-25-220-101" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-101.pdf"/>
@@ -16400,7 +16400,7 @@ const documents = {
     <doc key="MTCM000-25-220-700" title="Task Card 000-25-220-700" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-700.pdf"/>
     <doc type="tr" key="MTCM000-25-220-701" trnum="TR588" trdate="Aug 06/12" title="[TR588] MTCM000-25-220-701 - Functional Check of the Flight Compartment Reinforced Door Decompression Latch" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-701.pdf">
       <folder type="history" title="History of MTCM000-25-220-701">
-        <doc title="Task Card 000-25-220-701" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-25-220-701.pdf.pdf" type="history" refloc="MTCM000-25-220-701"/>
+        <doc title="Task Card 000-25-220-701" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-220-701.pdf" type="history" refloc="MTCM000-25-220-701"/>
       </folder>
     </doc>
     <doc key="MTCM000-25-270-001" title="Task Card 000-25-270-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-25-270-001.pdf"/>
@@ -16458,7 +16458,7 @@ const documents = {
     <doc key="MTCM000-27-140-100" title="Task Card 000-27-140-100" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-140-100.pdf"/>
     <doc key="MTCM000-27-140-101" title="Task Card 000-27-140-101" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-140-101.pdf"/>
     <doc key="MTCM000-27-140-102" title="Task Card 000-27-140-102" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-140-102.pdf"/>
-    <doc type="tr" key="MTCM000-27-140-103" trnum="TR571" trdate="Jun 04/12" title="[TR571] MTCM000-27-140-103 - Operational Check of the Horizontal Stabilizer Trim Control-Unit" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR571.pdf.pdf"/>
+    <doc type="tr" key="MTCM000-27-140-103" trnum="TR571" trdate="Jun 04/12" title="[TR571] MTCM000-27-140-103 - Operational Check of the Horizontal Stabilizer Trim Control-Unit" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR571.pdf"/>
     <doc key="MTCM000-27-160-001" title="Task Card 000-27-160-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-160-001.pdf"/>
     <doc key="MTCM000-27-160-002" title="Task Card 000-27-160-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-160-002.pdf"/>
     <doc key="MTCM000-27-160-101" title="Task Card 000-27-160-101" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-160-101.pdf"/>
@@ -16474,13 +16474,13 @@ const documents = {
     <doc key="MTCM000-27-320-101" title="Task Card 000-27-320-101" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-101.pdf"/>
     <doc key="MTCM000-27-320-102" title="Task Card 000-27-320-102" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-102.pdf"/>
     <doc key="MTCM000-27-320-103" title="Task Card 000-27-320-103" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-103.pdf"/>
-    <doc type="tr" key="MTCM000-27-320-104" trnum="TR568" trdate="Jun 04/12" title="[TR568] MTCM000-27-320-104 - Special Detailed Inspection of the HSTA Primary Spur Gear" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR568.pdf.pdf"/>
-    <doc type="tr" key="MTCM000-27-320-105" trnum="TR569" trdate="Jun 04/12" title="[TR569] MTCM000-27-320-105 - FC Functional Check of the HSTA Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR569.pdf.pdf"/>
+    <doc type="tr" key="MTCM000-27-320-104" trnum="TR568" trdate="Jun 04/12" title="[TR568] MTCM000-27-320-104 - Special Detailed Inspection of the HSTA Primary Spur Gear" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR568.pdf"/>
+    <doc type="tr" key="MTCM000-27-320-105" trnum="TR569" trdate="Jun 04/12" title="[TR569] MTCM000-27-320-105 - FC Functional Check of the HSTA Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR569.pdf"/>
     <doc key="MTCM000-27-320-121" title="Task Card 000-27-320-121" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-121.pdf"/>
     <doc key="MTCM000-27-320-122" title="Task Card 000-27-320-122" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-122.pdf"/>
     <doc type="tr" key="MTCM000-27-320-600" trnum="TR570" trdate="Jun 04/12" title="[TR570] MTCM000-27-320-600 - Special Detailed Inspection of the Horizontal Stabilizer Trim Actuator Assembly" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-600.pdf">
       <folder type="history" title="History of MTCM000-27-320-600">
-        <doc title="Task Card 000-27-320-600" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-320-600.pdf.pdf" type="history" refloc="MTCM000-27-320-600"/>
+        <doc title="Task Card 000-27-320-600" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-600.pdf" type="history" refloc="MTCM000-27-320-600"/>
       </folder>
     </doc>
     <doc key="MTCM000-27-320-601" title="Task Card 000-27-320-601" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-320-601.pdf"/>
@@ -16501,7 +16501,7 @@ const documents = {
     <doc key="MTCM000-27-580-700" title="Task Card 000-27-580-700" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-580-700.pdf"/>
     <doc key="MTCM000-27-580-701" title="Task Card 000-27-580-701" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-580-701.pdf"/>
     <doc key="MTCM000-27-580-703" title="Task Card 000-27-580-703" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-580-703.pdf"/>
-    <doc type="tr" key="MTCM000-27-580-704" trnum="TR579" trdate="Jul 06/12" title="[TR579] MTCM000-27-580-704 - RS Restoration of the Left Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR579.pdf.pdf"/>
+    <doc type="tr" key="MTCM000-27-580-704" trnum="TR579" trdate="Jul 06/12" title="[TR579] MTCM000-27-580-704 - RS Restoration of the Left Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR579.pdf"/>
     <doc key="MTCM000-27-580-705" title="Task Card 000-27-580-705" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-580-705.pdf"/>
     <doc key="MTCM000-27-590-001" title="Task Card 000-27-590-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-001.pdf"/>
     <doc key="MTCM000-27-590-002" title="Task Card 000-27-590-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-002.pdf"/>
@@ -16518,11 +16518,11 @@ const documents = {
     <doc key="MTCM000-27-590-740" title="Task Card 000-27-590-740" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-740.pdf"/>
     <doc type="tr" key="MTCM000-27-590-741" trnum="TR565" trdate="APR 13/12" title="[TR565] MTCM000-27-590-741 - Functional Check of the Left Wing Outboard Flap Actuator Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-741.pdf">
       <folder type="history" title="History of MTCM000-27-590-741">
-        <doc title="Task Card 000-27-590-741" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-590-741.pdf.pdf" type="history" refloc="MTCM000-27-590-741"/>
+        <doc title="Task Card 000-27-590-741" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-741.pdf" type="history" refloc="MTCM000-27-590-741"/>
       </folder>
     </doc>
     <doc key="MTCM000-27-590-742" title="Task Card 000-27-590-742" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-590-742.pdf"/>
-    <doc type="tr" key="MTCM000-27-590-743" trnum="TR581" trdate="Jul 06/12" title="[TR581] MTCM000-27-590-743 - RS Restoration of the Left Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR581.pdf.pdf"/>
+    <doc type="tr" key="MTCM000-27-590-743" trnum="TR581" trdate="Jul 06/12" title="[TR581] MTCM000-27-590-743 - RS Restoration of the Left Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR581.pdf"/>
     <doc key="MTCM000-27-680-001" title="Task Card 000-27-680-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-001.pdf"/>
     <doc key="MTCM000-27-680-002" title="Task Card 000-27-680-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-002.pdf"/>
     <doc key="MTCM000-27-680-003" title="Task Card 000-27-680-003" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-003.pdf"/>
@@ -16536,7 +16536,7 @@ const documents = {
     <doc key="MTCM000-27-680-700" title="Task Card 000-27-680-700" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-700.pdf"/>
     <doc key="MTCM000-27-680-701" title="Task Card 000-27-680-701" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-701.pdf"/>
     <doc key="MTCM000-27-680-703" title="Task Card 000-27-680-703" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-703.pdf"/>
-    <doc type="tr" key="MTCM000-27-680-704" trnum="TR580" trdate="Jul 06/12" title="[TR580] MTCM000-27-680-704 - RS Restoration of the Right Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR580.pdf.pdf"/>
+    <doc type="tr" key="MTCM000-27-680-704" trnum="TR580" trdate="Jul 06/12" title="[TR580] MTCM000-27-680-704 - RS Restoration of the Right Wing Inboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR580.pdf"/>
     <doc key="MTCM000-27-680-705" title="Task Card 000-27-680-705" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-680-705.pdf"/>
     <doc key="MTCM000-27-690-001" title="Task Card 000-27-690-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-001.pdf"/>
     <doc key="MTCM000-27-690-002" title="Task Card 000-27-690-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-002.pdf"/>
@@ -16553,11 +16553,11 @@ const documents = {
     <doc key="MTCM000-27-690-740" title="Task Card 000-27-690-740" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-740.pdf"/>
     <doc type="tr" key="MTCM000-27-690-741" trnum="TR566" trdate="APR 13/12" title="[TR566] MTCM000-27-690-741 - Functional Check of the Right Wing Outboard Flap Actuator Torque Limiter" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-741.pdf">
       <folder type="history" title="History of MTCM000-27-690-741">
-        <doc title="Task Card 000-27-690-741" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-690-741.pdf.pdf" type="history" refloc="MTCM000-27-690-741"/>
+        <doc title="Task Card 000-27-690-741" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-741.pdf" type="history" refloc="MTCM000-27-690-741"/>
       </folder>
     </doc>
     <doc key="MTCM000-27-690-742" title="Task Card 000-27-690-742" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-690-742.pdf"/>
-    <doc type="tr" key="MTCM000-27-690-743" trnum="TR582" trdate="Jul 06/12" title="[TR582] MTCM000-27-690-743 - Restoration of the Right Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR582.pdf.pdf"/>
+    <doc type="tr" key="MTCM000-27-690-743" trnum="TR582" trdate="Jul 06/12" title="[TR582] MTCM000-27-690-743 - Restoration of the Right Wing Outboard Flap Actuators (Seal and Bearing Replacement)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/TR582.pdf"/>
     <doc key="MTCM000-27-900-001" title="Task Card 000-27-900-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-001.pdf"/>
     <doc key="MTCM000-27-900-003" title="Task Card 000-27-900-003" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-003.pdf"/>
     <doc key="MTCM000-27-900-004" title="Task Card 000-27-900-004" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-004.pdf"/>
@@ -16588,7 +16588,7 @@ const documents = {
     <doc key="MTCM000-27-900-714" title="Task Card 000-27-900-714" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-714.pdf"/>
     <doc type="tr" key="MTCM000-27-900-716" trnum="TR589" trdate="Aug 07/12" title="[TR589] MTCM000-27-900-716 - Functional Check of the Spoiler Ground Lift Dump (GLD)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-716.pdf">
       <folder type="history" title="History of MTCM000-27-900-716">
-        <doc title="Task Card 000-27-900-716" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-27-900-716.pdf.pdf" type="history" refloc="MTCM000-27-900-716"/>
+        <doc title="Task Card 000-27-900-716" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-716.pdf" type="history" refloc="MTCM000-27-900-716"/>
       </folder>
     </doc>
     <doc key="MTCM000-27-900-717" title="Task Card 000-27-900-717" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-27-900-717.pdf"/>
@@ -16664,7 +16664,7 @@ const documents = {
     <doc key="MTCM000-31-360-760" title="Task Card 000-31-360-760" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-31-360-760.pdf"/>
     <doc type="tr" key="MTCM000-31-900-130" trnum="TR591" trdate="Sep 04/12" title="[TR591] MTCM000-31-900-130 - Functional Check of the Flight Data Recorder Dedicated Sensors" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-31-900-130.pdf">
       <folder type="history" title="History of MTCM000-31-900-130">
-        <doc title="Task Card 000-31-900-130" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-31-900-130.pdf.pdf" type="history" refloc="MTCM000-31-900-130"/>
+        <doc title="Task Card 000-31-900-130" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-31-900-130.pdf" type="history" refloc="MTCM000-31-900-130"/>
       </folder>
     </doc>
   </folder>
@@ -16680,7 +16680,7 @@ const documents = {
     <doc key="MTCM000-32-220-702" title="Task Card 000-32-220-702" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-220-702.pdf"/>
     <doc type="tr" key="MTCM000-32-710-001" trnum="TR583" trdate="Jul 20/12" title="[TR583] MTCM000-32-710-001 - General Visual Inspection of the Nose Landing Gear Components and Doors" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-710-001.pdf">
       <folder type="history" title="History of MTCM000-32-710-001">
-        <doc title="Task Card 000-32-710-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-710-001.pdf.pdf" type="history" refloc="MTCM000-32-710-001"/>
+        <doc title="Task Card 000-32-710-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-710-001.pdf" type="history" refloc="MTCM000-32-710-001"/>
       </folder>
     </doc>
     <doc key="MTCM000-32-710-002" title="Task Card 000-32-710-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-710-002.pdf"/>
@@ -16694,13 +16694,13 @@ const documents = {
     <doc key="MTCM000-32-710-764" title="Task Card 000-32-710-764" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-710-764.pdf"/>
     <doc type="tr" key="MTCM000-32-730-001" trnum="TR584" trdate="Jul 20/12" title="[TR584] MTCM000-32-730-001 - General Visual Inspection of the Left Main Landing Gear Components and Door" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-001.pdf">
       <folder type="history" title="History of MTCM000-32-730-001">
-        <doc title="Task Card 000-32-730-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-730-001.pdf.pdf" type="history" refloc="MTCM000-32-730-001"/>
+        <doc title="Task Card 000-32-730-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-001.pdf" type="history" refloc="MTCM000-32-730-001"/>
       </folder>
     </doc>
     <doc key="MTCM000-32-730-002" title="Task Card 000-32-730-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-002.pdf"/>
     <doc type="tr" key="MTCM000-32-730-100" trnum="TR586" trdate="Jul 20/12" title="[TR586] MTCM000-32-730-100 - Detailed Inspection of the Left Main-Landing Gear (MLG) Components" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-100.pdf">
       <folder type="history" title="History of MTCM000-32-730-100">
-        <doc title="Task Card 000-32-730-100" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-730-100.pdf.pdf" type="history" refloc="MTCM000-32-730-100"/>
+        <doc title="Task Card 000-32-730-100" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-100.pdf" type="history" refloc="MTCM000-32-730-100"/>
       </folder>
     </doc>
     <doc key="MTCM000-32-730-300" title="Task Card 000-32-730-300" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-300.pdf"/>
@@ -16714,13 +16714,13 @@ const documents = {
     <doc key="MTCM000-32-730-765" title="Task Card 000-32-730-765" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-730-765.pdf"/>
     <doc type="tr" key="MTCM000-32-740-001" trnum="TR585" trdate="Jul 20/12" title="[TR585] MTCM000-32-740-001 - General Visual Inspection of the Right Main Landing Gear Components and Door" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-001.pdf">
       <folder type="history" title="History of MTCM000-32-740-001">
-        <doc title="Task Card 000-32-740-001" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-740-001.pdf.pdf" type="history" refloc="MTCM000-32-740-001"/>
+        <doc title="Task Card 000-32-740-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-001.pdf" type="history" refloc="MTCM000-32-740-001"/>
       </folder>
     </doc>
     <doc key="MTCM000-32-740-002" title="Task Card 000-32-740-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-002.pdf"/>
     <doc type="tr" key="MTCM000-32-740-100" trnum="TR587" trdate="Jul 20/12" title="[TR587] MTCM000-32-740-100 - Detailed Inspection of the Right Main-Landing Gear (MLG) Components" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-100.pdf">
       <folder type="history" title="History of MTCM000-32-740-100">
-        <doc title="Task Card 000-32-740-100" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-32-740-100.pdf.pdf" type="history" refloc="MTCM000-32-740-100"/>
+        <doc title="Task Card 000-32-740-100" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-100.pdf" type="history" refloc="MTCM000-32-740-100"/>
       </folder>
     </doc>
     <doc key="MTCM000-32-740-300" title="Task Card 000-32-740-300" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-32-740-300.pdf"/>
@@ -16848,7 +16848,7 @@ const documents = {
     <doc key="MTCM000-52-830-001" title="Task Card 000-52-830-001" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-52-830-001.pdf"/>
     <doc type="tr" key="MTCM000-52-830-002" trnum="TR567" trdate="MAY 04/12" title="[TR567] MTCM000-52-830-002 - DI Detailed Inspection of the Cargo Compartment Door" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-52-830-002.pdf">
       <folder type="history" title="History of MTCM000-52-830-002">
-        <doc title="Task Card 000-52-830-002" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-52-830-002.pdf.pdf" type="history" refloc="MTCM000-52-830-002"/>
+        <doc title="Task Card 000-52-830-002" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-52-830-002.pdf" type="history" refloc="MTCM000-52-830-002"/>
       </folder>
     </doc>
     <doc key="MTCM000-52-830-003" title="Task Card 000-52-830-003" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-52-830-003.pdf"/>
@@ -17060,13 +17060,13 @@ const documents = {
     <doc key="MTCM000-53-220-602" title="Task Card 000-53-220-602" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-602.pdf"/>
     <doc type="tr" key="MTCM000-53-220-603" trnum="TR572" trdate="Jun 04/12" title="[TR572] MTCM000-53-220-603 - SDI Special Detailed Inspection of the Windshield Side Post Upper and Lower Joints to Sills and Fuselage Fittings" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-603.pdf">
       <folder type="history" title="History of MTCM000-53-220-603">
-        <doc title="Task Card 000-53-220-603" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-53-220-603.pdf.pdf" type="history" refloc="MTCM000-53-220-603"/>
+        <doc title="Task Card 000-53-220-603" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-603.pdf" type="history" refloc="MTCM000-53-220-603"/>
       </folder>
     </doc>
     <doc key="MTCM000-53-220-604" title="Task Card 000-53-220-604" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-604.pdf"/>
     <doc type="tr" key="MTCM000-53-220-605" trnum="TR573" trdate="Jun 04/12" title="[TR573] MTCM000-53-220-605 - DI Detailed Inspection of the Windshield Side Post Upper and Lower Joints to Sills and Fuselage Fittings" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-605.pdf">
       <folder type="history" title="History of MTCM000-53-220-605">
-        <doc title="Task Card 000-53-220-605" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-53-220-605.pdf.pdf" type="history" refloc="MTCM000-53-220-605"/>
+        <doc title="Task Card 000-53-220-605" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-605.pdf" type="history" refloc="MTCM000-53-220-605"/>
       </folder>
     </doc>
     <doc key="MTCM000-53-220-606" title="Task Card 000-53-220-606" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-53-220-606.pdf"/>
@@ -17376,7 +17376,7 @@ const documents = {
     <doc key="MTCM000-57-540-602" title="Task Card 000-57-540-602" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-602.pdf"/>
     <doc type="tr" key="MTCM000-57-540-603" trnum="TR574" trdate="Jun 04/12" title="[TR574] MTCM000-57-540-603 - Special Detailed Inspection of the Left Wing Drain Holes in the Lower Wing Plank" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-603.pdf">
       <folder type="history" title="History of MTCM000-57-540-603">
-        <doc title="Task Card 000-57-540-603" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-540-603.pdf.pdf" type="history" refloc="MTCM000-57-540-603"/>
+        <doc title="Task Card 000-57-540-603" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-603.pdf" type="history" refloc="MTCM000-57-540-603"/>
       </folder>
     </doc>
     <doc key="MTCM000-57-540-604" title="Task Card 000-57-540-604" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-604.pdf"/>
@@ -17384,7 +17384,7 @@ const documents = {
     <doc key="MTCM000-57-540-606" title="Task Card 000-57-540-606" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-606.pdf"/>
     <doc type="tr" key="MTCM000-57-540-608" trnum="TR576" trdate="Jun 04/12" title="[TR576] MTCM000-57-540-608 - Special Detailed Inspection of the Left Wing Drain Holes in the Lower Wing Plank (Alternate Inspection Procedure)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-608.pdf">
       <folder type="history" title="History of MTCM000-57-540-608">
-        <doc title="Task Card 000-57-540-608" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-540-608.pdf.pdf" type="history" refloc="MTCM000-57-540-608"/>
+        <doc title="Task Card 000-57-540-608" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-608.pdf" type="history" refloc="MTCM000-57-540-608"/>
       </folder>
     </doc>
     <doc key="MTCM000-57-540-609" title="Task Card 000-57-540-609" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-540-609.pdf"/>
@@ -17517,7 +17517,7 @@ const documents = {
     <doc key="MTCM000-57-640-602" title="Task Card 000-57-640-602" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-602.pdf"/>
     <doc type="tr" key="MTCM000-57-640-603" trnum="TR575" trdate="Jun 04/12" title="[TR575] MTCM000-57-640-603 - Special Detailed Inspection of the Right Wing Drain Holes in the Lower Wing Plank" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-603.pdf">
       <folder type="history" title="History of MTCM000-57-640-603">
-        <doc title="Task Card 000-57-640-603" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-640-603.pdf.pdf" type="history" refloc="MTCM000-57-640-603"/>
+        <doc title="Task Card 000-57-640-603" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-603.pdf" type="history" refloc="MTCM000-57-640-603"/>
       </folder>
     </doc>
     <doc key="MTCM000-57-640-604" title="Task Card 000-57-640-604" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-604.pdf"/>
@@ -17525,7 +17525,7 @@ const documents = {
     <doc key="MTCM000-57-640-606" title="Task Card 000-57-640-606" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-606.pdf"/>
     <doc type="tr" key="MTCM000-57-640-608" trnum="TR577" trdate="Jun 04/12" title="[TR577] MTCM000-57-640-608 - Special Detailed Inspection of the Right Wing Drain Holes in the Lower Wing Plank (Alternate Inspection Procedure)" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-608.pdf">
       <folder type="history" title="History of MTCM000-57-640-608">
-        <doc title="Task Card 000-57-640-608" file="https://crj200rvc.github.io/crj200-manual-files/amm/MTCM000-57-640-608.pdf.pdf" type="history" refloc="MTCM000-57-640-608"/>
+        <doc title="Task Card 000-57-640-608" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-608.pdf" type="history" refloc="MTCM000-57-640-608"/>
       </folder>
     </doc>
     <doc key="MTCM000-57-640-609" title="Task Card 000-57-640-609" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM000-57-640-609.pdf"/>
@@ -17820,88 +17820,88 @@ const documents = {
   
   NDT: `<?xml version="1.0"?>
 <toc key="NDT" series="CRJ200" title="Nondestructive Testing Manual " rev="33" date="20111210">
-<doc key="CDNDT" title="CD Date of Issue: 20120725" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDT.pdf.pdf"/>
-<doc key="NDTNDTMFMATR" title="Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTMFMATR.pdf.pdf"/>
-<doc key="NDTNDTINTRO" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTINTRO.pdf.pdf"/>
-<doc key="NDTETR" title="Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ETR.pdf.pdf"/>
-<doc key="NDTNDTPart1" title="Part 1 - General Information" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart1.pdf.pdf"/>
-<doc key="NDTNDTPart2" title="Part 2 - X-Ray" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart2.pdf.pdf"/>
-<doc key="NDTNDTPart4" title="Part 4 - Ultrasonic" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart4.pdf.pdf"/>
-<doc key="NDTNDTPart6" title="Part 6 - Eddy Current" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart6.pdf.pdf"/>
-<doc key="NDTNDTPart7" title="Part 7 - Magnetic Particle" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart7.pdf.pdf"/>
-<doc key="NDTNDTPart8" title="Part 8 - Penetrant" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart8.pdf.pdf"/>
-<doc key="NDTNDTPart9" title="Part 9 - Visual" file="https://crj200rvc.github.io/crj200-manual-files/amm/NDTPart9.pdf.pdf"/>
+<doc key="CDNDT" title="CD Date of Issue: 20120725" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDT.pdf"/>
+<doc key="NDTNDTMFMATR" title="Front Matter" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTMFMATR.pdf"/>
+<doc key="NDTNDTINTRO" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTINTRO.pdf"/>
+<doc key="NDTETR" title="Effective Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/ndt/ETR.pdf"/>
+<doc key="NDTNDTPart1" title="Part 1 - General Information" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart1.pdf"/>
+<doc key="NDTNDTPart2" title="Part 2 - X-Ray" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart2.pdf"/>
+<doc key="NDTNDTPart4" title="Part 4 - Ultrasonic" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart4.pdf"/>
+<doc key="NDTNDTPart6" title="Part 6 - Eddy Current" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart6.pdf"/>
+<doc key="NDTNDTPart7" title="Part 7 - Magnetic Particle" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart7.pdf"/>
+<doc key="NDTNDTPart8" title="Part 8 - Penetrant" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart8.pdf"/>
+<doc key="NDTNDTPart9" title="Part 9 - Visual" file="https://crj200rvc.github.io/crj200-manual-files/ndt/NDTPart9.pdf"/>
 </toc>`,
   
   PPBM: `<?xml version="1.0"?>
 <toc key="PPBM" series="CRJ200" title="Power Plant Buildup Manual " rev="37" date="20111210">
-<doc key="CDPPBM" title="CD Date of Issue: Sep 10, 2012" file="https://crj200rvc.github.io/crj200-manual-files/amm/PPBM.pdf.pdf"/>
+<doc key="CDPPBM" title="CD Date of Issue: Sep 10, 2012" file="https://crj200rvc.github.io/crj200-manual-files/ppbm/PPBM.pdf"/>
 <doc key="PPBM_Manual" title="Power Plant Buildup Manual" file="https://crj200rvc.github.io/crj200-manual-files/ppbm/PPBM_Manual.pdf"/>
-<doc key="PPBMQEC_Manual" title="Quick Engine Change Catalogue" file="https://crj200rvc.github.io/crj200-manual-files/amm/QEC.pdf.pdf"/>
+<doc key="PPBMQEC_Manual" title="Quick Engine Change Catalogue" file="https://crj200rvc.github.io/crj200-manual-files/ppbm/QEC.pdf"/>
 </toc>`,
   
   SRM: `<?xml version="1.0"?>
 <toc key="SRM" series="CRJ200" title="Structural Repair Manual" rev="32" date="20120410">
   <folder key="LOETR" type="loetr" title="List of Effective TRs" file="loetr.html">
-    <doc type="tr" trnum="TR51-27" trdate="Apr 27/2012" title="[TR51-27] SRM51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR51-27.pdf.pdf" refloc="SRM51-13-01-00">
+    <doc type="tr" trnum="TR51-27" trdate="Apr 27/2012" title="[TR51-27] SRM51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR51-27.pdf" refloc="SRM51-13-01-00">
       <folder type="history" title="History of SRM51-13-01-00">
-        <doc title="51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM51-13-01-00.pdf.pdf" type="history" refloc="SRM51-13-01-00"/>
+        <doc title="51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM51-13-01-00.pdf" type="history" refloc="SRM51-13-01-00"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-23" trdate="Apr 23/2012" title="[TR53-23] SRM53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-23.pdf.pdf" refloc="SRM53-21-23-00">
+    <doc type="tr" trnum="TR53-23" trdate="Apr 23/2012" title="[TR53-23] SRM53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-23.pdf" refloc="SRM53-21-23-00">
       <folder type="history" title="History of SRM53-21-23-00">
-        <doc title="53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-21-23-00.pdf.pdf" type="history" refloc="SRM53-21-23-00"/>
+        <doc title="53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-21-23-00.pdf" type="history" refloc="SRM53-21-23-00"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-24" trdate="May 02/2012" title="[TR53-24] SRM53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-24.pdf.pdf" refloc="SRM53-00-31-02">
+    <doc type="tr" trnum="TR53-24" trdate="May 02/2012" title="[TR53-24] SRM53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-24.pdf" refloc="SRM53-00-31-02">
       <folder type="history" title="History of SRM53-00-31-02">
-        <doc title="53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-02.pdf.pdf" type="history" refloc="SRM53-00-31-02"/>
+        <doc title="53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02.pdf" type="history" refloc="SRM53-00-31-02"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-25" trdate="May 02/2012" title="[TR53-25] SRM53-00-31-02-01 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-25.pdf.pdf" refloc="SRM53-00-31-02-01">
+    <doc type="tr" trnum="TR53-25" trdate="May 02/2012" title="[TR53-25] SRM53-00-31-02-01 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-25.pdf" refloc="SRM53-00-31-02-01">
       <folder type="history" title="History of SRM53-00-31-02-01">
-        <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-02-01.pdf.pdf" type="history" refloc="SRM53-00-31-02-01"/>
+        <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-01.pdf" type="history" refloc="SRM53-00-31-02-01"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-26" trdate="May 08/2012" title="[TR53-26] SRM53-00-31-02-05 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-26.pdf.pdf" refloc="SRM53-00-31-02-05">
+    <doc type="tr" trnum="TR53-26" trdate="May 08/2012" title="[TR53-26] SRM53-00-31-02-05 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-26.pdf" refloc="SRM53-00-31-02-05">
       <folder type="history" title="History of SRM53-00-31-02-05">
-        <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-02-05.pdf.pdf" type="history" refloc="SRM53-00-31-02-05"/>
+        <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-05.pdf" type="history" refloc="SRM53-00-31-02-05"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-27" trdate="May 14/2012" title="[TR53-27] SRM53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-27.pdf.pdf" refloc="SRM53-00-00-01">
+    <doc type="tr" trnum="TR53-27" trdate="May 14/2012" title="[TR53-27] SRM53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-27.pdf" refloc="SRM53-00-00-01">
       <folder type="history" title="History of SRM53-00-00-01">
-        <doc title="53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-00-01.pdf.pdf" type="history" refloc="SRM53-00-00-01"/>
+        <doc title="53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-00-01.pdf" type="history" refloc="SRM53-00-00-01"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-28" trdate="May 17/2012" title="[TR53-28] SRM53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-28.pdf.pdf" refloc="SRM53-00-31-01">
+    <doc type="tr" trnum="TR53-28" trdate="May 17/2012" title="[TR53-28] SRM53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-28.pdf" refloc="SRM53-00-31-01">
       <folder type="history" title="History of SRM53-00-31-01">
-        <doc title="53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-01.pdf.pdf" type="history" refloc="SRM53-00-31-01"/>
+        <doc title="53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-01.pdf" type="history" refloc="SRM53-00-31-01"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-29" trdate="Jul 17/2012" title="[TR53-29] SRM53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-29.pdf.pdf" refloc="SRM53-41-19-00">
+    <doc type="tr" trnum="TR53-29" trdate="Jul 17/2012" title="[TR53-29] SRM53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-29.pdf" refloc="SRM53-41-19-00">
       <folder type="history" title="History of SRM53-41-19-00">
-        <doc title="53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-41-19-00.pdf.pdf" type="history" refloc="SRM53-41-19-00"/>
+        <doc title="53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-19-00.pdf" type="history" refloc="SRM53-41-19-00"/>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR53-30" trdate="Jul 17/2012" title="[TR53-30] SRM53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR53-30.pdf.pdf" refloc="SRM53-41-43-00">
+    <doc type="tr" trnum="TR53-30" trdate="Jul 17/2012" title="[TR53-30] SRM53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/TR53-30.pdf" refloc="SRM53-41-43-00">
       <folder type="history" title="History of SRM53-41-43-00">
-        <doc title="53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-41-43-00.pdf.pdf" type="history" refloc="SRM53-41-43-00"/>
+        <doc title="53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-43-00.pdf" type="history" refloc="SRM53-41-43-00"/>
       </folder>
     </doc>
   </folder>
   <folder key="SRM00-00" title="Front Matter">
-    <doc key="SRM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf"/>
-    <doc key="SRM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf"/>
-    <doc key="SRM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf"/>
-    <doc key="SRM00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ROTR.pdf.pdf"/>
-    <doc key="SRM00-05" title="Approval Log" file="https://crj200rvc.github.io/crj200-manual-files/amm/AP.pdf.pdf"/>
-    <doc key="SRM00-06" title="Revision Highlights" file="https://crj200rvc.github.io/crj200-manual-files/amm/RH.pdf.pdf"/>
-    <doc key="SRM00-07" title="Signature Page" file="https://crj200rvc.github.io/crj200-manual-files/amm/SP.pdf.pdf"/>
+    <doc key="SRM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/srm/TRANSLTR.pdf"/>
+    <doc key="SRM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/srm/USERCOMM.pdf"/>
+    <doc key="SRM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/srm/RECOFREV.pdf"/>
+    <doc key="SRM00-04" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/srm/ROTR.pdf"/>
+    <doc key="SRM00-05" title="Approval Log" file="https://crj200rvc.github.io/crj200-manual-files/srm/AP.pdf"/>
+    <doc key="SRM00-06" title="Revision Highlights" file="https://crj200rvc.github.io/crj200-manual-files/srm/RH.pdf"/>
+    <doc key="SRM00-07" title="Signature Page" file="https://crj200rvc.github.io/crj200-manual-files/srm/SP.pdf"/>
   </folder>
   <folder key="SRM00-08" title="Introduction">
-    <doc key="SRM00-09" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/ILEP.pdf.pdf"/>
-    <doc key="SRM00-10" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf"/>
-    <doc key="SRM00-11" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf"/>
+    <doc key="SRM00-09" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/srm/ILEP.pdf"/>
+    <doc key="SRM00-10" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/srm/ITOC.pdf"/>
+    <doc key="SRM00-11" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/srm/INTRO.pdf"/>
   </folder>
   <folder key="SRM51" title="CH 51 - STANDARD PRACTICES AND STRUCTURES">
     <folder key="SRM51-FM" title="Front Matter">
@@ -17953,7 +17953,7 @@ const documents = {
     <folder key="SRM51-13-01" title="51-13 - 51-13-01">
       <doc type="tr" key="SRM51-13-01-00" trnum="TR51-27" trdate="Apr 27/2012" title="[TR51-27] SRM51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM51-13-01-00.pdf">
         <folder type="history" title="History of SRM51-13-01-00">
-          <doc title="51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM51-13-01-00.pdf.pdf" type="history" refloc="SRM51-13-01-00"/>
+          <doc title="51-13-01-00 - DEFECT AND DAMAGE REPAIR REQUESTS - REPORT PROCEDURE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM51-13-01-00.pdf" type="history" refloc="SRM51-13-01-00"/>
         </folder>
       </doc>
     </folder>
@@ -18574,7 +18574,7 @@ const documents = {
       <doc key="SRM53-00-00-00" title="53-00-00-00 - FUSELAGE - GENERAL" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-00-00.pdf"/>
       <doc type="tr" key="SRM53-00-00-01" trnum="TR53-27" trdate="May 14/2012" title="[TR53-27] SRM53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-00-01.pdf">
         <folder type="history" title="History of SRM53-00-00-01">
-          <doc title="53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-00-01.pdf.pdf" type="history" refloc="SRM53-00-00-01"/>
+          <doc title="53-00-00-01 - FUSELAGE INTERNAL STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-00-01.pdf" type="history" refloc="SRM53-00-00-01"/>
         </folder>
       </doc>
     </folder>
@@ -18596,17 +18596,17 @@ const documents = {
       <doc key="SRM53-00-31-00" title="53-00-31-00 - SKIN AND PLATING - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-00.pdf"/>
       <doc type="tr" key="SRM53-00-31-01" trnum="TR53-28" trdate="May 17/2012" title="[TR53-28] SRM53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-01.pdf">
         <folder type="history" title="History of SRM53-00-31-01">
-          <doc title="53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-01.pdf.pdf" type="history" refloc="SRM53-00-31-01"/>
+          <doc title="53-00-31-01 - SKIN AND PLATING - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-01.pdf" type="history" refloc="SRM53-00-31-01"/>
         </folder>
       </doc>
       <doc type="tr" key="SRM53-00-31-02" trnum="TR53-24" trdate="May 02/2012" title="[TR53-24] SRM53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02.pdf">
         <folder type="history" title="History of SRM53-00-31-02">
-          <doc title="53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-02.pdf.pdf" type="history" refloc="SRM53-00-31-02"/>
+          <doc title="53-00-31-02 - SKIN AND PLATING - REPAIRS - INTRODUCTION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02.pdf" type="history" refloc="SRM53-00-31-02"/>
         </folder>
       </doc>
       <doc type="tr" key="SRM53-00-31-02-01" trnum="TR53-25" trdate="May 02/2012" title="[TR53-25] SRM53-00-31-02-01 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-01.pdf">
         <folder type="history" title="History of SRM53-00-31-02-01">
-          <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-02-01.pdf.pdf" type="history" refloc="SRM53-00-31-02-01"/>
+          <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 1 - EXTERNAL NON-FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-01.pdf" type="history" refloc="SRM53-00-31-02-01"/>
         </folder>
       </doc>
       <doc key="SRM53-00-31-02-02" title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 2 - EXTERNAL NON-FLUSH TEMPORARY REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-02.pdf"/>
@@ -18614,7 +18614,7 @@ const documents = {
       <doc key="SRM53-00-31-02-04" title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 4 - EXTERNAL NON-FLUSH TEMPORARY REPAIRS - NON-PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-04.pdf"/>
       <doc type="tr" key="SRM53-00-31-02-05" trnum="TR53-26" trdate="May 08/2012" title="[TR53-26] SRM53-00-31-02-05 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-05.pdf">
         <folder type="history" title="History of SRM53-00-31-02-05">
-          <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-00-31-02-05.pdf.pdf" type="history" refloc="SRM53-00-31-02-05"/>
+          <doc title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 5 - EXTERNAL FLUSH PERMANENT REPAIRS - PRESSURIZED AREA" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-05.pdf" type="history" refloc="SRM53-00-31-02-05"/>
         </folder>
       </doc>
       <doc key="SRM53-00-31-02-06" title="53-00-31-02 - SKIN AND PLATING - REPAIR NO. 6 - FUSELAGE SKIN SPLICE FLUSH REPAIRS" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-00-31-02-06.pdf"/>
@@ -18725,7 +18725,7 @@ const documents = {
     <folder key="SRM53-21-23" title="53-21 - 53-21-23">
       <doc type="tr" key="SRM53-21-23-00" trnum="TR53-23" trdate="Apr 23/2012" title="[TR53-23] SRM53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-21-23-00.pdf">
         <folder type="history" title="History of SRM53-21-23-00">
-          <doc title="53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-21-23-00.pdf.pdf" type="history" refloc="SRM53-21-23-00"/>
+          <doc title="53-21-23-00 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-21-23-00.pdf" type="history" refloc="SRM53-21-23-00"/>
         </folder>
       </doc>
       <doc key="SRM53-21-23-01" title="53-21-23-01 - DOOR SURROUND STRUCTURES, FS280.00 TO FS409.00 - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-21-23-01.pdf"/>
@@ -18833,7 +18833,7 @@ const documents = {
     <folder key="SRM53-41-19" title="53-41 - 53-41-19">
       <doc type="tr" key="SRM53-41-19-00" trnum="TR53-29" trdate="Jul 17/2012" title="[TR53-29] SRM53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-19-00.pdf">
         <folder type="history" title="History of SRM53-41-19-00">
-          <doc title="53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-41-19-00.pdf.pdf" type="history" refloc="SRM53-41-19-00"/>
+          <doc title="53-41-19-00 - BULKHEADS, FS409.00+128 TO FS559.00 - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-19-00.pdf" type="history" refloc="SRM53-41-19-00"/>
         </folder>
       </doc>
       <doc key="SRM53-41-19-01" title="53-41-19-01 - BULKHEADS, FS409.00+128 TO FS559.00 - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-19-01.pdf"/>
@@ -18856,7 +18856,7 @@ const documents = {
     <folder key="SRM53-41-43" title="53-41 - 53-41-43">
       <doc type="tr" key="SRM53-41-43-00" trnum="TR53-30" trdate="Jul 17/2012" title="[TR53-30] SRM53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-43-00.pdf">
         <folder type="history" title="History of SRM53-41-43-00">
-          <doc title="53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/amm/SRM53-41-43-00.pdf.pdf" type="history" refloc="SRM53-41-43-00"/>
+          <doc title="53-41-43-00 - PRESSURE FLOOR SUPPORT STRUCTURE - STRUCTURAL IDENTIFICATION" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-43-00.pdf" type="history" refloc="SRM53-41-43-00"/>
         </folder>
       </doc>
       <doc key="SRM53-41-43-01" title="53-41-43-01 - PRESSURE FLOOR SUPPORT STRUCTURE - ALLOWABLE DAMAGE" file="https://crj200rvc.github.io/crj200-manual-files/srm/SRM53-41-43-01.pdf"/>
@@ -19571,38 +19571,38 @@ const documents = {
   WM: `<?xml version="1.0"?>
 <toc key="WM" series="CRJ200" title="Wiring Diagram Manual" rev="41" date="20120910">
   <folder key="LOETR" type="loetr" title="List of Effective TRs" file="loetr.html">
-    <doc type="tr" trnum="TR71-0008" trdate="Aug 31/2012" title="[TR71-0008] WM71-50-00 - ENGINE NACELLE - Engine Nacelle System" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR71-0008.pdf.pdf" refloc="WM71-50-00">
+    <doc type="tr" trnum="TR71-0008" trdate="Aug 31/2012" title="[TR71-0008] WM71-50-00 - ENGINE NACELLE - Engine Nacelle System" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR71-0008.pdf" refloc="WM71-50-00">
       <folder type="history" title="History of WM71-50-00">
         <folder title="71-50-00 - ENGINE NACELLE - Engine Nacelle System" type="history" refloc="WM71-50-00">
-          <doc title="Page 01 - ON A/C 7003-7067, 7069-7177" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM71-50-00-01.pdf.pdf" refloc="WM71-50-00-01"/>
-          <doc title="Page 02 - ON A/C 7178-7990, 8000-8139" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM71-50-00-02.pdf.pdf" refloc="WM71-50-00-02"/>
-          <doc title="Page 03 - ON A/C 8140-8400" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM71-50-00-03.pdf.pdf" refloc="WM71-50-00-03"/>
+          <doc title="Page 01 - ON A/C 7003-7067, 7069-7177" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM71-50-00-01.pdf" refloc="WM71-50-00-01"/>
+          <doc title="Page 02 - ON A/C 7178-7990, 8000-8139" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM71-50-00-02.pdf" refloc="WM71-50-00-02"/>
+          <doc title="Page 03 - ON A/C 8140-8400" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM71-50-00-03.pdf" refloc="WM71-50-00-03"/>
         </folder>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR78-0002" trdate="Aug 31/2012" title="[TR78-0002] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR78-0002.pdf.pdf" refloc="WM78-30-00">
+    <doc type="tr" trnum="TR78-0002" trdate="Aug 31/2012" title="[TR78-0002] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR78-0002.pdf" refloc="WM78-30-00">
       <folder type="history" title="History of WM78-30-00">
-        <doc type="history" trnum="TR78-0001" trdate="Aug 06/2012" title="[TR78-0001] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR78-0001.pdf.pdf" refloc="WM78-30-00"/>
+        <doc type="history" trnum="TR78-0001" trdate="Aug 06/2012" title="[TR78-0001] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR78-0001.pdf" refloc="WM78-30-00"/>
         <folder title="78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" type="history" refloc="WM78-30-00">
-          <doc title="Page 01 - ON A/C 7003-7067, 7069-7177" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM78-30-00-01.pdf.pdf" refloc="WM78-30-00-01"/>
-          <doc title="Page 02 - ON A/C 7178-7990, 8000-8400" file="https://crj200rvc.github.io/crj200-manual-files/amm/WM78-30-00-02.pdf.pdf" refloc="WM78-30-00-02"/>
+          <doc title="Page 01 - ON A/C 7003-7067, 7069-7177" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM78-30-00-01.pdf" refloc="WM78-30-00-01"/>
+          <doc title="Page 02 - ON A/C 7178-7990, 8000-8400" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM78-30-00-02.pdf" refloc="WM78-30-00-02"/>
         </folder>
       </folder>
     </doc>
-    <doc type="tr" trnum="TR91-003" refloc="TR91-003" trdate="Feb 22/2007" title="[TR91-003] TR91-003 - This Temporary Revision inserts the part number of connector J427 as D38999/20WG39PN, and backshell part number 450HS005NF21" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR91-003.pdf.pdf"/>
-    <doc type="tr" trnum="TR91-004" refloc="TR91-004" trdate="Feb 22/2007" title="[TR91-004] TR91-004 - This Temporary Revision inserts the part number of connector J1CR as MS27497T8B35S, and backshell part number 450FS005N08" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR91-004.pdf.pdf"/>
+    <doc type="tr" trnum="TR91-003" refloc="TR91-003" trdate="Feb 22/2007" title="[TR91-003] TR91-003 - This Temporary Revision inserts the part number of connector J427 as D38999/20WG39PN, and backshell part number 450HS005NF21" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR91-003.pdf"/>
+    <doc type="tr" trnum="TR91-004" refloc="TR91-004" trdate="Feb 22/2007" title="[TR91-004] TR91-004 - This Temporary Revision inserts the part number of connector J1CR as MS27497T8B35S, and backshell part number 450FS005N08" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR91-004.pdf"/>
   </folder>
   <folder key="WM00-00" title="Front Matter">
-    <doc key="WM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/amm/TRANSLTR.pdf.pdf"/>
-    <doc key="WM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/amm/USERCOMM.pdf.pdf"/>
-    <doc key="WM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/RECOFREV.pdf.pdf"/>
-    <doc key="WM00-04" title="List of Chapters" file="https://crj200rvc.github.io/crj200-manual-files/amm/LOC.pdf.pdf"/>
-    <doc key="WM00-05" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/amm/ROTR.pdf.pdf"/>
+    <doc key="WM00-01" title="Transmittal Letter" file="https://crj200rvc.github.io/crj200-manual-files/wm/TRANSLTR.pdf"/>
+    <doc key="WM00-02" title="Manual Change Request Form" file="https://crj200rvc.github.io/crj200-manual-files/wm/USERCOMM.pdf"/>
+    <doc key="WM00-03" title="Record of Revisions" file="https://crj200rvc.github.io/crj200-manual-files/wm/RECOFREV.pdf"/>
+    <doc key="WM00-04" title="List of Chapters" file="https://crj200rvc.github.io/crj200-manual-files/wm/LOC.pdf"/>
+    <doc key="WM00-05" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/wm/ROTR.pdf"/>
   </folder>
   <folder key="WM00-06" title="Introduction">
-    <doc key="WM00-07" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/amm/ILEP.pdf.pdf"/>
-    <doc key="WM00-08" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/amm/ITOC.pdf.pdf"/>
-    <doc key="WM00-09" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/amm/INTRO.pdf.pdf"/>
+    <doc key="WM00-07" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/wm/ILEP.pdf"/>
+    <doc key="WM00-08" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/wm/ITOC.pdf"/>
+    <doc key="WM00-09" title="Introduction" file="https://crj200rvc.github.io/crj200-manual-files/wm/INTRO.pdf"/>
   </folder>
   <folder key="WM21" title="CH 21 - AIR CONDITIONING">
     <folder key="WM21-FM" title="Front Matter">
@@ -20560,7 +20560,7 @@ const documents = {
       <doc key="CLEP-71" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/wm/CLEP-71.pdf"/>
       <doc key="CTOC-71" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/wm/CTOC-71.pdf"/>
     </folder>
-    <doc type="tr" key="WM71-50-00" trnum="TR71-0008" trdate="Aug 31/2012" title="[TR71-0008] WM71-50-00 - ENGINE NACELLE - Engine Nacelle System" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR71-0008.pdf.pdf">
+    <doc type="tr" key="WM71-50-00" trnum="TR71-0008" trdate="Aug 31/2012" title="[TR71-0008] WM71-50-00 - ENGINE NACELLE - Engine Nacelle System" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR71-0008.pdf">
       <folder type="history" title="History of WM71-50-00">
         <folder title="71-50-00 - ENGINE NACELLE - Engine Nacelle System" type="history" refloc="WM71-50-00">
           <doc key="WM71-50-00-01" title="Page 01 - ON A/C 7003-7067, 7069-7177" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM71-50-00-01.pdf"/>
@@ -20622,9 +20622,9 @@ const documents = {
       <doc key="CLEP-78" title="List of Effective Pages" file="https://crj200rvc.github.io/crj200-manual-files/wm/CLEP-78.pdf"/>
       <doc key="CTOC-78" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/wm/CTOC-78.pdf"/>
     </folder>
-    <doc type="tr" key="WM78-30-00" trnum="TR78-0002" trdate="Aug 31/2012" title="[TR78-0002] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR78-0002.pdf.pdf">
+    <doc type="tr" key="WM78-30-00" trnum="TR78-0002" trdate="Aug 31/2012" title="[TR78-0002] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR78-0002.pdf">
       <folder type="history" title="History of WM78-30-00">
-        <doc type="history" trnum="TR78-0001" trdate="Aug 06/2012" title="[TR78-0001] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/amm/TR78-0001.pdf.pdf" refloc="WM78-30-00"/>
+        <doc type="history" trnum="TR78-0001" trdate="Aug 06/2012" title="[TR78-0001] WM78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" file="https://crj200rvc.github.io/crj200-manual-files/wm/TR78-0001.pdf" refloc="WM78-30-00"/>
         <folder title="78-30-00 - THRUST REVERSER CONTROL - Thrust Reverser Control System" type="history" refloc="WM78-30-00">
           <doc key="WM78-30-00-01" title="Page 01 - ON A/C 7003-7067, 7069-7177" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM78-30-00-01.pdf"/>
           <doc key="WM78-30-00-02" title="Page 02 - ON A/C 7178-7990, 8000-8400" file="https://crj200rvc.github.io/crj200-manual-files/wm/WM78-30-00-02.pdf"/>
