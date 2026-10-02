@@ -16223,7 +16223,7 @@ const documents = {
     <doc key="MTCM00-05" title="Record of Temporary Revisions" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/ROTR.pdf"/>
   </folder>
   <folder key="MTCM00-06" title="Excel File - List of Effective Task Card">
-    <doc key="MTCM00-07" title="Excel File - List of Effective Task Card" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM-LOETC.xls.pdf"/>
+    <doc key="MTCM00-07" title="Excel File - List of Effective Task Card" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/MTCM-LOETC.xls"/>
   </folder>
   <folder key="MTCM00-08" title="Introduction">
     <doc key="MTCM00-09" title="Table of Contents" file="https://crj200rvc.github.io/crj200-manual-files/mtcm/ITOC.pdf"/>
