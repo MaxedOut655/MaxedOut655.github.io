@@ -447,3 +447,40 @@ body.mobile #menu-btn {
   font-size: 1em;          /* slightly bigger text */
   border-radius: 6px;      /* optional: keep rounded corners */
 }
+
+
+/* ===== PDF search controls ===== */
+#pdf-upload-container {
+  padding: 8px 10px;
+  border-bottom: 1px solid #444;
+}
+#pdf-file { display:none; }
+#pdf-file-label {
+  display:block;
+  padding:8px 10px;
+  text-align:center;
+  border:1px solid #555;
+  border-radius:6px;
+  background:#3a3a4a;
+  color:#ddd;
+  cursor:pointer;
+}
+#pdf-file-label:hover { background:#4a4a5a; }
+#pdf-search-status {
+  margin-top:6px;
+  font-size:.78em;
+  color:#aaa;
+  min-height:1.1em;
+}
+#pdf-search-status[data-state="ready"] { color:#9ccc65; }
+#pdf-search-status[data-state="ocr"],
+#pdf-search-status[data-state="loading"] { color:#64b5f6; }
+#pdf-search-status[data-state="error"] { color:#ef9a9a; }
+.pdf-result-snippet {
+  margin-top:4px;
+  color:#aaa;
+  font-size:.82em;
+  line-height:1.35;
+}
+body.mobile #pdf-upload-container { padding:8px 10px; }
+body.mobile #pdf-file-label { padding:12px 10px; }
