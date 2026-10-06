@@ -41,7 +41,7 @@
   }
 
   function normalize(text) {
-    return (text || '').replace(/\\s+/g, ' ').trim();
+    return (text || '').replace(/\s+/g, ' ').trim();
   }
 
   function makeSnippet(text, query) {
