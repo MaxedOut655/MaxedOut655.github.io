@@ -3,24 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>CRJ200 Manual</title>
-
-  <!-- Prevent caching for Safari & other browsers -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-
-  <!-- Theme color for PWA -->
   <meta name="theme-color" content="#1e1e2f">
-
-  <!-- Styles with cache-busting -->
-  <link rel="stylesheet" href="css/styles.css?v=20260130">
-
-  <!-- Manifest for PWA -->
-  <link rel="manifest" href="manifest.json?v=20260130">
+  <link rel="stylesheet" href="css/styles.css?v=20261006">
+  <link rel="manifest" href="manifest.json?v=20261006">
 </head>
 <body>
-
-  <!-- Sidebar -->
   <div id="sidebar">
     <div id="doc-selector-container">
       <select id="doc-selector">
@@ -39,8 +29,14 @@
     </div>
 
     <div id="search-container">
-      <input type="text" id="search" placeholder="Search documents...">
+      <input type="text" id="search" placeholder="Search documents and PDF text...">
       <button id="reset-btn">Reset</button>
+    </div>
+
+    <div id="pdf-upload-container">
+      <label for="pdf-file" id="pdf-file-label">Open any PDF</label>
+      <input type="file" id="pdf-file" accept="application/pdf,.pdf">
+      <div id="pdf-search-status" role="status" aria-live="polite">PDF text search ready</div>
     </div>
 
     <div id="tree-container"></div>
@@ -51,28 +47,21 @@
     </div>
   </div>
 
-  <!-- Top bar for mobile -->
   <div id="top-bar">
     <button id="menu-btn">☰</button>
     <span>CRJ200 Manual</span>
   </div>
 
-  <!-- Overlay behind menu -->
   <div id="menu-overlay"></div>
+  <div id="viewer"><h2>Select a document</h2></div>
 
-  <!-- Viewer -->
-  <div id="viewer">
-    <h2>Select a document</h2>
-  </div>
+  <script src="js/data.js?v=20261006"></script>
+  <script src="js/tree.js?v=20261006"></script>
+  <script src="js/viewer.js?v=20261006"></script>
+  <script src="js/pdf-search.js?v=20261006"></script>
+  <script src="js/search.js?v=20261006"></script>
+  <script src="js/app.js?v=20261006"></script>
 
-  <!-- Scripts with cache-busting -->
-  <script src="js/data.js?v=20260130"></script>
-  <script src="js/tree.js?v=20260130"></script>
-  <script src="js/viewer.js?v=20261002"></script>
-  <script src="js/search.js?v=20260130"></script>
-  <script src="js/app.js?v=20261002"></script>
-
-  <!-- Temporary: Clear old service workers to avoid cached files -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -80,8 +69,5 @@
       });
     }
   </script>
-
 </body>
 </html>
-
-
