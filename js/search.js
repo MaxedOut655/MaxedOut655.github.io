@@ -1,6 +1,5 @@
 function initSearch({ treeContainer, resultsContainer, resultsList, viewer, searchInput, resetBtn }) {
 
-  // ---------------- Single click: normal reset ----------------
   resetBtn.addEventListener('click', () => {
     condenseAll();
     searchInput.value = '';
@@ -10,49 +9,49 @@ function initSearch({ treeContainer, resultsContainer, resultsList, viewer, sear
     treeContainer.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ---------------- Full reset: double-click (desktop) or long-press (mobile) ----------------
-let longPressTimer = null;
-const LONG_PRESS_TIME = 600; // ms
+  let longPressTimer = null;
+  const LONG_PRESS_TIME = 600;
 
-function fullReset() {
-  // Remove ?doc=... from URL
-  const url = new URL(window.location);
-  url.searchParams.delete('doc');
-  window.history.replaceState({}, '', url);
+  function fullReset() {
+    const url = new URL(window.location);
+    url.searchParams.delete('doc');
+    window.history.replaceState({}, '', url);
+    loadDocument(docSelector.value);
+    searchInput.value = '';
+    resultsList.innerHTML = '';
+    resultsContainer.style.display = 'none';
+    resultsContainer.style.opacity = 0;
+  }
 
-  // Reload initial document tree for current manual
-  loadDocument(docSelector.value);
+  resetBtn.addEventListener('dblclick', fullReset);
+  resetBtn.addEventListener('touchstart', () => {
+    longPressTimer = setTimeout(fullReset, LONG_PRESS_TIME);
+  });
+  resetBtn.addEventListener('touchend', () => clearTimeout(longPressTimer));
+  resetBtn.addEventListener('touchmove', () => clearTimeout(longPressTimer));
 
-  // Clear search & results
-  searchInput.value = '';
-  resultsList.innerHTML = '';
-  resultsContainer.style.display = 'none';
-  resultsContainer.style.opacity = 0;
-}
+  function addResult(label, onClick, snippet = '') {
+    const li = document.createElement('li');
+    li.innerHTML = label + (snippet ? `<div class="pdf-result-snippet">${escapeHtml(snippet)}</div>` : '');
+    li.addEventListener('click', onClick);
+    resultsList.appendChild(li);
+  }
 
-// Desktop double-click
-resetBtn.addEventListener('dblclick', fullReset);
+  function escapeHtml(value) {
+    return value.replace(/[&<>"']/g, char => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    }[char]));
+  }
 
-// Mobile long-press
-resetBtn.addEventListener('touchstart', () => {
-  longPressTimer = setTimeout(fullReset, LONG_PRESS_TIME);
-});
-resetBtn.addEventListener('touchend', () => {
-  clearTimeout(longPressTimer);
-});
-resetBtn.addEventListener('touchmove', () => {
-  clearTimeout(longPressTimer);
-});
-
-  // ---------------- Search ----------------
   searchInput.addEventListener('input', () => {
-    const term = searchInput.value.toLowerCase();
+    const term = searchInput.value.trim().toLowerCase();
     resultsList.innerHTML = '';
     if (!term) {
       resultsContainer.style.display = 'none';
       resultsContainer.style.opacity = 0;
       return;
     }
+
     resultsContainer.style.display = 'block';
     resultsContainer.style.opacity = 1;
 
@@ -60,15 +59,29 @@ resetBtn.addEventListener('touchmove', () => {
     docs.forEach(doc => {
       const title = doc.dataset.path.toLowerCase();
       if (title.includes(term)) {
-        const li = document.createElement('li');
-        li.innerHTML = doc.dataset.path.replace(new RegExp(term, 'gi'), match => `<mark>${match}</mark>`);
-        li.addEventListener('click', () => {
-          openPDF(doc.dataset.file, doc.dataset.path, doc);
-          expandPathToDoc(doc);
-        });
-        resultsList.appendChild(li);
+        addResult(
+          doc.dataset.path.replace(new RegExp(term.replace(/[.*+?^$\\{}()|[\\]\\\\]/g, '\\\\$&'), 'gi'), match => `<mark>${match}</mark>`),
+          () => {
+            openPDF(doc.dataset.file, doc.dataset.path, doc);
+            expandPathToDoc(doc);
+          }
+        );
       }
     });
-  });
 
+    if (window.pdfSearch) {
+      const pdfResults = window.pdfSearch.searchPdfText(term);
+      pdfResults.forEach(result => {
+        addResult(
+          `📄 Page ${result.page} — ${escapeHtml(result.title)}`,
+          () => window.pdfSearch.openIndexedPage(result.page),
+          result.snippet
+        );
+      });
+    }
+
+    if (!resultsList.children.length) {
+      addResult('No matches found', () => {});
+    }
+  });
 }
